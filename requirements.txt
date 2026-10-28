@@ -1,7 +1,7 @@
-torch
-torchvision
-transformers
-pillow
+requests
 pandas
 matplotlib
-atheris
+pytest
+# só para modelos locais (local:)
+torch
+transformers

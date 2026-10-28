@@ -1,67 +1,72 @@
-# Fuzz Testing em Machine Learning
+# Fuzz Testing de Chatbots do Hugging Face: gramática + teste diferencial
+
+> **Conteúdo gerado por IA (Claude).** O código, os testes e esta documentação foram gerados com o Claude Code. As decisões tomadas estão em `CLAUDE.md`. Revise antes de usar.
 
 ## Objetivo
 
-Aplicar técnicas de **fuzz testing** a modelos de machine learning e aos componentes ao redor deles, para encontrar entradas que causam falhas: crashes, exceções, violações de propriedades ou mudanças de predição que não deveriam acontecer.
+Aplicar **fuzzing baseado em gramática** e **teste diferencial** a chatbots de linguagem natural do Hugging Face, para encontrar entradas em que eles erram, se contradizem ou falham.
 
-O trabalho cobre duas abordagens:
-
-1. **Fuzzing clássico guiado por cobertura de código**, aplicado a um componente de ML (o tokenizer do DistilBERT), usando o [Atheris](https://github.com/google/atheris).
-2. **Fuzzing adaptado para redes neurais, guiado por cobertura de neurônios**, aplicado a classificadores de imagem (ResNet-50 vs ViT), no estilo do TensorFuzz/DeepHunter.
-
-A comparação entre as duas mostra como os conceitos de *cobertura* (código vs neurônios) e de *oráculo* (crash vs relação metamórfica) mudam quando o sistema testado é um modelo de ML.
+- **Fuzzing baseado em gramática:** uma gramática livre de contexto gera milhares de prompts válidos e variados (contas, contagem de letras, inversão de texto, pedidos de JSON, cópia literal e entradas Unicode difíceis). Cada pedido sai em várias paráfrases, e a escolha das regras é guiada por **cobertura da gramática**: formas de pedir ainda não usadas têm prioridade.
+- **Teste diferencial:** o mesmo prompt vai para vários chatbots, e as respostas são comparadas. Quando a resposta certa é conhecida (numa conta, por exemplo), dá para dizer quem errou; quando não é, a discordância já aponta onde olhar.
+- **Teste metamórfico:** paráfrases do mesmo pedido devem receber a mesma resposta do mesmo modelo.
 
 ### Perguntas que o trabalho responde
 
-- Perturbações pequenas e imperceptíveis conseguem mudar a classe prevista pelo modelo?
-- Quais tipos de mutação (ruído, rotação, blur, brilho...) quebram mais o modelo?
-- Uma CNN (ResNet) é mais ou menos robusta do que um Transformer (ViT)?
-- Aumentar a cobertura de neurônios ajuda a encontrar mais falhas?
-- O tokenizer se comporta bem com qualquer texto Unicode?
+- Os chatbots acertam tarefas simples e verificáveis?
+- Eles dão a mesma resposta para paráfrases do mesmo pedido?
+- Modelos diferentes concordam entre si? Quando discordam, quem erra?
+- Eles seguem instruções de formato (só o número, só JSON, copiar sem mudar)?
+- Eles lidam com Unicode difícil (emoji compostos, texto da direita para a esquerda, caracteres invisíveis) sem erro?
 
 ---
 
-## Links
+## Como funciona
 
-| Recurso | Link |
-|---|---|
-| Hugging Face Spaces (demos dos modelos) | https://huggingface.co/spaces |
-| Hugging Face Models | https://huggingface.co/models |
-| ResNet-50 | https://huggingface.co/microsoft/resnet-50 |
-| ViT Base | https://huggingface.co/google/vit-base-patch16-224 |
-| DistilBERT (tokenizer) | https://huggingface.co/distilbert-base-uncased |
-| Atheris (fuzzer para Python) | https://github.com/google/atheris |
+```
+gramática ──► prompts + resposta esperada ──► chatbots (local: e api:) ──► oráculos
+                    │                                                     │
+                    └─ paráfrases ─────────► teste metamórfico ◄──────────┤
+                                             teste diferencial ◄──────────┘
+```
 
-**Dica sobre o Spaces:** os Spaces servem para explorar os modelos e mostrar demos. Para fuzzing pesado, rode os modelos localmente (como os scripts abaixo fazem) ou use **"Duplicate this Space"** para ter uma cópia própria. Não sobrecarregue o Space de outras pessoas, porque muitos usam GPU compartilhada com cota.
+| Categoria | Exemplo de prompt gerado | Oráculo |
+| --- | --- | --- |
+| `arith` | `What is 4 multiplied by 101? Give only the numeric result.` | último número da resposta = resultado da conta |
+| `count` | `How many times does the letter 'e' appear in the word 'referrer'?` | número = contagem real |
+| `reverse` | `Reverse the string 'NhFLOv2mp'. Reply with the result only.` | resposta = string invertida |
+| `json` | `Return a JSON object with the keys "city" and "tags". Reply with JSON only.` | JSON válido com as chaves pedidas |
+| `echo` | `Repeat exactly the following text, without any change: 👩‍💻🚀🇧🇷` | o texto aparece intacto na resposta |
+| `edge` | `Translate to Portuguese: مرحبا بالعالم` | sem erro e sem resposta vazia |
 
----
+Além do oráculo de cada categoria, a análise gera:
+
+- **`differential_disagreement`:** modelos deram respostas diferentes ao mesmo prompt (com a lista de quem errou, quando a resposta certa é conhecida);
+- **`differential_error`:** um modelo deu erro e outro respondeu;
+- **`metamorphic_inconsistency`:** o mesmo modelo respondeu diferente a paráfrases do mesmo pedido;
+- **`api_error`, `empty_response`, `oracle_failure`.**
 
 ## Estrutura
 
 ```
 .
-├── README.md
-├── fuzz_resnet.py               # Mini-TensorFuzz (cobertura de neurônios)
-├── fuzz_tokenizer_atheris.py    # Fuzzing clássico com Atheris
-├── compare_results.py           # Compara execuções (ResNet vs ViT)
+├── fuzz_chatbots.py        # script principal
+├── chatfuzz/
+│   ├── grammar.py          # gramática e fuzzer guiado por cobertura
+│   ├── clients.py          # modelos locais (local:) e API do Hugging Face (api:)
+│   ├── oracles.py          # verificação das respostas
+│   └── analysis.py         # teste diferencial, metamórfico, resumo e gráfico
+├── tests/                  # testes unitários da ferramenta (pytest)
 ├── requirements.txt
-├── CLAUDE.md                    # Decisões e contexto registrados pela IA
-├── apresentacao/                # Slides: apresentacao.pdf, apresentacao.html, notas.md
-├── docs/relatorio.md            # Relatório em inglês (formato de artigo) com as figuras em docs/img/
-├── seeds/                       # imagens semente (você coloca)
-├── corpus/                      # corpus gerado pelo Atheris
-└── results/                     # saída do fuzz_resnet.py
+└── CLAUDE.md               # decisões e contexto registrados pela IA
 ```
-
----
 
 ## Instruções
 
 ### Pré-requisitos
 
-- Python 3.8 a 3.11
-- Linux, macOS ou WSL (o Atheris não roda no Windows nativo)
-- GPU não é necessária, CPU dá conta
+- Python 3.10 ou superior
+- Acesso a `huggingface.co`: para baixar os modelos locais na primeira execução, ou para usar a API
+- GPU não é necessária para os modelos locais pequenos
 
 ```bash
 python -m venv .venv
@@ -69,123 +74,94 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-> **Sem acesso ao Hugging Face?** `fuzz_resnet.py --random-weights` monta a mesma arquitetura com pesos aleatórios, sem baixar nada. Serve só para testar se o pipeline roda; os resultados não dizem nada sobre o modelo real.
+### Modo 1: modelos baixados e rodados localmente (padrão)
 
-### Experimento 1: Mini-TensorFuzz (ResNet vs ViT)
-
-**Como funciona:**
-1. Começa com um corpus de imagens semente.
-2. Sorteia uma imagem e aplica uma mutação aleatória: ruído, brilho, contraste, rotação, blur ou patch.
-3. Limita a perturbação a um raio pequeno (`EPSILON = 0.08`, norma L∞) em torno da imagem original.
-4. Mede a cobertura de neurônios em cada camada da rede.
-5. **Oráculo:** se a classe prevista mudou, registra uma falha e salva a imagem.
-6. **Feedback:** se não falhou mas ativou neurônios novos, a imagem mutada volta para o corpus.
-
-**Passos:**
+Sem o prefixo de API, o script baixa os modelos do Hugging Face (ficam em cache) e roda na máquina, com decodificação gulosa (sem aleatoriedade):
 
 ```bash
-# 1. Coloque de 5 a 20 fotos (.jpg/.png) em seeds/: cachorro, carro, xícara...
-ls seeds
-
-# 2. Rode com a ResNet-50
-python fuzz_resnet.py --iters 2000 --out results_resnet
-
-# 3. Rode com o ViT para comparar
-python fuzz_resnet.py --model google/vit-base-patch16-224 --iters 2000 --out results_vit
-
-# 4. Compare as duas execuções
-python compare_results.py results_resnet results_vit --out comparacao.png
+python fuzz_chatbots.py --out results
 ```
 
-**Saídas (em `results_*/`):**
-- `log.csv`: uma linha por iteração (mutação, cobertura, classe original e prevista, falha, distância L∞)
-- `failures/`: imagens que enganaram o modelo, com a classe original e a nova no nome
-- `fuzzing.png`: cobertura de neurônios e falhas acumuladas ao longo das iterações
-- `falhas_por_mutacao.png`: % de falhas por tipo de mutação
-- `summary.json`: totais, taxa de falhas, cobertura final, falhas por mutação e cobertura por camada
+Modelos padrão (pequenos, para rodar em CPU):
 
-O `compare_results.py` imprime uma tabela lado a lado, a taxa de falha por mutação de cada modelo, a correlação entre ganho de cobertura e falhas (por janela de 100 iterações) e salva `comparacao.png`.
+| Modelo | Tamanho |
+| --- | --- |
+| `Qwen/Qwen2.5-0.5B-Instruct` | 0,5 bilhão de parâmetros |
+| `HuggingFaceTB/SmolLM2-360M-Instruct` | 360 milhões |
+| `TinyLlama/TinyLlama-1.1B-Chat-v1.0` | 1,1 bilhão |
 
-**Parâmetros ajustáveis** (no topo do script):
-- `EPSILON`: tamanho máximo da perturbação. Quanto maior, mais falhas e menos "imperceptível".
-- `COV_THRESHOLD`: limiar para considerar um neurônio coberto (padrão 0.5).
+Outros modelos: `--models local:<organização>/<modelo> ...`.
 
-Os dois também podem ser passados na linha de comando (`--epsilon`, `--threshold`), junto com `--seeds`, `--batch-size`, `--seed` (reprodutibilidade) e `--device`.
+### Modo 2: API do Hugging Face (Inference Providers)
 
-**Detalhes do algoritmo:**
-- **Neurônio:** cada canal de um bloco da CNN (média espacial) ou cada dimensão oculta de um bloco do Transformer (média sobre os tokens). São monitorados os blocos `ResNetBottleNeckLayer`/`ResNetConvLayer` da ResNet e os `ViTLayer` do ViT.
-- **Cobertura (DeepXplore):** as ativações de cada camada são normalizadas para [0, 1] por entrada (min-max); o neurônio está coberto se alguma entrada já passou de `COV_THRESHOLD`.
-- **Seleção de semente (DeepHunter):** a chance de sortear um elemento do corpus é `1 / (1 + vezes_sorteado)`, então mutantes novos são explorados antes.
-- **Projeção:** depois de cada mutação, a imagem é cortada para ficar a no máximo `EPSILON` da semente *original* em cada pixel, mesmo depois de várias mutações encadeadas.
-- **Oráculo:** a classe prevista do mutante é comparada com a classe que o modelo deu para a semente original (não com o rótulo verdadeiro).
-
-### Experimento 2: Fuzzing do tokenizer com Atheris
-
-**Como funciona:** o Atheris gera bytes aleatórios guiado por cobertura de código, converte em texto e passa pelo tokenizer do DistilBERT. Quatro oráculos são verificados:
-
-1. A chamada não pode lançar exceção.
-2. O número de tokens respeita `max_length`.
-3. Todos os ids estão dentro do vocabulário.
-4. **Metamórfico:** `decode(encode(texto))` é estável quando aplicado duas vezes.
-
-O tokenizer rápido do Hugging Face é escrito em Rust, e o Atheris só mede cobertura do código Python. Para fuzzing guiado de verdade, use o tokenizer em Python puro com `FUZZ_SLOW=1` (precisa de `transformers<5`; a partir da versão 5 só existe o rápido e o script avisa). Outras variáveis: `FUZZ_TOKENIZER` (outro modelo ou pasta local) e `FUZZ_SURROGATES=1` (permite surrogates Unicode isolados no texto).
-
-**Passos:**
+1. Crie um token em https://huggingface.co/settings/tokens com a permissão de chamar Inference Providers.
+2. Exporte-o como `HF_TOKEN`.
+3. Rode com o prefixo `api:`:
 
 ```bash
-mkdir -p corpus
-python fuzz_tokenizer_atheris.py corpus -max_total_time=300
-
-# tokenizer em Python puro (mais cobertura visível ao Atheris)
-pip install "transformers<5"
-FUZZ_SLOW=1 python fuzz_tokenizer_atheris.py corpus -max_total_time=300
+export HF_TOKEN=...
+python fuzz_chatbots.py --out results_api \
+  --models api:meta-llama/Llama-3.1-8B-Instruct api:Qwen/Qwen2.5-7B-Instruct
 ```
 
-**Saídas:**
-- `corpus/`: entradas que aumentaram a cobertura de código
-- `crash-<hash>`: a entrada que violou algum oráculo, se houver
+Um sufixo escolhe o provedor (`api:meta-llama/Llama-3.1-8B-Instruct:novita`). Isso permite outro teste diferencial: **o mesmo modelo servido por provedores diferentes** deveria responder igual. A disponibilidade de cada modelo na API muda com o tempo; o uso consome os créditos da conta.
 
-Para reproduzir um crash:
+Os dois modos podem ser misturados na mesma execução.
+
+### Parâmetros úteis
+
+| Parâmetro | Padrão | O que faz |
+| --- | --- | --- |
+| `--cases` | 30 | número de pedidos (cada um vira `--variants` prompts) |
+| `--variants` | 2 | paráfrases por pedido |
+| `--categories` | todas | limita as categorias |
+| `--seed` | 0 | semente da gramática (reprodutibilidade) |
+| `--max-tokens` | 128 | tamanho máximo da resposta |
+| `--delay` | 0 | pausa entre chamadas (para limites da API) |
+| `--resume` | | continua uma execução interrompida |
+| `--dry-run` | | só gera e mostra os prompts, sem chamar modelos |
+| `--analyze DIR` | | refaz a análise de uma execução salva |
+
+### Saídas (em `results/`)
+
+- `cases.jsonl`: os prompts gerados, com a resposta esperada
+- `responses.jsonl`: a resposta bruta de cada modelo (gravada a cada chamada)
+- `records.csv`: uma linha por modelo e prompt, com o veredito do oráculo
+- `findings.csv`: os achados (diferencial, metamórfico, erros, falhas de oráculo)
+- `summary.json`: acerto por modelo e categoria, consistência entre paráfrases, discordância entre pares de modelos e cobertura da gramática
+- `acerto_por_categoria.png`: gráfico do acerto por categoria e modelo
+
+### Testes da ferramenta
 
 ```bash
-python fuzz_tokenizer_atheris.py crash-<hash>
+pytest
 ```
 
-**Exemplo de falha encontrada:** com `FUZZ_SLOW=1` (transformers 4.57) e um vocabulário WordPiece local no lugar do DistilBERT, o fuzzer achou em poucos segundos um texto de um caractere com `max_length=2` que gera 3 tokens (`[CLS] x [SEP]`), violando o oráculo 2: o tokenizer em Python registra *"We need to remove 1 to truncate the input but the first sequence has a length 1"* e devolve a sequência sem truncar. O tokenizer rápido, para a mesma entrada, devolve `[CLS] [SEP]`. Os dois tokenizers do mesmo modelo se comportam de forma diferente nesse caso de borda. A falha está na lógica de truncamento, que não depende do vocabulário, então deve aparecer também com o DistilBERT.
+Os testes verificam a gramática, os oráculos, a análise e o cliente da API (contra uma sessão HTTP falsa). Eles testam o código, não os chatbots.
 
 ---
 
-## Apresentação
+## Limitações
 
-A pasta `apresentacao/` traz os slides com o que é fuzz testing em ML, os modelos usados, como os testes foram gerados e os resultados:
-
-- `apresentacao.pdf`: versão para apresentar ou imprimir
-- `apresentacao.html`: abre no navegador
-- `notas.md`: notas do apresentador
-- `slides/`: fonte de cada slide; `python apresentacao/build_deck.py apresentacao/slides apresentacao` gera o HTML de novo
-
-> **Conteúdo gerado por IA (Claude).** O código, os testes, a documentação e os slides deste repositório foram gerados com IA. As decisões tomadas estão em `CLAUDE.md`. Revise antes de usar.
-
----
+- **Chatbots não são determinísticos.** Os modelos locais usam decodificação gulosa; na API, `--temperature 0` reduz, mas nem todo provedor garante a mesma resposta.
+- **Os oráculos usam heurísticas.** "O último número da resposta" pode errar quando o modelo escreve mais de um número; vale conferir uma amostra em `records.csv`.
+- **Discordância nem sempre é bug.** Nas categorias sem resposta conhecida, uma discordância é um sinal para investigar, não uma falha comprovada.
+- **Modelos pequenos erram muito.** Os resultados dos modelos locais padrão dizem respeito a eles, não a chatbots grandes.
 
 ## Sugestão de estrutura do trabalho escrito
 
-1. **Introdução:** o que é fuzz testing e por que testar sistemas de ML.
-2. **Fundamentação teórica:**
-   - Fuzzing clássico e guiado por cobertura (AFL, libFuzzer, Atheris)
-   - Teste metamórfico e o problema do oráculo em ML
-   - Cobertura de neurônios (DeepXplore)
-   - Fuzzing de redes neurais (TensorFuzz, DLFuzz, DeepHunter)
-3. **Metodologia:** os dois experimentos, os modelos, as mutações e os oráculos.
-4. **Resultados:** taxa de falhas, cobertura, comparação ResNet vs ViT, falhas por mutação, crashes do tokenizer.
-5. **Discussão:** limitações da cobertura de neurônios como métrica e diferenças entre fuzzing clássico e de ML.
+1. **Introdução:** por que testar chatbots e o problema do oráculo em linguagem natural.
+2. **Fundamentação:** fuzzing baseado em gramática, cobertura de gramática, teste diferencial e teste metamórfico.
+3. **Metodologia:** a gramática, os modelos, os oráculos e as métricas.
+4. **Resultados:** acerto por categoria, discordância entre modelos, consistência entre paráfrases e exemplos de achados.
+5. **Discussão:** limites dos oráculos heurísticos e diferenças entre modelos e provedores.
 6. **Conclusão.**
 
 ## Referências
 
-- Pei, K. et al. *DeepXplore: Automated Whitebox Testing of Deep Learning Systems.* SOSP, 2017.
-- Guo, J. et al. *DLFuzz: Differential Fuzzing Testing of Deep Learning Systems.* ESEC/FSE, 2018.
-- Odena, A.; Goodfellow, I. *TensorFuzz: Debugging Neural Networks with Coverage-Guided Fuzzing.* ICML, 2019.
-- Xie, X. et al. *DeepHunter: A Coverage-Guided Fuzz Testing Framework for Deep Neural Networks.* ISSTA, 2019.
-- Wei, A. et al. *Free Lunch for Testing: Fuzzing Deep-Learning Libraries from Open Source (FreeFuzz).* ICSE, 2022.
-- Deng, Y. et al. *Large Language Models are Zero-Shot Fuzzers: Fuzzing Deep-Learning Libraries via LLMs (TitanFuzz).* ISSTA, 2023.
+Confira os dados bibliográficos nas fontes originais antes de citar.
+
+- McKeeman, W. M. (1998). Differential testing for software. *Digital Technical Journal*, 10(1).
+- Holler, C., Herzig, K., & Zeller, A. (2012). Fuzzing with code fragments. *USENIX Security Symposium*.
+- Zeller, A., Gopinath, R., Böhme, M., Fraser, G., & Holler, C. *The Fuzzing Book*. https://www.fuzzingbook.org (capítulos "Fuzzing with Grammars" e "Grammar Coverage").
+- Hugging Face. Inference Providers. https://huggingface.co/docs/inference-providers
