@@ -1,0 +1,164 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Fuzz Testing em Machine Learning</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+*{box-sizing:border-box;margin:0} body{background:#2b2f38;padding:24px 0}
+.frame{width:1920px;height:1080px;margin:0 auto 24px;overflow:hidden;position:relative;transform-origin:top left}
+.slide{width:1920px;height:1080px;position:relative}
+h1,h2,h3,p{margin:0} ul,ol{padding-left:1.2em;margin:0}
+th,td{text-align:left;padding:.35em .6em;border-bottom:1px solid #DEDCD3} table{border-collapse:collapse}
+@media screen and (max-width:1960px){.frame{zoom:calc(100vw / 2000px)}}
+@page{size:1920px 1080px;margin:0}
+@media print{body{background:none;padding:0} .frame{margin:0;page-break-after:always;zoom:1}}
+</style></head><body>
+<div class="frame"><section class="slide" id="cover" data-transition="fade" style="background:#141821;color:#EEEDE8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#6FA8F5;letter-spacing:2px;text-transform:uppercase">Testes de software · Machine Learning</p>
+<div style="display:flex;flex-direction:column;gap:40px">
+<h1 style="font-size:112px;font-weight:600;line-height:1.05;color:#EEEDE8">Fuzz Testing em Machine Learning</h1>
+<p style="font-size:40px;line-height:1.35;color:#B9C0CC;width:1300px">ResNet-50, ViT-Base e o tokenizer do DistilBERT testados com fuzzing guiado por cobertura</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;gap:20px;align-items:center;background:#2A2410;border:2px solid #E0B341;border-radius:12px;padding:20px 28px;width:1500px">
+<svg viewBox="0 0 24 24" style="width:40px;height:40px;flex:none" aria-label="Aviso"><path d="M12 2 1 21h22L12 2z" fill="none" stroke="#E0B341" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5M12 17v1" stroke="#E0B341" stroke-width="2" stroke-linecap="round"/></svg>
+<p style="font-size:26px;line-height:1.4;color:#F3E6C0"><b>Conteúdo gerado por IA (Claude):</b> código, testes, textos e slides. Revise antes de usar ou apresentar.</p>
+</div>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#B9C0CC">28 de outubro de 2026 · leonardorh18/ml-fuzzy-tests</p>
+</div>
+
+</section>
+</div><div class="frame"><section class="slide" id="fuzzing" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">O que é fuzz testing</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Gerar milhares de entradas até alguma quebrar o sistema</h2>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#4A5160;width:1600px">O fuzzer cria entradas novas, aleatórias ou mutando exemplos, roda o sistema e observa. Entradas que exploram partes novas viram base para as próximas.</p>
+<table style="font-size:28px;color:#161A22">
+<tr><th style="width:22%"></th><th style="width:39%">Software clássico</th><th style="width:39%">Machine learning</th></tr>
+<tr><td><b>Entrada</b></td><td>bytes, arquivos, texto</td><td>imagens e textos levemente alterados</td></tr>
+<tr><td><b>Falha</b></td><td>crash ou exceção</td><td>predição muda sem motivo: a foto quase igual vira outra classe</td></tr>
+<tr><td><b>Guia da busca</b></td><td>cobertura de código: linhas executadas</td><td>cobertura de neurônios: neurônios ativados</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · Fuzz Testing em ML · 2</p>
+
+</section>
+</div><div class="frame"><section class="slide" id="modelos" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Modelos usados</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Dois classificadores de imagem e um tokenizer de texto</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:1px solid #DEDCD3;border-top:6px solid #2560B8;border-radius:16px;padding:40px">
+<h3 style="font-size:40px;font-weight:600">ResNet-50</h3>
+<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Para que serve:</b> reconhecer o objeto de uma foto (cachorro, carro, xícara) entre 1000 classes.</p>
+<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>Como:</b> rede convolucional de 50 camadas; filtros detectam bordas, texturas e formas.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:1px solid #DEDCD3;border-top:6px solid #2560B8;border-radius:16px;padding:40px">
+<h3 style="font-size:40px;font-weight:600">ViT-Base</h3>
+<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Para que serve:</b> a mesma tarefa da ResNet, com as mesmas 1000 classes.</p>
+<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>Como:</b> corta a imagem em quadrados de 16×16 pixels e usa atenção, a técnica dos modelos de linguagem.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:1px solid #DEDCD3;border-top:6px solid #C4501E;border-radius:16px;padding:40px">
+<h3 style="font-size:40px;font-weight:600">Tokenizer DistilBERT</h3>
+<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Para que serve:</b> quebrar texto em pedaços (tokens) e trocar cada um por um número que o modelo entende.</p>
+<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>Por que testar:</b> todo texto passa por ele; um erro aqui afeta tudo depois.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · Fuzz Testing em ML · 3</p>
+
+</section>
+</div><div class="frame"><section class="slide" id="metodo" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Como geramos os testes</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Mutar, verificar, guardar o que explora mais</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:40px">
+<h3 style="font-size:32px;font-weight:600;color:#2560B8">Imagens (ResNet, ViT)</h3>
+<ol style="font-size:26px;line-height:1.45;color:#4A5160">
+<li>Muta uma imagem: ruído, brilho, contraste, rotação, blur ou patch</li>
+<li>Limita a mudança a 0,08 por pixel</li>
+<li><b>Falha</b> se a classe prevista mudar</li>
+<li>Guarda o mutante se ativar neurônios novos</li>
+</ol>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:40px">
+<h3 style="font-size:32px;font-weight:600;color:#C4501E">Tokenizer (Atheris)</h3>
+<ol style="font-size:26px;line-height:1.45;color:#4A5160">
+<li>Gera texto Unicode e um max_length</li>
+<li>Guarda entradas que executam código novo</li>
+<li><b>Falha</b> se: lançar exceção, passar do max_length, gerar id inválido ou decode/encode não estabilizar</li>
+</ol>
+</div>
+</div>
+<div style="display:flex;gap:20px;align-items:center;background:#ECEAE2;border-radius:16px;padding:24px 32px">
+<svg viewBox="0 0 24 24" style="width:36px;height:36px;flex:none" aria-label="Aviso"><path d="M12 2 1 21h22L12 2z" fill="none" stroke="#A8431A" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5M12 17v1" stroke="#A8431A" stroke-width="2" stroke-linecap="round"/></svg>
+<p style="font-size:26px;line-height:1.4;color:#161A22">Sem acesso ao Hugging Face: modelos com <b>pesos aleatórios</b>, imagens sintéticas e vocabulário local.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · Fuzz Testing em ML · 4</p>
+
+</section>
+</div><div class="frame"><section class="slide" id="resultado-imagens" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Resultados · Imagens</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">ViT: 45 falhas em 500. ResNet: nenhuma.</h2>
+</div>
+<div style="display:flex;gap:48px">
+<div style="width:520px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:600">ViT-Base</h3>
+<p style="font-size:96px;font-weight:700;line-height:1;color:#C4501E">45 <span style="color:#7A8090">/ 500</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:32px">
+<h3 style="font-size:28px;font-weight:600">ResNet-50</h3>
+<p style="font-size:96px;font-weight:700;line-height:1;color:#161A22">0 <span style="color:#7A8090">/ 500</span></p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<h3 style="font-size:32px;font-weight:600">No ViT, o brilho causou 38 das 45 falhas</h3>
+<div style="display:flex;align-items:center;gap:20px"><p style="width:160px;font-size:26px;text-align:right">brilho</p><div style="width:600px;height:36px;background:#2560B8;border-radius:6px"></div><p style="font-size:26px;font-weight:600">41,8%</p></div>
+<div style="display:flex;align-items:center;gap:20px"><p style="width:160px;font-size:26px;text-align:right">contraste</p><div style="width:53px;height:36px;background:#BDBAB0;border-radius:6px"></div><p style="font-size:26px;color:#4A5160">3,7%</p></div>
+<div style="display:flex;align-items:center;gap:20px"><p style="width:160px;font-size:26px;text-align:right">rotação</p><div style="width:31px;height:36px;background:#BDBAB0;border-radius:6px"></div><p style="font-size:26px;color:#4A5160">2,1%</p></div>
+<div style="display:flex;align-items:center;gap:20px"><p style="width:160px;font-size:26px;text-align:right">ruído</p><div style="width:22px;height:36px;background:#BDBAB0;border-radius:6px"></div><p style="font-size:26px;color:#4A5160">1,5%</p></div>
+<div style="display:flex;align-items:center;gap:20px"><p style="width:160px;font-size:26px;text-align:right">patch</p><div style="width:16px;height:36px;background:#BDBAB0;border-radius:6px"></div><p style="font-size:26px;color:#4A5160">1,1%</p></div>
+<div style="display:flex;align-items:center;gap:20px"><p style="width:160px;font-size:26px;text-align:right">blur</p><div style="width:4px;height:36px;background:#BDBAB0;border-radius:2px"></div><p style="font-size:26px;color:#4A5160">0,0%</p></div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · 500 iterações, ε = 0,08, pesos aleatórios · Fuzz Testing em ML · 5</p>
+
+</section>
+</div><div class="frame"><section class="slide" id="resultado-tokenizer" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#C4501E;letter-spacing:2px;text-transform:uppercase">Resultados · Tokenizer</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">O tokenizer em Python estourou o max_length</h2>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#141821;border-radius:16px;padding:40px">
+<p style="font-size:24px;color:#B9C0CC">Python puro · max_length=2 · texto 'Ƒ'</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;color:#F2A27E">[CLS] x [SEP]</p>
+<p style="font-size:28px;color:#EEEDE8"><b>3 tokens: falha</b>, achada em menos de 1 s</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#141821;border-radius:16px;padding:40px">
+<p style="font-size:24px;color:#B9C0CC">Rápido (Rust) · mesma entrada</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;color:#6FA8F5">[CLS] [SEP]</p>
+<p style="font-size:28px;color:#EEEDE8"><b>2 tokens: correto</b></p>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#4A5160;width:1600px">O tokenizer rápido rodou 259 mil vezes sem falhas, mas o Atheris não enxerga código Rust: na prática, foi fuzzing aleatório.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · vocabulário local · Fuzz Testing em ML · 6</p>
+
+</section>
+</div><div class="frame"><section class="slide" id="conclusao" data-transition="fade" style="background:#141821;color:#EEEDE8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#6FA8F5;letter-spacing:2px;text-transform:uppercase">Conclusão</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;color:#EEEDE8">O pipeline funciona; os números ainda não medem os modelos reais</h2>
+</div>
+<ul style="font-size:32px;line-height:1.5;color:#B9C0CC">
+<li>Com pesos aleatórios, a ResNet sempre responde a mesma classe e o ViT está quase indeciso</li>
+<li>Cobertura de neurônios não ajudou a achar falhas</li>
+<li>No tokenizer, o fuzzing só funciona onde o Atheris enxerga o código</li>
+</ul>
+<p style="font-size:32px;line-height:1.4;color:#EEEDE8"><b>Próximo passo:</b> rodar com os pesos reais do Hugging Face e fotos de verdade.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · github.com/leonardorh18/ml-fuzzy-tests</p>
+
+</section>
+</div>
+</body></html>

@@ -45,6 +45,8 @@ A comparação entre as duas mostra como os conceitos de *cobertura* (código vs
 ├── fuzz_tokenizer_atheris.py    # Fuzzing clássico com Atheris
 ├── compare_results.py           # Compara execuções (ResNet vs ViT)
 ├── requirements.txt
+├── CLAUDE.md                    # Decisões e contexto registrados pela IA
+├── apresentacao/                # Slides: apresentacao.pdf, apresentacao.html, notas.md
 ├── seeds/                       # imagens semente (você coloca)
 ├── corpus/                      # corpus gerado pelo Atheris
 └── results/                     # saída do fuzz_resnet.py
@@ -149,6 +151,19 @@ python fuzz_tokenizer_atheris.py crash-<hash>
 ```
 
 **Exemplo de falha encontrada:** com `FUZZ_SLOW=1` (transformers 4.57) e um vocabulário WordPiece local no lugar do DistilBERT, o fuzzer achou em poucos segundos um texto de um caractere com `max_length=2` que gera 3 tokens (`[CLS] x [SEP]`), violando o oráculo 2: o tokenizer em Python registra *"We need to remove 1 to truncate the input but the first sequence has a length 1"* e devolve a sequência sem truncar. O tokenizer rápido, para a mesma entrada, devolve `[CLS] [SEP]`. Os dois tokenizers do mesmo modelo se comportam de forma diferente nesse caso de borda. A falha está na lógica de truncamento, que não depende do vocabulário, então deve aparecer também com o DistilBERT.
+
+---
+
+## Apresentação
+
+A pasta `apresentacao/` traz os slides com o que é fuzz testing em ML, os modelos usados, como os testes foram gerados e os resultados:
+
+- `apresentacao.pdf`: versão para apresentar ou imprimir
+- `apresentacao.html`: abre no navegador
+- `notas.md`: notas do apresentador
+- `slides/`: fonte de cada slide; `python apresentacao/build_deck.py apresentacao/slides apresentacao` gera o HTML de novo
+
+> **Conteúdo gerado por IA (Claude).** O código, os testes, a documentação e os slides deste repositório foram gerados com IA. As decisões tomadas estão em `CLAUDE.md`. Revise antes de usar.
 
 ---
 
