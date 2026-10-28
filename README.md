@@ -47,6 +47,7 @@ A comparação entre as duas mostra como os conceitos de *cobertura* (código vs
 ├── requirements.txt
 ├── CLAUDE.md                    # Decisões e contexto registrados pela IA
 ├── apresentacao/                # Slides: apresentacao.pdf, apresentacao.html, notas.md
+├── docs/relatorio.md            # Relatório em inglês (formato de artigo) com as figuras em docs/img/
 ├── seeds/                       # imagens semente (você coloca)
 ├── corpus/                      # corpus gerado pelo Atheris
 └── results/                     # saída do fuzz_resnet.py

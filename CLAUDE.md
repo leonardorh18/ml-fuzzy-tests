@@ -23,6 +23,7 @@ apresentacao/                # slides exportados (HTML, PDF, notas, fontes dos s
   build_deck.py              # gera apresentacao.html e notas.md a partir de slides/
   slides/                    # um .html por slide + deck.json (ordem) + assets.json (imagens)
   img/                       # imagens dos slides, geradas a partir dos resultados reais
+docs/relatorio.md            # cópia em Markdown da doc em inglês (figuras em docs/img/)
 ```
 
 `results*/`, `corpus/` e `crash-*` são saídas e estão no `.gitignore`.
@@ -127,6 +128,7 @@ Tokenizer:
 5. Colocar a apresentação e este `CLAUDE.md` no repositório.
 6. "Os slides estão fracos": explicar fuzz testing em ML com exemplo e como funciona, os modelos e para que servem, como geramos os testes e os resultados → 12 slides com exemplos reais do teste (a imagem que enganou o ViT, as 6 mutações aplicadas a uma semente, os 6 bytes que quebraram o tokenizer) e um gráfico de cobertura e falhas a partir do `log.csv`.
 7. `/academic-writing` "reescreva em inglês" (escopo escolhido: apresentação + doc) → slides, notas, gráfico e doc reescritos em inglês acadêmico; código, README e este arquivo continuam em português.
+8. "Faça commit e push de tudo" → a doc em inglês exportada para `docs/relatorio.md`, com o diagrama e o gráfico como imagens.
 
 ## Decisões da apresentação
 
