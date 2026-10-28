@@ -1,15 +1,38 @@
 <section id="fuzzing" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
 <div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">O que é fuzz testing</p>
-<h2 style="font-size:64px;font-weight:600;line-height:1.1">Gerar milhares de entradas até alguma quebrar o sistema</h2>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Bombardear o sistema com entradas até algo quebrar</h2>
 </div>
-<p style="font-size:30px;line-height:1.4;color:#4A5160;width:1600px">O fuzzer cria entradas novas, aleatórias ou mutando exemplos, roda o sistema e observa. Entradas que exploram partes novas viram base para as próximas.</p>
-<table style="font-size:28px;color:#161A22">
-<tr><th style="width:22%"></th><th style="width:39%">Software clássico</th><th style="width:39%">Machine learning</th></tr>
-<tr><td><b>Entrada</b></td><td>bytes, arquivos, texto</td><td>imagens e textos levemente alterados</td></tr>
-<tr><td><b>Falha</b></td><td>crash ou exceção</td><td>predição muda sem motivo: a foto quase igual vira outra classe</td></tr>
-<tr><td><b>Guia da busca</b></td><td>cobertura de código: linhas executadas</td><td>cobertura de neurônios: neurônios ativados</td></tr>
-</table>
+<div style="display:flex;gap:64px">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:32px;line-height:1.45;color:#4A5160">Em vez de escrever casos de teste à mão, um programa (o <b>fuzzer</b>) gera milhares de entradas automaticamente e observa o que acontece.</p>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-left:6px solid #2560B8;border-radius:12px;padding:36px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8">Exemplo clássico</p>
+<p style="font-size:28px;line-height:1.45;color:#161A22">Um leitor de PDF recebe milhares de arquivos levemente corrompidos. Um deles faz o programa travar: é um bug encontrado antes que um usuário ou um atacante o encontre.</p>
+</div>
+</div>
+<div style="width:600px;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:12px;padding:20px 28px">
+<h3 style="font-size:28px;font-weight:600">1. Gerar uma entrada</h3>
+<p style="font-size:24px;color:#4A5160">aleatória ou mutando uma que já existe</p>
+</div>
+<x-connector head="end" style="width:2px;height:28px;align-self:center;color:#8A90A0;border-width:3px"></x-connector>
+<div style="display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:12px;padding:20px 28px">
+<h3 style="font-size:28px;font-weight:600">2. Executar o sistema</h3>
+<p style="font-size:24px;color:#4A5160">e medir o que ele exercitou</p>
+</div>
+<x-connector head="end" style="width:2px;height:28px;align-self:center;color:#8A90A0;border-width:3px"></x-connector>
+<div style="display:flex;flex-direction:column;gap:4px;background:#FBEDE6;border:2px solid #C4501E;border-radius:12px;padding:20px 28px">
+<h3 style="font-size:28px;font-weight:600">3. Verificar: quebrou?</h3>
+<p style="font-size:24px;color:#4A5160">a regra que decide é o <b>oráculo</b></p>
+</div>
+<x-connector head="end" style="width:2px;height:28px;align-self:center;color:#8A90A0;border-width:3px"></x-connector>
+<div style="display:flex;flex-direction:column;gap:4px;background:#E6EEF9;border:2px solid #2560B8;border-radius:12px;padding:20px 28px">
+<h3 style="font-size:28px;font-weight:600">4. Guardar se explorou algo novo</h3>
+<p style="font-size:24px;color:#4A5160">guiado por <b>cobertura</b>; repete milhares de vezes</p>
+</div>
+</div>
+</div>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · Fuzz Testing em ML · 2</p>
-<aside>Fuzz testing é testar com entradas geradas automaticamente, em grande quantidade, até achar uma que quebre o sistema. Os fuzzers modernos são guiados por cobertura: guardam as entradas que exercitam partes novas do programa e mutam a partir delas. Em machine learning, um modelo raramente dá crash; a falha típica é errar a predição com uma entrada quase idêntica a uma que ele acerta. Por isso mudam o oráculo, que decide o que é falha, e a cobertura, que passa a ser medida em neurônios.</aside>
+<aside>Fuzz testing é testar com entradas geradas automaticamente, em massa. O exemplo clássico é um leitor de arquivos: o fuzzer corrompe arquivos válidos de mil formas diferentes até um deles travar o programa. Os fuzzers modernos, como AFL e libFuzzer, são guiados por cobertura: medem que partes do programa cada entrada executou e guardam as que chegaram em lugares novos, para mutar a partir delas. Dois conceitos vão aparecer o tempo todo: o oráculo, que decide se houve falha, e a cobertura, que guia a busca.</aside>
 </section>

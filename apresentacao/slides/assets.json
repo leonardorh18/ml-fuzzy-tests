@@ -1,0 +1,13 @@
+{
+  "/_blob/120cf16ccbd332b1c8200fd5daeb641a": "img/ex_original.png",
+  "/_blob/d1b6699d0fc72a6869ec6a358a80c05d": "img/ex_mutante.png",
+  "/_blob/48039fe240417fa9fffd11f87a121078": "img/ex_diff.png",
+  "/_blob/fb925e538fd2925029d1488553dd68bf": "img/mut_original.png",
+  "/_blob/0f20e2c8bfe1f53fedc41106d85259d6": "img/mut_noise.png",
+  "/_blob/4befcd705d252b12ece7b6e8d9e9e5ec": "img/mut_brightness.png",
+  "/_blob/533b4330408ffbb5b326f0ae3f3f44e7": "img/mut_contrast.png",
+  "/_blob/689b6ec1e172f317290907721afd5ae4": "img/mut_rotation.png",
+  "/_blob/f23b8c49cbc583795994cc57fe04b568": "img/mut_blur.png",
+  "/_blob/7c99066452979aca3760c9380f34c3c1": "img/mut_patch.png",
+  "/_blob/2dfccfcc28e7f097e112f623a416fed9": "img/grafico_cobertura_falhas.png"
+}

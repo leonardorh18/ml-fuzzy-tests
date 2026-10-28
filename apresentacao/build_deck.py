@@ -14,6 +14,17 @@ warn = ('<svg viewBox="0 0 24 24" style="{s};flex:none" aria-label="Aviso"><path
 def icon(m):
     style = m.group(2); color = re.search(r"color:([^;\"]+)", style).group(1)
     return warn.format(s=style.replace(f"color:{color};", ""), c=color)
+assets_file = slide_dir / "assets.json"
+assets = json.loads(assets_file.read_text()) if assets_file.exists() else {}
+def connector(m):
+    style = m.group(1)
+    w = int(re.search(r"width:(\d+)px", style).group(1)); h = int(re.search(r"height:(\d+)px", style).group(1))
+    color = re.search(r"color:([^;\"]+)", style).group(1)
+    if h > w:  # seta para baixo
+        return (f'<svg viewBox="0 0 24 {h}" style="width:24px;height:{h}px;align-self:center;flex:none" aria-hidden="true">'
+                f'<path d="M12 0V{h - 2}M5 {h - 9}l7 7 7-7" fill="none" stroke="{color}" stroke-width="3"/></svg>')
+    return (f'<svg viewBox="0 0 {w} 24" style="width:{w}px;height:24px;align-self:center;flex:none" aria-hidden="true">'
+            f'<path d="M0 12H{w - 2}M{w - 9} 5l7 7-7 7" fill="none" stroke="{color}" stroke-width="3"/></svg>')
 slides, notes = [], []
 for i, sid in enumerate(deck["order"], 1):
     s = (slide_dir / f"{sid}.html").read_text()
@@ -21,6 +32,9 @@ for i, sid in enumerate(deck["order"], 1):
     notes.append(f"## {i}. {sid}\n\n{html.unescape(a.group(1).strip()) if a else ''}\n")
     s = re.sub(r"<aside>.*?</aside>", "", s, flags=re.S)
     s = re.sub(r'<x-icon name="(\w+)" style="([^"]*)"></x-icon>', icon, s)
+    s = re.sub(r'<x-connector[^>]*style="([^"]*)"></x-connector>', connector, s)
+    for blob, local in assets.items():
+        s = s.replace(f'src="{blob}"', f'src="{local}"')
     s = s.replace("<section ", '<section class="slide" ', 1)
     slides.append(f'<div class="frame">{s}</div>')
 page = f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">

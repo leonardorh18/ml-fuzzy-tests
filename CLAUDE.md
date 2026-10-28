@@ -21,6 +21,8 @@ requirements.txt
 seeds/                       # imagens semente (o usuário coloca)
 apresentacao/                # slides exportados (HTML, PDF, notas, fontes dos slides)
   build_deck.py              # gera apresentacao.html e notas.md a partir de slides/
+  slides/                    # um .html por slide + deck.json (ordem) + assets.json (imagens)
+  img/                       # imagens dos slides, geradas a partir dos resultados reais
 ```
 
 `results*/`, `corpus/` e `crash-*` são saídas e estão no `.gitignore`.
@@ -122,6 +124,15 @@ Tokenizer:
 3. Colocar aviso de conteúdo gerado por IA e deixar os slides mais diretos → de 13 para 6 slides, aviso na capa e nos rodapés.
 4. Começar a apresentação explicando o que é fuzz testing em ML, os modelos e para que servem, como geramos os testes e os resultados → slide de introdução e slide de modelos reescrito (7 slides).
 5. Colocar a apresentação e este `CLAUDE.md` no repositório.
+6. "Os slides estão fracos": explicar fuzz testing em ML com exemplo e como funciona, os modelos e para que servem, como geramos os testes e os resultados → 12 slides com exemplos reais do teste (a imagem que enganou o ViT, as 6 mutações aplicadas a uma semente, os 6 bytes que quebraram o tokenizer) e um gráfico de cobertura e falhas a partir do `log.csv`.
+
+## Decisões da apresentação
+
+- Exemplos sempre tirados dos nossos próprios resultados, não de artigos: a imagem da iteração 20 do ViT (classe 614 → 727 só com brilho) e a entrada `0a 91 01 00 00 00` do tokenizer.
+- As mutações são mostradas no valor máximo da faixa e **antes** do corte em ε, senão ficariam invisíveis; o rodapé do slide avisa isso.
+- O esquema de neurônios do slide de cobertura é ilustrativo, e está marcado assim.
+- Os exemplos de entrada e saída dos modelos ("golden retriever", "coffee mug", tokens de "the cat is sleeping") são ilustrativos do uso normal, não saídas do teste.
+- Todo slide leva "Conteúdo gerado por IA" no rodapé; a capa tem o aviso completo.
 
 ## Material fora do repositório
 

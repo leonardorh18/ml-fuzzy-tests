@@ -1,0 +1,24 @@
+<section id="gerar-imagens" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Como geramos os testes · imagens</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Seis mutações, cortadas para no máximo 0,08 por pixel</h2>
+</div>
+<div style="display:flex;gap:16px">
+<div style="display:flex;flex-direction:column;gap:10px"><img src="/_blob/fb925e538fd2925029d1488553dd68bf" alt="Semente sintética original" style="width:220px;height:220px;object-fit:cover;border-radius:10px;border:3px solid #161A22"><p style="font-size:24px;font-weight:600">original</p></div>
+<div style="display:flex;flex-direction:column;gap:10px"><img src="/_blob/0f20e2c8bfe1f53fedc41106d85259d6" alt="Semente com ruído gaussiano" style="width:220px;height:220px;object-fit:cover;border-radius:10px"><p style="font-size:24px">ruído</p></div>
+<div style="display:flex;flex-direction:column;gap:10px"><img src="/_blob/4befcd705d252b12ece7b6e8d9e9e5ec" alt="Semente mais clara" style="width:220px;height:220px;object-fit:cover;border-radius:10px"><p style="font-size:24px">brilho</p></div>
+<div style="display:flex;flex-direction:column;gap:10px"><img src="/_blob/533b4330408ffbb5b326f0ae3f3f44e7" alt="Semente com mais contraste" style="width:220px;height:220px;object-fit:cover;border-radius:10px"><p style="font-size:24px">contraste</p></div>
+<div style="display:flex;flex-direction:column;gap:10px"><img src="/_blob/689b6ec1e172f317290907721afd5ae4" alt="Semente girada 15 graus" style="width:220px;height:220px;object-fit:cover;border-radius:10px"><p style="font-size:24px">rotação</p></div>
+<div style="display:flex;flex-direction:column;gap:10px"><img src="/_blob/f23b8c49cbc583795994cc57fe04b568" alt="Semente desfocada" style="width:220px;height:220px;object-fit:cover;border-radius:10px"><p style="font-size:24px">blur</p></div>
+<div style="display:flex;flex-direction:column;gap:10px"><img src="/_blob/7c99066452979aca3760c9380f34c3c1" alt="Semente com um quadrado verde pintado" style="width:220px;height:220px;object-fit:cover;border-radius:10px"><p style="font-size:24px">patch</p></div>
+</div>
+<div style="display:flex;gap:12px;align-items:stretch">
+<div style="flex:1;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:12px;padding:20px 24px"><p style="font-size:24px;line-height:1.35"><b>1.</b> Sorteia uma imagem do corpus</p></div>
+<div style="flex:1;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:12px;padding:20px 24px"><p style="font-size:24px;line-height:1.35"><b>2.</b> Aplica uma mutação aleatória</p></div>
+<div style="flex:1;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:12px;padding:20px 24px"><p style="font-size:24px;line-height:1.35"><b>3.</b> Corta cada pixel a ±0,08 da original</p></div>
+<div style="flex:1;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:12px;padding:20px 24px"><p style="font-size:24px;line-height:1.35"><b>4.</b> Classifica e mede neurônios</p></div>
+<div style="flex:1;background:#FBEDE6;border:2px solid #C4501E;border-radius:12px;padding:20px 24px"><p style="font-size:24px;line-height:1.35"><b>5.</b> Classe mudou? <b>Falha</b>, salva a imagem</p></div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Mutações no máximo da faixa, antes do corte em 0,08 · semente sintética usada no teste · Conteúdo gerado por IA · 6</p>
+<aside>Estas são as seis mutações aplicadas a uma das sementes do teste, no valor mais forte de cada faixa. Repare que elas são visíveis aqui porque mostramos antes do passo 3. Depois do corte, nenhum pixel pode estar a mais de 0,08 da imagem original, uns 20 tons numa escala de 255. É por isso que a imagem que enganou o ViT parecia idêntica à original. O laço roda 500 vezes por modelo.</aside>
+</section>

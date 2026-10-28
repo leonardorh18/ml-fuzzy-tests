@@ -1,14 +1,17 @@
-<section id="conclusao" data-transition="fade" style="background:#141821;color:#EEEDE8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<section id="conclusao" data-transition="fade" style="background:#141821;color:#EEEDE8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
 <div style="display:flex;flex-direction:column;gap:16px">
 <p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#6FA8F5;letter-spacing:2px;text-transform:uppercase">Conclusão</p>
-<h2 style="font-size:64px;font-weight:600;line-height:1.1;color:#EEEDE8">O pipeline funciona; os números ainda não medem os modelos reais</h2>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;color:#EEEDE8">Respostas às perguntas do trabalho</h2>
 </div>
-<ul style="font-size:32px;line-height:1.5;color:#B9C0CC">
-<li>Com pesos aleatórios, a ResNet sempre responde a mesma classe e o ViT está quase indeciso</li>
-<li>Cobertura de neurônios não ajudou a achar falhas</li>
-<li>No tokenizer, o fuzzing só funciona onde o Atheris enxerga o código</li>
-</ul>
-<p style="font-size:32px;line-height:1.4;color:#EEEDE8"><b>Próximo passo:</b> rodar com os pesos reais do Hugging Face e fotos de verdade.</p>
+<table style="font-size:26px;color:#EEEDE8">
+<tr><th style="width:42%">Pergunta</th><th style="width:58%">Resposta</th></tr>
+<tr><td>Mudanças pequenas trocam a classe?</td><td>Sim no ViT: 9% dos mutantes, com ε = 0,08</td></tr>
+<tr><td>Qual mutação quebra mais?</td><td>Brilho: 42% de falha no ViT</td></tr>
+<tr><td>ResNet ou ViT é mais robusto?</td><td>Inconclusivo: pesos aleatórios</td></tr>
+<tr><td>Mais cobertura, mais falhas?</td><td>Não: correlação de −0,31</td></tr>
+<tr><td>O tokenizer aguenta qualquer texto?</td><td>O rápido sim; o em Python estoura o max_length</td></tr>
+</table>
+<p style="font-size:30px;line-height:1.4;color:#EEEDE8"><b style="color:#6FA8F5">Próximo passo:</b> rodar com os pesos reais do Hugging Face e fotos de verdade.</p>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · github.com/leonardorh18/ml-fuzzy-tests</p>
-<aside>Resumo: o código está pronto e encontrou uma falha real no tokenizer. Os números das imagens refletem modelos com pesos aleatórios e não permitem dizer qual arquitetura é mais robusta. Basta rodar sem a opção --random-weights numa máquina com acesso ao Hugging Face.</aside>
+<aside>Fechando com as cinco perguntas do início. Perturbações pequenas trocaram a classe no ViT; o brilho foi a mutação mais eficaz. A comparação entre ResNet e ViT fica inconclusiva: com pesos aleatórios, a ResNet sempre responde a mesma classe e o ViT está quase indeciso. A cobertura de neurônios não ajudou. E o fuzzing do tokenizer achou uma falha real de truncamento na versão em Python. O próximo passo é rodar tudo com os pesos treinados.</aside>
 </section>
