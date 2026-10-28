@@ -109,6 +109,7 @@ class TestCase:
     prompt: str
     expected: object
     values: dict = field(default_factory=dict)
+    expansions: list = field(default_factory=list)   # regras usadas, ex.: "<arith>#2"
 
 
 class GrammarFuzzer:
@@ -120,6 +121,7 @@ class GrammarFuzzer:
         self.coverage_bias = coverage_bias
         self.max_depth = max_depth
         self.covered = set()
+        self._trace = []
 
     # -- cobertura -----------------------------------------------------------
     def all_expansions(self):
@@ -137,6 +139,7 @@ class GrammarFuzzer:
         else:
             i = self.rng.randrange(len(expansions))
         self.covered.add((symbol, i))
+        self._trace.append(f"{symbol}#{i}")
         return expansions[i]
 
     # -- derivação ----------------------------------------------------------
@@ -197,16 +200,19 @@ class GrammarFuzzer:
             category = categories[g % len(categories)]
             values, expected = self.skeleton(category)
             prompts, wordings = [], set()
+            traces = []
             for _ in range(variants * 10):
+                self._trace = []
                 prompt = self.expand(f"<{category}>", values).strip(" ")
                 wording = " ".join(prompt.split())  # paráfrases devem diferir em palavras
                 if wording not in wordings:
                     wordings.add(wording)
                     prompts.append(prompt)
+                    traces.append(self._trace)
                 if len(prompts) == variants:
                     break
-            for v, prompt in enumerate(prompts):
+            for v, (prompt, trace) in enumerate(zip(prompts, traces)):
                 cases.append(TestCase(case_id=f"{g:04d}-{v}", group_id=f"{g:04d}", variant=v,
                                       category=category, prompt=prompt, expected=expected,
-                                      values=values))
+                                      values=values, expansions=trace))
         return cases
