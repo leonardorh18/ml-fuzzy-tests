@@ -135,7 +135,7 @@ def main():
     ap.add_argument("--coverage-bias", type=float, default=0.8,
                     help="chance de escolher uma expansão ainda não coberta")
     ap.add_argument("--out", default="results")
-    ap.add_argument("--max-tokens", type=int, default=128)
+    ap.add_argument("--max-tokens", type=int, default=256)
     ap.add_argument("--temperature", type=float, default=0.0, help="só para api:")
     ap.add_argument("--base-url", default="https://router.huggingface.co/v1", help="só para api:")
     ap.add_argument("--delay", type=float, default=0.0, help="segundos entre chamadas")

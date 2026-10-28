@@ -116,7 +116,7 @@ Os dois modos podem ser misturados na mesma execução.
 | `--variants` | 2 | paráfrases por pedido |
 | `--categories` | todas | limita as categorias |
 | `--seed` | 0 | semente da gramática (reprodutibilidade) |
-| `--max-tokens` | 128 | tamanho máximo da resposta |
+| `--max-tokens` | 256 | tamanho máximo da resposta; respostas cortadas no limite ficam marcadas em `truncated` |
 | `--delay` | 0 | pausa entre chamadas (para limites da API) |
 | `--resume` | | continua uma execução interrompida |
 | `--dry-run` | | só gera e mostra os prompts, sem chamar modelos |

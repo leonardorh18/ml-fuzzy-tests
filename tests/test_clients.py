@@ -49,6 +49,12 @@ def test_success_sends_openai_compatible_request():
     assert call["json"]["model"] == "org/model"
     assert call["json"]["messages"] == [{"role": "user", "content": "hello"}]
     assert call["headers"]["Authorization"] == "Bearer t"
+    assert resp.truncated is False
+
+
+def test_finish_reason_length_marks_truncation():
+    reply = FakeResponse(200, {"choices": [{"message": {"content": "long"}, "finish_reason": "length"}]})
+    assert APIClient("m", token="t", session=FakeSession([reply])).chat("x").truncated is True
 
 
 def test_retries_transient_errors_then_succeeds():

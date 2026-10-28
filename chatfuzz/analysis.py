@@ -28,7 +28,7 @@ def build_records(cases, responses):
             "variant": case.variant, "category": case.category, "prompt": case.prompt,
             "expected": json.dumps(case.expected, ensure_ascii=False),
             "response": resp.text, "error": resp.error, "status_code": resp.status_code,
-            "latency_s": round(resp.latency_s, 3), "passed": verdict.passed,
+            "latency_s": round(resp.latency_s, 3), "truncated": resp.truncated, "passed": verdict.passed,
             "answer": None if verdict.answer is None else json.dumps(verdict.answer, ensure_ascii=False),
             "reason": verdict.reason,
         })
@@ -114,6 +114,8 @@ def summarize(df, findings, grammar_coverage, config):
             "requests": int(len(g)),
             "api_errors": int((g["reason"] == "api_error").sum()),
             "empty_responses": int((g["reason"] == "empty").sum()),
+            "truncated_responses": int(g["truncated"].sum()),
+            "failures_when_truncated": int(((g["passed"] == False) & g["truncated"]).sum()),  # noqa: E712
             "pass_rate": float(gg["passed"].mean()) if len(gg) else None,
             "pass_rate_by_category": {c: float(x["passed"].mean()) for c, x in gg.groupby("category")},
             "metamorphic_consistency": consistency.get(model),

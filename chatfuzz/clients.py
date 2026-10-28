@@ -25,6 +25,7 @@ class ChatResponse:
     error: str | None = None
     status_code: int | None = None
     latency_s: float = 0.0
+    truncated: bool = False   # a resposta parou no limite de tokens
 
 
 class APIClient:
@@ -61,10 +62,12 @@ class APIClient:
                 status = r.status_code
                 if status == 200:
                     try:
-                        text = r.json()["choices"][0]["message"]["content"] or ""
+                        choice = r.json()["choices"][0]
+                        text = choice["message"]["content"] or ""
                     except (ValueError, KeyError, IndexError, TypeError):
                         return ChatResponse(self.spec, "", "malformed_response", status, time.time() - start)
-                    return ChatResponse(self.spec, text, None, status, time.time() - start)
+                    return ChatResponse(self.spec, text, None, status, time.time() - start,
+                                        truncated=choice.get("finish_reason") == "length")
                 error = f"http_{status}"
                 if status not in RETRY_STATUS:
                     break
@@ -84,6 +87,7 @@ class LocalClient:
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.tokenizer = AutoTokenizer.from_pretrained(model)
         self.model = AutoModelForCausalLM.from_pretrained(model).to(self.device).eval()
+        self.model.generation_config.max_length = None  # vale só max_new_tokens
         self.max_tokens = max_tokens
 
     def chat(self, prompt):
@@ -95,8 +99,10 @@ class LocalClient:
             with self.torch.no_grad():
                 out = self.model.generate(ids, max_new_tokens=self.max_tokens, do_sample=False,
                                           pad_token_id=self.tokenizer.eos_token_id)
-            text = self.tokenizer.decode(out[0, ids.shape[1]:], skip_special_tokens=True)
-            return ChatResponse(self.spec, text, None, None, time.time() - start)
+            new_tokens = out[0, ids.shape[1]:]
+            text = self.tokenizer.decode(new_tokens, skip_special_tokens=True)
+            truncated = len(new_tokens) >= self.max_tokens and new_tokens[-1] != self.tokenizer.eos_token_id
+            return ChatResponse(self.spec, text, None, None, time.time() - start, truncated=bool(truncated))
         except Exception as e:  # um crash do modelo é um achado, não deve parar o fuzzing
             return ChatResponse(self.spec, "", f"exception: {type(e).__name__}: {e}"[:300],
                                 None, time.time() - start)
