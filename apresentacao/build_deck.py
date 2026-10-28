@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera apresentacao.html e notas.md a partir dos slides em slides/.
+"""Gera apresentacao.html e notas.md (notas do apresentador) a partir dos slides em slides/.
 
 Uso: python apresentacao/build_deck.py apresentacao/slides apresentacao
 """
@@ -37,7 +37,7 @@ for i, sid in enumerate(deck["order"], 1):
         s = s.replace(f'src="{blob}"', f'src="{local}"')
     s = s.replace("<section ", '<section class="slide" ', 1)
     slides.append(f'<div class="frame">{s}</div>')
-page = f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>{deck['title']}</title>{fonts}
 <style>
 *{{box-sizing:border-box;margin:0}} body{{background:#2b2f38;padding:24px 0}}
@@ -53,4 +53,4 @@ th,td{{text-align:left;padding:.35em .6em;border-bottom:1px solid #DEDCD3}} tabl
 </body></html>"""
 out_dir.mkdir(parents=True, exist_ok=True)
 (out_dir / "apresentacao.html").write_text(page)
-(out_dir / "notas.md").write_text(f"# {deck['title']}: notas do apresentador\n\n> Conteúdo gerado por IA (Claude). Revise antes de usar.\n\n" + "\n".join(notes))
+(out_dir / "notas.md").write_text(f"# {deck['title']}: speaker notes\n\n> AI-generated content (Claude). Review before use.\n\n" + "\n".join(notes))

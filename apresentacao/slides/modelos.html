@@ -1,29 +1,29 @@
 <section id="modelos" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
 <div style="display:flex;flex-direction:column;gap:16px">
-<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Modelos usados</p>
-<h2 style="font-size:64px;font-weight:600;line-height:1.1">Dois classificadores de imagem e um tokenizer de texto</h2>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Models</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Two image classifiers and one text tokenizer</h2>
 </div>
 <div style="display:flex;gap:32px">
 <div style="flex:1;display:flex;flex-direction:column;gap:18px;background:#FFFFFF;border:1px solid #DEDCD3;border-top:6px solid #2560B8;border-radius:16px;padding:40px">
 <h3 style="font-size:40px;font-weight:600">ResNet-50</h3>
-<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Para que serve:</b> dizer qual objeto aparece numa foto, entre 1000 classes do ImageNet.</p>
-<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>Como:</b> rede convolucional de 50 camadas; filtros detectam bordas, texturas e formas.</p>
-<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.4;background:#F0EFE9;border-radius:8px;padding:16px">foto de um cachorro<br>→ "golden retriever"</p>
+<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Purpose:</b> identify the object in a photo among the 1,000 ImageNet classes.</p>
+<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>How:</b> a 50-layer convolutional network whose filters detect edges, textures and shapes.</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.4;background:#F0EFE9;border-radius:8px;padding:16px">photo of a dog<br>→ "golden retriever"</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:18px;background:#FFFFFF;border:1px solid #DEDCD3;border-top:6px solid #2560B8;border-radius:16px;padding:40px">
 <h3 style="font-size:40px;font-weight:600">ViT-Base</h3>
-<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Para que serve:</b> a mesma tarefa da ResNet, com as mesmas 1000 classes.</p>
-<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>Como:</b> corta a foto em quadrados de 16×16 pixels e usa atenção, a técnica dos modelos de linguagem.</p>
-<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.4;background:#F0EFE9;border-radius:8px;padding:16px">foto de uma xícara<br>→ "coffee mug"</p>
+<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Purpose:</b> the same task as ResNet-50, with the same 1,000 classes.</p>
+<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>How:</b> splits the photo into 16×16-pixel patches and applies attention, the technique behind language models.</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.4;background:#F0EFE9;border-radius:8px;padding:16px">photo of a mug<br>→ "coffee mug"</p>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:18px;background:#FFFFFF;border:1px solid #DEDCD3;border-top:6px solid #C4501E;border-radius:16px;padding:40px">
 <h3 style="font-size:40px;font-weight:600">Tokenizer</h3>
-<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Para que serve:</b> quebrar texto em pedaços (tokens) e trocar cada um por um número que o DistilBERT entende.</p>
-<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>Por que testar:</b> todo texto passa por ele antes do modelo.</p>
+<p style="font-size:26px;line-height:1.4;color:#161A22"><b>Purpose:</b> split text into pieces (tokens) and map each one to a number that DistilBERT understands.</p>
+<p style="font-size:26px;line-height:1.4;color:#4A5160"><b>Why test it:</b> every text passes through it before reaching the model.</p>
 <p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.4;background:#F0EFE9;border-radius:8px;padding:16px">"the cat is sleeping"<br>→ [CLS] the cat is sleeping [SEP]</p>
 </div>
 </div>
-<p style="font-size:26px;line-height:1.4;color:#4A5160">ResNet e ViT fazem a mesma tarefa com arquiteturas diferentes, o que permite comparar as duas com as mesmas imagens.</p>
-<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Exemplos de entrada e saída ilustrativos · Conteúdo gerado por IA · Fuzz Testing em ML · 5</p>
-<aside>Os três alvos vêm do Hugging Face. A ResNet-50 é uma rede convolucional clássica para reconhecer objetos em fotos. O ViT, Vision Transformer, faz exatamente a mesma tarefa, mas trata a imagem como uma sequência de quadradinhos, como se fossem palavras. O tokenizer do DistilBERT, uma versão compacta do BERT, transforma texto em números; se ele errar, tudo depois dele recebe a entrada errada. Os exemplos de entrada e saída são ilustrativos do uso normal de cada modelo.</aside>
+<p style="font-size:26px;line-height:1.4;color:#4A5160">ResNet and ViT perform the same task with different architectures, so both can be compared on identical images.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Illustrative input/output examples · AI-generated content · Fuzz Testing for ML · 5</p>
+<aside>All three targets come from Hugging Face. ResNet-50 is a classic convolutional network for recognizing objects in photos. ViT, the Vision Transformer, performs exactly the same task but treats the image as a sequence of small patches, much as a language model treats words. The DistilBERT tokenizer, DistilBERT being a compact version of BERT, turns text into numbers; if it fails, everything downstream receives the wrong input. The input and output examples illustrate normal use of each model.</aside>
 </section>

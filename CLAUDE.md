@@ -52,7 +52,8 @@ Não há suíte de testes unitários; a verificação é rodar os scripts (com `
 
 ## Convenções
 
-- Textos, comentários, saídas e docs em **português**; identificadores de código em inglês.
+- Textos, comentários, saídas do código, README e este arquivo em **português**; identificadores de código em inglês.
+- A apresentação e a doc do claude.ai estão em **inglês acadêmico** (pedido do usuário).
 - Parâmetros ajustáveis ficam como constantes no topo do script (`EPSILON`, `COV_THRESHOLD`) e também como flags de linha de comando.
 - Gráficos com matplotlib: fundo limpo, grade leve, uma cor de destaque (`#2a78d6`) e laranja (`#eb6834`) só para a segunda série.
 - Todo material de apresentação ou documento leva o aviso **"Conteúdo gerado por IA"**.
@@ -125,6 +126,7 @@ Tokenizer:
 4. Começar a apresentação explicando o que é fuzz testing em ML, os modelos e para que servem, como geramos os testes e os resultados → slide de introdução e slide de modelos reescrito (7 slides).
 5. Colocar a apresentação e este `CLAUDE.md` no repositório.
 6. "Os slides estão fracos": explicar fuzz testing em ML com exemplo e como funciona, os modelos e para que servem, como geramos os testes e os resultados → 12 slides com exemplos reais do teste (a imagem que enganou o ViT, as 6 mutações aplicadas a uma semente, os 6 bytes que quebraram o tokenizer) e um gráfico de cobertura e falhas a partir do `log.csv`.
+7. `/academic-writing` "reescreva em inglês" (escopo escolhido: apresentação + doc) → slides, notas, gráfico e doc reescritos em inglês acadêmico; código, README e este arquivo continuam em português.
 
 ## Decisões da apresentação
 
@@ -132,11 +134,12 @@ Tokenizer:
 - As mutações são mostradas no valor máximo da faixa e **antes** do corte em ε, senão ficariam invisíveis; o rodapé do slide avisa isso.
 - O esquema de neurônios do slide de cobertura é ilustrativo, e está marcado assim.
 - Os exemplos de entrada e saída dos modelos ("golden retriever", "coffee mug", tokens de "the cat is sleeping") são ilustrativos do uso normal, não saídas do teste.
-- Todo slide leva "Conteúdo gerado por IA" no rodapé; a capa tem o aviso completo.
+- Todo slide leva "AI-generated content" no rodapé; a capa tem o aviso completo.
+- Na versão em inglês, a doc segue a estrutura de artigo (Abstract, Introduction, Methods, Results, Discussion), responde às perguntas de pesquisa RQ1–RQ5, tem "Threats to validity", uma declaração de uso de IA (seção 7) e referências só aos trabalhos citados no texto. Os dados bibliográficos devem ser conferidos nas fontes originais.
 
 ## Material fora do repositório
 
-- Doc "Fuzz Testing em Machine Learning: como o teste foi feito": https://claude.ai/artifact/CbXwfNptHjc4N4oXic3kb4
+- Doc "Fuzz Testing for Machine Learning: Methods and Results" (em inglês): https://claude.ai/artifact/CbXwfNptHjc4N4oXic3kb4
 - Slides (versão editável): https://claude.ai/artifact/THjW9Rse5tPXpL5QcqJ296
 
 Ambos são privados até o dono compartilhar. A pasta `apresentacao/` é a cópia versionada dos slides.

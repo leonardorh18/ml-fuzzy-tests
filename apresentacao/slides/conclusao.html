@@ -1,17 +1,17 @@
 <section id="conclusao" data-transition="fade" style="background:#141821;color:#EEEDE8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
 <div style="display:flex;flex-direction:column;gap:16px">
-<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#6FA8F5;letter-spacing:2px;text-transform:uppercase">Conclusão</p>
-<h2 style="font-size:64px;font-weight:600;line-height:1.1;color:#EEEDE8">Respostas às perguntas do trabalho</h2>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#6FA8F5;letter-spacing:2px;text-transform:uppercase">Conclusion</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;color:#EEEDE8">Answers to the research questions</h2>
 </div>
 <table style="font-size:26px;color:#EEEDE8">
-<tr><th style="width:42%">Pergunta</th><th style="width:58%">Resposta</th></tr>
-<tr><td>Mudanças pequenas trocam a classe?</td><td>Sim no ViT: 9% dos mutantes, com ε = 0,08</td></tr>
-<tr><td>Qual mutação quebra mais?</td><td>Brilho: 42% de falha no ViT</td></tr>
-<tr><td>ResNet ou ViT é mais robusto?</td><td>Inconclusivo: pesos aleatórios</td></tr>
-<tr><td>Mais cobertura, mais falhas?</td><td>Não: correlação de −0,31</td></tr>
-<tr><td>O tokenizer aguenta qualquer texto?</td><td>O rápido sim; o em Python estoura o max_length</td></tr>
+<tr><th style="width:44%">Question</th><th style="width:56%">Answer</th></tr>
+<tr><td>Do small perturbations change the class?</td><td>Yes for ViT: 9% of mutants, with ε = 0.08</td></tr>
+<tr><td>Which mutation fails most often?</td><td>Brightness: 42% failure rate in ViT</td></tr>
+<tr><td>Is ResNet or ViT more robust?</td><td>Inconclusive: random weights</td></tr>
+<tr><td>Does more coverage find more failures?</td><td>No: r = −0.31</td></tr>
+<tr><td>Does the tokenizer handle any text?</td><td>The fast one did; the Python one exceeds max_length</td></tr>
 </table>
-<p style="font-size:30px;line-height:1.4;color:#EEEDE8"><b style="color:#6FA8F5">Próximo passo:</b> rodar com os pesos reais do Hugging Face e fotos de verdade.</p>
-<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Conteúdo gerado por IA · github.com/leonardorh18/ml-fuzzy-tests</p>
-<aside>Fechando com as cinco perguntas do início. Perturbações pequenas trocaram a classe no ViT; o brilho foi a mutação mais eficaz. A comparação entre ResNet e ViT fica inconclusiva: com pesos aleatórios, a ResNet sempre responde a mesma classe e o ViT está quase indeciso. A cobertura de neurônios não ajudou. E o fuzzing do tokenizer achou uma falha real de truncamento na versão em Python. O próximo passo é rodar tudo com os pesos treinados.</aside>
+<p style="font-size:30px;line-height:1.4;color:#EEEDE8"><b style="color:#6FA8F5">Next step:</b> rerun with the pretrained Hugging Face weights and natural photographs.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">AI-generated content · github.com/leonardorh18/ml-fuzzy-tests</p>
+<aside>To close, the five research questions from the start. Small perturbations changed the ViT's predictions, and brightness was the most effective mutation. The ResNet versus ViT comparison is inconclusive: with random weights, ResNet always returns the same class and the ViT is nearly undecided. Neuron coverage did not help. The tokenizer fuzzer found a genuine truncation failure in the Python implementation. The next step is to rerun everything with the trained weights.</aside>
 </section>

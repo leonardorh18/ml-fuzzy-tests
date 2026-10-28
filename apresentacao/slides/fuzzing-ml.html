@@ -1,33 +1,33 @@
 <section id="fuzzing-ml" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:44px">
 <div style="display:flex;flex-direction:column;gap:16px">
-<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Fuzz testing em machine learning</p>
-<h2 style="font-size:64px;font-weight:600;line-height:1.1">Em ML, a falha é o modelo mudar de ideia</h2>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Fuzz testing for machine learning</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">In ML, a failure is the model changing its mind</h2>
 </div>
 <div style="display:flex;gap:56px;align-items:start">
 <div style="display:flex;gap:24px">
 <div style="display:flex;flex-direction:column;gap:12px">
-<img src="/_blob/120cf16ccbd332b1c8200fd5daeb641a" alt="Imagem semente original, sintética: gradiente roxo em cima e faixa rosa embaixo" style="width:320px;height:320px;object-fit:cover;border-radius:12px">
+<img src="/_blob/120cf16ccbd332b1c8200fd5daeb641a" alt="Original synthetic seed image: purple gradient on top, pink band below" style="width:320px;height:320px;object-fit:cover;border-radius:12px">
 <p style="font-size:24px;font-weight:600">Original</p>
-<p style="font-size:24px;color:#4A5160">ViT: classe 614</p>
+<p style="font-size:24px;color:#4A5160">ViT: class 614</p>
 </div>
 <div style="display:flex;flex-direction:column;gap:12px">
-<img src="/_blob/d1b6699d0fc72a6869ec6a358a80c05d" alt="A mesma imagem com o brilho levemente reduzido, quase idêntica à original" style="width:320px;height:320px;object-fit:cover;border-radius:12px;border:4px solid #C4501E">
-<p style="font-size:24px;font-weight:600;color:#A8431A">Mutada (brilho)</p>
-<p style="font-size:24px;color:#A8431A"><b>ViT: classe 727</b></p>
+<img src="/_blob/d1b6699d0fc72a6869ec6a358a80c05d" alt="The same image with slightly lower brightness, nearly identical to the original" style="width:320px;height:320px;object-fit:cover;border-radius:12px;border:4px solid #C4501E">
+<p style="font-size:24px;font-weight:600;color:#A8431A">Mutated (brightness)</p>
+<p style="font-size:24px;color:#A8431A"><b>ViT: class 727</b></p>
 </div>
 <div style="display:flex;flex-direction:column;gap:12px">
-<img src="/_blob/48039fe240417fa9fffd11f87a121078" alt="Diferença entre as duas imagens ampliada seis vezes: cinza uniforme" style="width:320px;height:320px;object-fit:cover;border-radius:12px">
-<p style="font-size:24px;font-weight:600">Diferença ×6</p>
-<p style="font-size:24px;color:#4A5160">≈ 0,08 por pixel</p>
+<img src="/_blob/48039fe240417fa9fffd11f87a121078" alt="Difference between the two images magnified six times: uniform grey" style="width:320px;height:320px;object-fit:cover;border-radius:12px">
+<p style="font-size:24px;font-weight:600">Difference ×6</p>
+<p style="font-size:24px;color:#4A5160">≈ 0.08 per pixel</p>
 </div>
 </div>
 <div style="flex:1;display:flex;flex-direction:column;gap:24px">
-<h3 style="font-size:32px;font-weight:600">O que muda em relação ao fuzzing clássico</h3>
-<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#2560B8"><b>Entrada</b></p><p style="font-size:26px;line-height:1.4;color:#4A5160">imagens e textos levemente alterados</p></div>
-<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#2560B8"><b>Oráculo</b></p><p style="font-size:26px;line-height:1.4;color:#4A5160">o modelo raramente trava; falha é mudar a predição sem motivo</p></div>
-<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#2560B8"><b>Cobertura</b></p><p style="font-size:26px;line-height:1.4;color:#4A5160">neurônios ativados, não linhas de código</p></div>
+<h3 style="font-size:32px;font-weight:600">What changes from classical fuzzing</h3>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#2560B8"><b>Input</b></p><p style="font-size:26px;line-height:1.4;color:#4A5160">slightly perturbed images and text</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#2560B8"><b>Oracle</b></p><p style="font-size:26px;line-height:1.4;color:#4A5160">models rarely crash; a failure is an unjustified change in prediction</p></div>
+<div style="display:flex;flex-direction:column;gap:6px"><p style="font-size:24px;color:#2560B8"><b>Coverage</b></p><p style="font-size:26px;line-height:1.4;color:#4A5160">activated neurons, not lines of code</p></div>
 </div>
 </div>
-<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Exemplo real do nosso teste (iteração 20) · classes numeradas porque o ViT rodou com pesos aleatórios · Conteúdo gerado por IA · 3</p>
-<aside>Este é um exemplo real do nosso experimento. A imagem do meio é a da esquerda com o brilho levemente alterado; a diferença, ampliada seis vezes à direita, é de no máximo 0,08 por pixel. Para um humano são a mesma imagem, mas o ViT mudou a classe de 614 para 727. Isso é uma falha. Em ML o modelo quase nunca trava, então o oráculo é outro: a predição não deveria mudar com uma alteração tão pequena. E a cobertura passa a ser medida em neurônios ativados.</aside>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Real example from our run (iteration 20) · classes are numbered because the ViT ran with random weights · AI-generated content · 3</p>
+<aside>This is a real example from our experiment. The middle image is the left one with slightly altered brightness; the difference, magnified six times on the right, is at most 0.08 per pixel. To a human they are the same image, but the ViT changed its prediction from class 614 to class 727. That is a failure. In ML the model almost never crashes, so the oracle is different: the prediction should not change under such a small perturbation. Coverage, in turn, is measured in activated neurons.</aside>
 </section>
