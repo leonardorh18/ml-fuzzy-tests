@@ -40,6 +40,7 @@ experiments/grammar_coverage.py   # Ablação 1 (sem modelos)
 experiments/failure_diversity.py  # Ablação 2 (com modelos)
 tests/                        # 19 testes unitários da ferramenta (pytest)
 paper/                        # artigo SBC: main.tex, sections/*.tex, references.bib, sbc-template.sty, main.pdf
+referencias/                  # FICHARIO.md, METODO_DE_BUSCA.md, baixar_artigos.py (PDFs fora do git)
 research_notes/Trabalhos relacionados fuzzing de chatbots/   # notas da busca de literatura (4 temas)
 reports/Trabalhos relacionados fuzzing de chatbots.md        # bibliografia anotada consolidada, com status de verificação
 results_local/                # execução principal (no .gitignore)
@@ -95,8 +96,10 @@ cd paper && latexmk -pdf main.tex                         # compila o artigo
 
 ### Bibliografia
 
-- 47 referências em `paper/references.bib`, tiradas de `reports/Trabalhos relacionados fuzzing de chatbots.md`.
-- Verificação: maioria pelos registros de DOI (Crossref) e API do arXiv. **A conferir antes de entregar:** McKeeman 1998 (só parcialmente verificado), DOI do artigo TOSEM 2022 de k-paths, lista de autores do h4rm3l, citação oficial do Fuzzing Book. GPTFuzzer, IFEval e relatórios técnicos dos modelos são preprints (arXiv).
+- **20 referências** (pedido do grupo: no máximo 20; clássicos na base teórica, 2023–2026 no teste de LLMs). Lista, critérios e funil de seleção em `referencias/METODO_DE_BUSCA.md`; fichas com resumo de cada artigo em `referencias/FICHARIO.md`.
+- PDFs em `referencias/pdfs/` (fora do git por direitos autorais); `python referencias/baixar_artigos.py` baixa de novo. 18 de 20 baixados e conferidos pelo título; **sem cópia aberta:** McKeeman 1998 e Havrikov & Zeller 2019 (consultar pela biblioteca).
+- A conferir antes de entregar: dados bibliográficos do McKeeman 1998 (só confirmados por citações) e uma busca final no arXiv/DBLP para sustentar o "to our knowledge".
+- O relatório amplo da busca (≈90 trabalhos, status de verificação) continua em `reports/`; as referências cortadas estão listadas no método de busca e podem voltar.
 
 ## 6. Estado dos experimentos
 
@@ -145,6 +148,7 @@ Piloto (3 prompts por modelo, só para estimar tempo; não é resultado): Qwen/S
 13. Pediu o artigo com busca de literatura (agentes + deep research) → rascunho no claude.ai e bibliografia verificada.
 14. Pediu o artigo no **template SBC**, em `.tex` e `.pdf`, com commit → `paper/`.
 15. Pediu este arquivo atualizado com todas as decisões e contexto.
+16. Pediu no máximo 20 referências (clássicos + atuais), download dos artigos, fichário com resumos e o método de busca → `referencias/`.
 
 ## 11. Material fora do repositório
 
