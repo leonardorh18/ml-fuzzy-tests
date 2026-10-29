@@ -1,2 +1,132 @@
 \section{Results}\label{sec:results}
-\todo{Pending: filled when the experiments finish.}
+
+The main campaign took 53.9 minutes of model time for 510 replies. No reply produced a runtime error or was empty, so all findings below come from the ground-truth, differential, and metamorphic oracles. The 27 model--prompt pairs in which the same prompt string occurred twice received identical replies, which confirms that the setup is deterministic.
+
+\subsection{RQ1: Effectiveness}
+
+Of the 420 graded replies, 271 (64.5\%) failed their ground-truth oracle: 215 gave a wrong answer, 30 contained no parsable JSON object, 22 did not reproduce the payload, and 4 contained no number. Table~\ref{tab:passrates} and Figure~\ref{fig:passrate} show the pass rates. SmolLM2-360M and Qwen2.5-0.5B passed 47.1\% and 40.0\% of their prompts, a difference that is not significant on the same 140 prompts (McNemar, 21 vs.\ 11 discordant prompts, $p = 0.11$). TinyLlama-1.1B, the largest model, passed 19.3\%, significantly fewer than both ($p < 0.001$ for each comparison).
+
+\begin{table}[ht]
+\centering
+\caption{Pass rate (\%) by model and category in the main campaign, with 95\% Wilson intervals for the overall rate. $n$ is the number of graded prompts per model.}
+\label{tab:passrates}
+\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Model & \code{arith} & \code{count} & \code{reverse} & \code{json} & \code{echo} & Overall & Truncated \\
+ & $n{=}30$ & $n{=}30$ & $n{=}30$ & $n{=}30$ & $n{=}20$ & $n{=}140$ & of 170 \\
+\midrule
+Qwen2.5-0.5B & 33.3 & 36.7 & 0.0 & 100.0 & 25.0 & 40.0 [32.3, 48.3] & 3 \\
+SmolLM2-360M & 26.7 & 30.0 & 3.3 & 100.0 & 90.0 & 47.1 [39.1, 55.4] & 9 \\
+TinyLlama-1.1B & 10.0 & 30.0 & 0.0 & 0.0 & 75.0 & 19.3 [13.6, 26.6] & 25 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/pass_rate_by_category.pdf}
+\caption{Share of correct replies per category and model; error bars are 95\% Wilson intervals.}
+\label{fig:passrate}
+\end{figure}
+
+The failures fall into five kinds, which differ sharply between categories and models:
+\begin{itemize}
+  \item \textbf{Character-level manipulation.} String reversal was solved once in 90 attempts. In 21 of the 89 failures the model returned the input unchanged (11 by TinyLlama, 8 by SmolLM2), and in most others it produced a scrambled string of similar length. Letter counting succeeded in 30\% to 37\% of prompts; for the two \emph{a}'s of \emph{onomatopoeia}, the replies ranged from 0 to 35. These results extend to models below 1.1\,B parameters the character-level weakness reported for larger models \citep{edman2024cute}.
+  \item \textbf{Arithmetic.} Accuracy depended on operand size: 44.4\% of the replies were correct when both operands had fewer than four digits, against 9.3\% when at least one had six. Most wrong results (77\%) were within a factor of ten of the correct value (Qwen answered 627,000,000 for $569 \times 110834 = 63{,}064{,}546$), but some replies repeated an operand or concatenated the operands.
+  \item \textbf{Format violations.} TinyLlama never returned a bare JSON object: 25 of its 30 replies contained a valid object with the requested keys inside a Markdown code block surrounded by prose, and 5 wrote a Python function instead. Qwen and SmolLM2 returned valid JSON in all 60 replies. Across categories, TinyLlama often explained or wrote code instead of answering, for example a Python loop to count letters that never stated the count.
+  \item \textbf{Payload corruption.} In the \code{echo} category Qwen reproduced only 5 of 20 payloads. It replaced the \emph{woman technologist} emoji by \emph{man technologist} and appended an unrelated Chinese sentence, answered an Arabic greeting in Korean, and rephrased Japanese and Arabic text. SmolLM2 copied 18 of 20 payloads and TinyLlama 15. The only \code{echo} prompt that all models failed was the tab-separated string, whose tabs were turned into hyphens, spaces, or a description of the TSV format.
+  \item \textbf{Paraphrase sensitivity.} In 25 of 150 model--skeleton pairs (Qwen 12, TinyLlama 7, SmolLM2 6), the model answered some paraphrases correctly and others incorrectly. Table~\ref{tab:example} shows a case in which changing only the closing instruction changed Qwen's count.
+\end{itemize}
+
+\begin{table}[ht]
+\centering
+\caption{A metamorphic failure revealed by grammar paraphrases (expected answers: 3 for \emph{r}, 2 for \emph{t}).}
+\label{tab:example}
+\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}X ccc@{}}
+\toprule
+Prompt & Qwen & SmolLM2 & TinyLlama \\
+\midrule
+\emph{How many times does the letter 'r' appear in the word 'strawberry'? Give only the numeric result.} & \textbf{3} & 1 & -- \\
+\emph{In the word "strawberry", how many 'r' characters are there? Give only the numeric result.} & 1 & 4 & 2 \\
+\emph{Count the occurrences of the letter 'r' in 'strawberry'. Give only the numeric result.} & 10 & 1 & 1 \\
+\midrule
+\emph{In the word "strawberry", how many 't' characters are there? Give only the numeric result.} & 1 & 4 & \textbf{2} \\
+\emph{In the word "strawberry", how many 't' characters are there? Answer with only the number.} & \textbf{2} & 4 & \textbf{2} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The \code{edge} category, which has no expected answer, produced no runtime error or empty reply, so its automatic oracle found nothing. Manual inspection of its 90 replies found 33 benign replies, 29 hallucinated or wrong ones (e.g.\ a translation of \emph{naïve café résumé} as ``requerente de café náutico'', or a summary of the repeated string \emph{abab\ldots} as a sentence about the universe), 13 refusals (7 by Qwen and 6 by SmolLM2, often to harmless HTML markup), 12 degenerate repetition loops that ran to the token limit, and 3 replies by TinyLlama that leaked its chat-template marker \code{<|user|>}. Of the 37 truncated replies, 24 were \code{edge} replies.
+
+\textbf{Cost.} Mean latency per reply was 2.8\,s for Qwen, 2.7\,s for SmolLM2, and 13.6\,s for TinyLlama, whose verbose replies took 71\% of the campaign's model time. The campaign revealed about five ground-truth failures per minute of CPU time.
+
+\textbf{Answer to RQ1.} Grammar-based fuzzing revealed failures in 64.5\% of the graded replies, across all three models and all five verifiable categories, at a cost of under an hour of CPU time. The failures concentrate on character-level tasks and large operands; JSON output separates the models more than any other category; and paraphrasing alone exposes inconsistencies in up to a quarter of a model's skeletons.
+
+\subsection{RQ2: What the Differential and Metamorphic Oracles Add}
+
+Table~\ref{tab:oracles} compares, on the 360 replies of the four categories whose canonical answers are independent of the verdict, what the differential and metamorphic oracles would have flagged without ground truth. The differential oracle flagged 246 of the 249 failures (98.8\%), but 87 of its 333 flags (26.1\%) fell on correct replies. These false alarms arise because a disagreement marks every model, including the one that was right. Ground truth resolved these disagreements: among the 111 prompts with disagreeing answers, 34 had two correct models, 19 had exactly one, and 58 (52\%) had none, so picking the majority answer would often have been wrong as well. The metamorphic oracle was more precise (88.0\%) but less complete (79.5\%): it missed failures in which a model gave the same wrong answer to every paraphrase. Together, the two oracles missed one failure.
+
+\begin{table}[ht]
+\centering
+\caption{Oracles without ground truth, evaluated against the ground-truth verdict (360 replies, 249 failures; categories \code{arith}, \code{count}, \code{reverse}, \code{json}).}
+\label{tab:oracles}
+\footnotesize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Oracle & Flagged & Failures flagged & Recall (\%) & Precision (\%) \\
+\midrule
+Differential (across models) & 333 & 246 & 98.8 & 73.9 \\
+Metamorphic (across paraphrases) & 225 & 198 & 79.5 & 88.0 \\
+Either & 344 & 248 & 99.6 & 72.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Precision varied by category. It was highest for \code{reverse} (98.9\%), where nearly every reply was wrong, and lowest for \code{json} (33.3\%): every TinyLlama format failure made all three models disagree, so the two correct replies on each prompt were flagged as well. Only one prompt received the same wrong answer from all three models, which a purely differential oracle cannot see: all three counted one \emph{a} in \emph{onomatopoeia}, which has two. Sixty of the 140 graded prompts were failed by every model, but with different answers.
+
+\textbf{Answer to RQ2.} With three weak and diverse models, the differential oracle recovered almost all failures, but about one flag in four was a false alarm and it could not identify the faulty model, which in half of the disagreements was every model. The metamorphic oracle traded recall for precision. Ground truth was what turned both signals into verdicts; shared wrong answers, the blind spot of differential testing, were rare (1 prompt).
+
+\subsection{RQ3: Coverage Guidance}
+
+Figure~\ref{fig:coverage} and Table~\ref{tab:ablation} show Ablation~1. Both strategies covered about a third of the 41 grammar expansions after 6 prompts; afterwards coverage guidance pulled ahead, reaching 80\% after 24 prompts against 71\% for random expansion. Within 120 prompts, coverage guidance reached full coverage in 27 of 30 seeds (median 73 prompts), random expansion in only 4 of 30 (median 94 among those).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\linewidth]{figures/grammar_coverage.pdf}
+\caption{Mean grammar coverage over 30 seeds as prompts are generated (Ablation~1).}
+\label{fig:coverage}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\caption{Ablation results. Ablation~1: grammar coverage (mean of 30 seeds, 120 prompts each). Ablation~2: two models, 30 prompts per seed, mean over seeds 0--2 (values per seed in parentheses).}
+\label{tab:ablation}
+\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Metric & Random ($b=0$) & Guided ($b=0.8$) \\
+\midrule
+Coverage after 6 / 12 / 24 / 48 prompts (\%) & 33 / 51 / 71 / 86 & 34 / 59 / 80 / 92 \\
+Seeds reaching 100\% coverage within 120 prompts & 4 / 30 & 27 / 30 \\
+Median prompts to 100\% coverage & 94 & 73 \\
+\midrule
+Failures per seed (of 60 replies) & 30.0 (29, 28, 33) & 30.3 (31, 28, 32) \\
+Revealing rules & 21.7 (22, 18, 25) & 23.7 (21, 22, 28) \\
+Distinct failure signatures & 17.0 (18, 16, 17) & 18.7 (18, 18, 20) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In Ablation~2, coverage guidance did not change how many failures were found (30.0 vs.\ 30.3 per seed), because the failure rate is driven by the categories, which both strategies sample equally. It produced slightly more diverse failures: on average 2 more grammar expansions appeared in failing prompts and 1.7 more distinct failure signatures were observed. The guided condition had at least as many signatures as the random one in all three seeds and more revealing rules in two, but with three seeds and differences of one or two units these results are indicative only.
+
+\textbf{Answer to RQ3.} Coverage guidance clearly improves grammar coverage, reaching all expansions within 120 prompts in 27 of 30 seeds against 4 of 30. Its effect on failure diversity is in the same direction but small and not statistically established at our scale; it does not increase the number of failures.
+
+\subsection{RQ4: Oracle Reliability}
+
+On the stratified sample of 60 replies, the automatic verdict agreed with the content judgment in 57 cases (95.0\%, 95\% CI [86.3, 98.3]; Cohen's $\kappa = 0.89$). The oracle never accepted a reply the judgment rejected; all three disagreements were TinyLlama replies with a valid JSON object wrapped in prose, which the JSON oracle rejects and a reader accepts. Agreement was 100\% for \code{arith}, \code{count}, \code{reverse}, and \code{echo}, and 75\% for \code{json}. Against the strict judgment, which also requires the requested format, agreement was again 57 of 60, with the opposite error: the oracle accepted a correct result preceded by the restated expression, a correctly copied payload followed by a repetition loop, and a Japanese payload with an added full stop. Only 17 of the 60 replies (28\%) met the strict standard.
+
+The JSON oracle is thus the main source of oracle error, and its effect on Table~\ref{tab:passrates} is large. A lenient variant that accepts a JSON object embedded in text raises TinyLlama's \code{json} pass rate from 0\% to 83\% (25 of 30) and leaves the other models unchanged. We also observed one verdict that was right for the wrong reason: for a reply consisting of Python code, the numeric oracle extracted the 1 of \code{r\_count += 1}.
+
+\textbf{Answer to RQ4.} The heuristic oracles agreed with manual judgment on 95\% of the sample. Their errors are systematic rather than random: the numeric and echo oracles are lenient about extra text, the JSON oracle is strict, and the choice between leniency and strictness changes one model's result in one category from 0\% to 83\%.

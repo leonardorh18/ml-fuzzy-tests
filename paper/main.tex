@@ -5,6 +5,8 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
@@ -14,7 +16,7 @@
 
 \sloppy
 
-\title{Grammar-Based Differential Fuzzing of\\Hugging Face Chatbots}
+\title{Grammar-Based Fuzzing and Differential Testing of\\Small Hugging Face Chat Models:\\What It Finds and Where Its Oracles Fail}
 
 \author{\todo{Author 1}\inst{1}, \todo{Author 2}\inst{1}, \todo{Author 3}\inst{1}, \todo{Author 4}\inst{1}}
 
@@ -43,7 +45,7 @@
 \input{sections/conclusion}
 
 \section*{AI Use Disclosure}
-During the preparation of this work, the authors used Claude (Anthropic), through Claude Code, to implement the fuzzing tool and its unit tests, run the experiments, search and summarize related work, judge the oracle-validation sample, and draft this paper. All numerical results come from the runs described in Section~\ref{sec:setup} and can be reproduced with the scripts in the project repository. The authors are responsible for reviewing the content; bibliographic entries marked as unverified must be checked against the original sources before submission.
+During the preparation of this work, the authors used Claude (Anthropic), through Claude Code, to implement the fuzzing tool and its unit tests, run the experiments, search and summarize related work, judge the oracle-validation sample and label the \code{edge} replies, and draft this paper. These judgments have not yet been independently reviewed by the authors. All numerical results come from the runs described in Section~\ref{sec:setup} and can be reproduced with the scripts in the project repository. The authors are responsible for reviewing the content; bibliographic entries marked as unverified must be checked against the original sources before submission.
 
 \bibliographystyle{apalike}
 \bibliography{references}

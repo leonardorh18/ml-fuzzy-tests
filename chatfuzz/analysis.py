@@ -16,6 +16,9 @@ import pandas as pd
 from .oracles import check
 
 COMPARABLE = {"arith", "count", "reverse", "json", "echo"}
+# No echo a resposta canônica é o próprio veredito (True/False): "todos responderam False"
+# não é uma resposta errada compartilhada.
+CONSENSUS = COMPARABLE - {"echo"}
 
 
 def build_records(cases, responses):
@@ -63,7 +66,7 @@ def find_issues(df):
         if category not in COMPARABLE:
             continue
         answered = g[g["answer"].notna()]
-        if (len(answered) == len(g) > 1 and answered["answer"].nunique() == 1
+        if (category in CONSENSUS and len(answered) == len(g) > 1 and answered["answer"].nunique() == 1
                 and (answered["passed"] == False).all()):  # noqa: E712
             findings.append({"type": "consensus_wrong", "models": ", ".join(sorted(g["model"])),
                              "case_id": case_id, "category": category,

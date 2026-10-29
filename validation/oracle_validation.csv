@@ -1,0 +1,221 @@
+model,case_id,category,prompt,expected,response,auto_passed,reason,human_correct,format_ok,note
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0000-2,arith,"How much is 795772 minus 43450?
+Reply with just the final number.",752322,795772 - 43450 = 752322,True,ok,True,False,correct result after restating the expression
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0054-1,arith,Kindly compute -613 multiplied by 7. Reply with just the final number.,-4291,-613 multiplied by 7 equals 4901.,False,wrong_answer,False,False,wrong product and sign
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0024-1,arith,"Kindly calculate -397 * 962426.
+Reply with just the final number.",-382083122,-397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962426 = -397 * 962,False,wrong_answer,False,False,"degenerate repetition loop, no result"
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0018-1,arith,"Please compute 569 multiplied by 110834.
+Answer with only the number.",63064546,569 * 110834 = 609733363,False,wrong_answer,False,False,wrong product
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0001-2,count,Count the occurrences of the letter 'r' in 'strawberry'. Give only the numeric result.,3,1,False,wrong_answer,False,False,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0055-1,count,"Count the occurrences of the letter 'o' in 'bookkeeper'.
+Reply with just the final number.",2,1,False,wrong_answer,False,False,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0025-1,count,Count the occurrences of the letter 'i' in 'mississippi'. Answer with only the number.,4,1,False,wrong_answer,False,False,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0019-1,count,How many times does the letter 'r' appear in the word 'referrer'? Answer with only the number.,4,The letter 'r' appears 3 times in the word 'referrer'.,False,wrong_answer,False,False,"says 3, expected 4"
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0058-0,echo,"Repeat exactly the following text, without any change: مرحبا بالعالم","""مرحبا بالعالم""",مرحبا بالعالم,True,ok,True,True,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0004-1,echo,"Repeat exactly the following text, without any change: 👩‍💻🚀🇧🇷","""👩‍💻🚀🇧🇷""",👩‍💻🚀🇧🇷,True,ok,True,True,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0058-1,echo,Copy this text verbatim and reply with nothing else: مرحبا بالعالم,"""مرحبا بالعالم""",مرحبا بالعالم,True,ok,True,True,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0028-0,echo,"Repeat exactly the following text, without any change: 日本語のテキストです","""日本語のテキストです""",日本語のテキストです,True,ok,True,True,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0003-2,json,"Create a JSON object containing the fields ""age"", ""score"" and ""email"", with any values.
+Reply with JSON only.","[""age"", ""email"", ""score""]","{
+  ""age"": 25,
+  ""score"": 85,
+  ""email"": ""example@example.com""
+}",True,ok,True,True,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0057-1,json,"Create a JSON object containing the fields ""score"" and ""active"", with any values. Reply with JSON only.","[""active"", ""score""]","{
+  ""score"": 10,
+  ""active"": true
+}",True,ok,True,True,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0027-1,json,"Create a JSON object containing the fields ""active"" and ""name"", with any values.
+Reply with JSON only.","[""active"", ""name""]","{
+  ""active"": true,
+  ""name"": ""My Name""
+}",True,ok,True,True,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0021-1,json,"Return a JSON object with the keys ""tags"", ""id"", ""age"" and ""city"". Reply with JSON only.","[""age"", ""city"", ""id"", ""tags""]","{
+  ""tags"": [""tag1"", ""tag2"", ""tag3""],
+  ""id"": 1234567890,
+  ""age"": 25,
+  ""city"": ""New York""
+}",True,ok,True,True,
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0002-2,reverse,"Reverse the string 'T3em6KopZ'. Output only the reversed string, without quotes.","""ZpoK6me3T""",'Z6T3emKopT',False,wrong_answer,False,False,"wrong string, quoted despite instruction"
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0056-1,reverse,"Write 'JEcXIKJq' backwards. Output only the reversed string, without quotes.","""qJKIXcEJ""",'JEKIQJQ',False,wrong_answer,False,False,"wrong string, quoted"
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0026-1,reverse,"What is 'AXjU9' spelled in reverse order?
+Reply with the result only.","""9UjXA""",AXjU9,False,wrong_answer,False,False,returned the input unchanged
+local:HuggingFaceTB/SmolLM2-360M-Instruct,0020-1,reverse,"Write 'W2Cv' backwards.
+Reply with the result only.","""vC2W""",W2Cv,False,wrong_answer,False,False,returned the input unchanged
+local:Qwen/Qwen2.5-0.5B-Instruct,0000-2,arith,"How much is 795772 minus 43450?
+Reply with just the final number.",752322,752322,True,ok,True,True,
+local:Qwen/Qwen2.5-0.5B-Instruct,0054-1,arith,Kindly compute -613 multiplied by 7. Reply with just the final number.,-4291,-4291,True,ok,True,True,
+local:Qwen/Qwen2.5-0.5B-Instruct,0024-1,arith,"Kindly calculate -397 * 962426.
+Reply with just the final number.",-382083122,-3580160688,False,wrong_answer,False,False,
+local:Qwen/Qwen2.5-0.5B-Instruct,0018-1,arith,"Please compute 569 multiplied by 110834.
+Answer with only the number.",63064546,"627,000,000",False,wrong_answer,False,False,rounded guess
+local:Qwen/Qwen2.5-0.5B-Instruct,0001-2,count,Count the occurrences of the letter 'r' in 'strawberry'. Give only the numeric result.,3,10,False,wrong_answer,False,False,
+local:Qwen/Qwen2.5-0.5B-Instruct,0055-1,count,"Count the occurrences of the letter 'o' in 'bookkeeper'.
+Reply with just the final number.",2,4,False,wrong_answer,False,False,
+local:Qwen/Qwen2.5-0.5B-Instruct,0025-1,count,Count the occurrences of the letter 'i' in 'mississippi'. Answer with only the number.,4,4,True,ok,True,True,
+local:Qwen/Qwen2.5-0.5B-Instruct,0019-1,count,How many times does the letter 'r' appear in the word 'referrer'? Answer with only the number.,4,2,False,wrong_answer,False,False,
+local:Qwen/Qwen2.5-0.5B-Instruct,0058-0,echo,"Repeat exactly the following text, without any change: مرحبا بالعالم","""مرحبا بالعالم""",안녕하세요 세상,False,not_verbatim,False,False,replied in Korean instead of copying Arabic
+local:Qwen/Qwen2.5-0.5B-Instruct,0004-1,echo,"Repeat exactly the following text, without any change: 👩‍💻🚀🇧🇷","""👩‍💻🚀🇧🇷""",🚀👨‍💻落在巴西的中国青年们正在为实现中国梦而努力。,False,not_verbatim,False,False,woman emoji became man emoji; appended unrelated Chinese sentence
+local:Qwen/Qwen2.5-0.5B-Instruct,0058-1,echo,Copy this text verbatim and reply with nothing else: مرحبا بالعالم,"""مرحبا بالعالم""",مرحبًا بكم في العالم.,False,not_verbatim,False,False,rewrote the Arabic phrase
+local:Qwen/Qwen2.5-0.5B-Instruct,0028-0,echo,"Repeat exactly the following text, without any change: 日本語のテキストです","""日本語のテキストです""",日本語の文書です,False,not_verbatim,False,False,changed one word
+local:Qwen/Qwen2.5-0.5B-Instruct,0003-2,json,"Create a JSON object containing the fields ""age"", ""score"" and ""email"", with any values.
+Reply with JSON only.","[""age"", ""email"", ""score""]","```json
+{
+  ""age"": 25,
+  ""score"": 85,
+  ""email"": ""test@example.com""
+}
+```",True,ok,True,True,JSON in ```json fence (accepted)
+local:Qwen/Qwen2.5-0.5B-Instruct,0057-1,json,"Create a JSON object containing the fields ""score"" and ""active"", with any values. Reply with JSON only.","[""active"", ""score""]","```json
+{
+  ""score"": 85,
+  ""active"": true
+}
+```",True,ok,True,True,JSON in fence
+local:Qwen/Qwen2.5-0.5B-Instruct,0027-1,json,"Create a JSON object containing the fields ""active"" and ""name"", with any values.
+Reply with JSON only.","[""active"", ""name""]","```json
+{
+  ""active"": true,
+  ""name"": ""John Doe""
+}
+```",True,ok,True,True,JSON in fence
+local:Qwen/Qwen2.5-0.5B-Instruct,0021-1,json,"Return a JSON object with the keys ""tags"", ""id"", ""age"" and ""city"". Reply with JSON only.","[""age"", ""city"", ""id"", ""tags""]","```json
+{
+  ""tags"": [""AI"", ""Machine Learning"", ""Deep Learning""],
+  ""id"": ""123456"",
+  ""age"": 30,
+  ""city"": ""Beijing""
+}
+```",True,ok,True,True,JSON in fence
+local:Qwen/Qwen2.5-0.5B-Instruct,0002-2,reverse,"Reverse the string 'T3em6KopZ'. Output only the reversed string, without quotes.","""ZpoK6me3T""",m0s6Kop3eT,False,wrong_answer,False,False,
+local:Qwen/Qwen2.5-0.5B-Instruct,0056-1,reverse,"Write 'JEcXIKJq' backwards. Output only the reversed string, without quotes.","""qJKIXcEJ""",KJIuECXQ,False,wrong_answer,False,False,
+local:Qwen/Qwen2.5-0.5B-Instruct,0026-1,reverse,"What is 'AXjU9' spelled in reverse order?
+Reply with the result only.","""9UjXA""",AXjU9,False,wrong_answer,False,False,returned the input unchanged
+local:Qwen/Qwen2.5-0.5B-Instruct,0020-1,reverse,"Write 'W2Cv' backwards.
+Reply with the result only.","""vC2W""",V2CW,False,wrong_answer,False,False,
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0000-2,arith,"How much is 795772 minus 43450?
+Reply with just the final number.",752322,The final number is 795772.,False,wrong_answer,False,False,repeats an operand
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0054-1,arith,Kindly compute -613 multiplied by 7. Reply with just the final number.,-4291,"The final number obtained by multiplying -613 by 7 is 4,096.",False,wrong_answer,False,False,
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0024-1,arith,"Kindly calculate -397 * 962426.
+Reply with just the final number.",-382083122,The final number is 397.,False,wrong_answer,False,False,
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0018-1,arith,"Please compute 569 multiplied by 110834.
+Answer with only the number.",63064546,"569 x 110834 = 569,110834",False,wrong_answer,False,False,concatenated operands
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0001-2,count,Count the occurrences of the letter 'r' in 'strawberry'. Give only the numeric result.,3,"To count the occurrences of the letter 'r' in the string 'strawberry', we can use a loop and a conditional statement. Here's the code:
+
+```python
+r_count = 0
+for char in 'strawberry':
+    if char == 'r':
+        r_count += 1
+
+print(r_count)
+```
+
+This code iterates through each character in the string 'strawberry', and checks if it's the letter 'r'. If it is, the loop increments the `r_count` variable by 1. The final result is the sum of the occurrences of the letter 'r' in the string.",False,wrong_answer,False,False,"wrote Python code, never states the count; oracle took '1' from 'r_count += 1'"
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0055-1,count,"Count the occurrences of the letter 'o' in 'bookkeeper'.
+Reply with just the final number.",2,"To count the occurrences of the letter 'o' in the word ""bookkeeper"", we can use the following Python code:
+
+```python
+word = ""bookkeeper""
+count = 0
+
+for char in word:
+    if char == ""o"":
+        count += 1
+
+print(f""The final number of occurrences of the letter 'o' in '{word}' is {count}."")
+```
+
+This code first defines the word ""bookkeeper"" as a string variable. It then loops through each character in the word using the `for` loop. If the current character is the letter 'o', the loop increments the `count` variable by 1. Finally, the code prints the final number of occurrences of the letter 'o' in the word.",False,wrong_answer,False,False,"wrote Python code, never states the count"
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0025-1,count,Count the occurrences of the letter 'i' in 'mississippi'. Answer with only the number.,4,The number of occurrences of the letter 'i' in 'mississippi' is 1.,False,wrong_answer,False,False,
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0019-1,count,How many times does the letter 'r' appear in the word 'referrer'? Answer with only the number.,4,The letter 'r' appears only once in the word 'referrer'.,False,no_number,False,False,says 'once'
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0058-0,echo,"Repeat exactly the following text, without any change: مرحبا بالعالم","""مرحبا بالعالم""","مرحبا بالعالم
+
+مرحبا بالعالم هو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحبا بالعالم وهو مرحب",True,ok,True,False,"payload copied, then degenerate repetition loop"
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0004-1,echo,"Repeat exactly the following text, without any change: 👩‍💻🚀🇧🇷","""👩‍💻🚀🇧🇷""",👩‍💻🚀🇧🇷,True,ok,True,True,
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0058-1,echo,Copy this text verbatim and reply with nothing else: مرحبا بالعالم,"""مرحبا بالعالم""",مرحبا بالعالم,True,ok,True,True,
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0028-0,echo,"Repeat exactly the following text, without any change: 日本語のテキストです","""日本語のテキストです""",日本語のテキストです。,True,ok,True,False,payload copied plus an added Japanese full stop
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0003-2,json,"Create a JSON object containing the fields ""age"", ""score"" and ""email"", with any values.
+Reply with JSON only.","[""age"", ""email"", ""score""]","Here's a JSON object containing the fields ""age"", ""score"", and ""email"":
+
+```json
+{
+  ""age"": 25,
+  ""score"": 90,
+  ""email"": ""example@gmail.com""
+}
+```
+
+This JSON object is only containing the fields ""age"", ""score"", and ""email"". It does not include any additional fields.",False,invalid_json,True,False,"valid JSON with the keys inside a fence, surrounded by prose"
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0057-1,json,"Create a JSON object containing the fields ""score"" and ""active"", with any values. Reply with JSON only.","[""active"", ""score""]","Here's a JSON object containing the fields ""score"" and ""active"":
+
+```json
+{
+  ""score"": 100,
+  ""active"": true
+}
+```
+
+This JSON object represents a single user with a score of 100 and an active status of true.",False,invalid_json,True,False,valid JSON inside prose
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0027-1,json,"Create a JSON object containing the fields ""active"" and ""name"", with any values.
+Reply with JSON only.","[""active"", ""name""]","Here's a JSON object containing the fields ""active"" and ""name"":
+
+```json
+{
+  ""active"": true,
+  ""name"": ""John Doe""
+}
+```
+
+This JSON object is a simple representation of a JSON object with two fields, ""active"" and ""name"". It does not include any additional fields or properties.",False,invalid_json,True,False,valid JSON inside prose
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0021-1,json,"Return a JSON object with the keys ""tags"", ""id"", ""age"" and ""city"". Reply with JSON only.","[""age"", ""city"", ""id"", ""tags""]","Here's a Python function that returns a JSON object with the keys ""tags"", ""id"", ""age"" and ""city"":
+
+```python
+def get_json_data(data):
+    # Convert the data to a list of dictionaries
+    data_list = [dict(zip([""tags"", ""id"", ""age"", ""city""], row)) for row in data]
+
+    # Convert the list of dictionaries to a JSON string
+    return json.dumps(data_list)
+```
+
+Here's an example usage:
+
+```python
+import json
+
+data = [
+    {
+        ""tags"": [""dog"", ""cat"", ""bird""],
+        ""id"": 123,
+        ""age"": 3,
+        ""city"": ""New York""
+    },
+    {
+        ""tags"": [""cat"", ""dog"", ""bird""],
+        ""id"": 456,
+        ""age"": 5,
+        ""city"": ""Los Angeles""
+    },
+    {
+        ""tags"": [""dog"", ""bird""],
+        ""id"": 789,
+        ""age"": ",False,invalid_json,False,False,Python code instead of a JSON object
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0002-2,reverse,"Reverse the string 'T3em6KopZ'. Output only the reversed string, without quotes.","""ZpoK6me3T""","Here's a Python program that reverses a string:
+
+```python
+def reverse_string(s):
+    """"""
+    Reverse a string using the built-in Python function `reversed`.
+    """"""
+    return s[::-1]
+
+print(reverse_string(""T3em6KopZ""))  # Output: ""opzt3em6K""
+```
+
+This program uses the `reversed` function from the `string` module to reverse the string. The `::-1` syntax reverses the string from right to left, so the reversed string is ""opzt3em6K"".",False,wrong_answer,False,False,Python program; wrong claimed output
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0056-1,reverse,"Write 'JEcXIKJq' backwards. Output only the reversed string, without quotes.","""qJKIXcEJ""","""JEcXIKJq""",False,wrong_answer,False,False,returned the input unchanged
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0026-1,reverse,"What is 'AXjU9' spelled in reverse order?
+Reply with the result only.","""9UjXA""",'AXjU9' is spelled in reverse order as 'jU9ax'.,False,wrong_answer,False,False,
+local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0020-1,reverse,"Write 'W2Cv' backwards.
+Reply with the result only.","""vC2W""",W2Cv,False,wrong_answer,False,False,returned the input unchanged

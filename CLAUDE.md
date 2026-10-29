@@ -15,8 +15,8 @@ Trabalho final de uma disciplina de **teste de software / fuzzing**, em grupo de
 ### Entregas exigidas pelo enunciado da disciplina
 
 1. **Artefato de software** — `chatfuzz/` + `fuzz_chatbots.py` + `experiments/` + `tests/`. **Pronto.**
-2. **Avaliação experimental** — em andamento (ver seção 6).
-3. **Artigo científico** — estrutura exigida: title and abstract, introduction, background and related work, research questions and objectives, methodology, experimental setup, results, discussion, threats to validity and limitations, conclusion and future work, references. Em `paper/`, **template SBC**, em inglês. Faltam abstract, results, discussion, conclusion.
+2. **Avaliação experimental** — **concluída** (ver seção 6); falta revisão humana dos julgamentos manuais.
+3. **Artigo científico** — estrutura exigida: title and abstract, introduction, background and related work, research questions and objectives, methodology, experimental setup, results, discussion, threats to validity and limitations, conclusion and future work, references. Em `paper/`, **template SBC**, em inglês. **Versão completa** com números reais; faltam nomes dos autores e revisão humana. Mapa de evidências em `paper/MAPA_DE_EVIDENCIAS.md`.
 4. **Apresentação** — deve cobrir: (1) software alvo e problema, (2) pergunta de pesquisa e motivação, (3) técnicas, (4) implementação e desenho experimental, (5) resultados principais, (6) exemplo de falha/discrepância, (7) conclusões e limitações. **Não feita ainda** para o projeto novo.
 
 O enunciado pede ir além de rodar um fuzzer: formular pergunta de pesquisa, desenhar a estratégia, experimentar, analisar e tirar conclusões **sobre a eficácia e as limitações da técnica** (não só sobre os modelos).
@@ -38,6 +38,9 @@ chatfuzz/oracles.py           # oráculos por categoria e resposta canônica
 chatfuzz/analysis.py          # diferencial, metamórfico, consenso errado, resumo, gráfico
 experiments/grammar_coverage.py   # Ablação 1 (sem modelos)
 experiments/failure_diversity.py  # Ablação 2 (com modelos)
+experiments/paper_stats.py        # todas as estatísticas e figuras do artigo -> results_local/paper_stats.json, paper/figures/
+experiments/sample_validation.py  # sorteia a amostra da RQ4
+validation/                   # oracle_validation.csv (RQ4, 60 respostas julgadas) e edge_labels.csv (90 respostas edge rotuladas)
 tests/                        # 19 testes unitários da ferramenta (pytest)
 paper/                        # artigo SBC: main.tex, sections/*.tex, references.bib, sbc-template.sty, main.pdf
 referencias/                  # FICHARIO.md, METODO_DE_BUSCA.md, baixar_artigos.py (PDFs fora do git)
@@ -101,27 +104,30 @@ cd paper && latexmk -pdf main.tex                         # compila o artigo
 - A conferir antes de entregar: dados bibliográficos do McKeeman 1998 (só confirmados por citações) e uma busca final no arXiv/DBLP para sustentar o "to our knowledge".
 - O relatório amplo da busca (≈90 trabalhos, status de verificação) continua em `reports/`; as referências cortadas estão listadas no método de busca e podem voltar.
 
-## 6. Estado dos experimentos
+## 6. Estado dos experimentos (todos concluídos)
 
-| Experimento | Estado | Resultado |
-| --- | --- | --- |
-| Execução principal (`results_local/`, 60 esqueletos × 3 paráfrases × 3 modelos = 540 respostas, semente 0) | Rodando em segundo plano no momento desta escrita (≈441/540) | — |
-| Ablação 1 (`results_ablation/grammar_coverage.json`, 30 sementes, 120 prompts) | **Concluída** | Guiada (b=0,8): cobertura 34/59/80/92% após 6/12/24/48 prompts, 100% em 27/30 sementes (mediana 73 prompts). Aleatória (b=0): 33/51/71/86%, 100% em só 4/30 sementes (mediana 94). |
-| Ablação 2 (diversidade de falhas, Qwen + SmolLM, sementes 0–2, 30 esqueletos × 1, b ∈ {0, 0,8}) | **Não rodada** (esperando a principal terminar, para não disputar CPU) | — |
-| Validação dos oráculos (RQ4) | **Não feita** | Plano: amostra estratificada (≈60 respostas, equilibrada por categoria e modelo) de `records.csv`, julgamento manual vs. veredito automático. |
+Números completos em `results_local/paper_stats.json` (`python experiments/paper_stats.py`).
 
-Piloto (3 prompts por modelo, só para estimar tempo; não é resultado): Qwen/SmolLM ≈1–2 s por prompt em CPU, TinyLlama 3–10 s (até ≈40 s quando chega a 256 tokens).
+| Experimento | Resultado |
+| --- | --- |
+| Principal (`results_local/`, semente 0, b=0,8): 60 esqueletos → **170 prompts** (echo só admite 2 paráfrases; 161 strings distintas) → **510 respostas**, 420 avaliadas | 271 falhas (64,5%). Acerto: Qwen 40,0%, SmolLM2 47,1%, TinyLlama 19,3% (McNemar: Qwen×SmolLM p=0,11; ambos > TinyLlama p<0,001). Inversão 1/90. JSON: TinyLlama 0/30 (JSON dentro de prosa). Echo: Qwen 5/20. 25/150 pares modelo–esqueleto com acerto misto entre paráfrases. 0 erros/vazios. 1 consenso errado (*onomatopoeia*). 53,9 min de CPU. 27 prompts repetidos deram resposta idêntica (determinismo). |
+| RQ2 (sem resposta conhecida, 360 respostas) | Diferencial: recall 98,8%, precisão 73,9%. Metamórfico: 79,5% / 88,0%. Em 58 de 111 divergências nenhum modelo acertou. |
+| Ablação 1 (30 sementes) | Guiada: 34/59/80/92% após 6/12/24/48 prompts, 100% em 27/30. Aleatória: 33/51/71/86%, 4/30. |
+| Ablação 2 (Qwen+SmolLM, sementes 0–2) | Falhas 30,0 vs 30,3; regras reveladoras 21,7 vs 23,7; assinaturas 17,0 vs 18,7 (aleatória vs guiada). Diferença pequena, indicativa. |
+| RQ4 (60 respostas) | 57/60 = 95%, κ=0,89. As 3 discordâncias: TinyLlama com JSON válido dentro de prosa (oráculo estrito). JSON tolerante: TinyLlama 83%. Critério estrito (formato): 17/60. |
+| `edge` (90 respostas, rótulo manual) | 33 benignas, 29 alucinadas/erradas, 13 recusas, 12 loops de repetição, 3 vazamentos de `<|user|>`. |
+
+**Julgamentos manuais (RQ4 e edge) foram feitos pela IA** e precisam de revisão humana; isso está declarado no artigo.
+
+Mudança de código nesta etapa: `consensus_wrong` deixou de considerar `echo` (a resposta canônica do echo é o próprio veredito); `findings.csv` foi regenerado.
 
 ## 7. Próximos passos (em ordem)
 
-1. Esperar `results_local/responses.jsonl` chegar a 540 linhas; a análise roda sozinha e gera `summary.json`, `findings.csv`, `records.csv`, `acerto_por_categoria.png`. Se o processo tiver morrido: `python fuzz_chatbots.py --cases 60 --variants 3 --seed 0 --out results_local --resume`.
-2. Rodar a Ablação 2 (comando na seção 4).
-3. RQ4: sortear a amostra, julgar cada resposta, calcular concordância oráculo × julgamento.
-4. Escolher um exemplo real de falha/discrepância (para o artigo e a apresentação).
-5. Preencher `paper/sections/{abstract,results,discussion,conclusion}.tex` com os números reais; gerar figuras em `paper/figures/` (gráfico de cobertura da Ablação 1, acerto por categoria). Recompilar e commitar `main.pdf`.
-6. Fazer a apresentação com os 7 pontos do enunciado (o deck antigo no claude.ai é sobre o projeto anterior; pode ser reaproveitado como artefato, substituindo os slides).
-7. Pedir os nomes do grupo e substituir os `\todo` do artigo.
-8. Conferir as referências marcadas como não verificadas.
+1. Revisão humana de `validation/oracle_validation.csv` e `validation/edge_labels.csv` (idealmente um segundo avaliador).
+2. Pedir os nomes do grupo e substituir os `\todo` do artigo.
+3. Fazer a apresentação com os 7 pontos do enunciado (exemplo de falha: Tabela 6 do artigo, *strawberry*; ou emoji trocado pelo Qwen).
+4. Conferir McKeeman 1998 e Havrikov & Zeller 2019 na biblioteca; busca final no arXiv/DBLP para o "to our knowledge".
+5. Atualizar o rascunho no claude.ai (ainda tem 47 referências e seções vazias) ou descartá-lo.
 
 ## 8. Convenções
 
@@ -149,6 +155,7 @@ Piloto (3 prompts por modelo, só para estimar tempo; não é resultado): Qwen/S
 14. Pediu o artigo no **template SBC**, em `.tex` e `.pdf`, com commit → `paper/`.
 15. Pediu este arquivo atualizado com todas as decisões e contexto.
 16. Pediu no máximo 20 referências (clássicos + atuais), download dos artigos, fichário com resumos e o método de busca → `referencias/`.
+17. Pediu o artigo completo como pesquisador sênior, baseado só em evidências, com mapa de evidências e marcadores de lacunas → Ablação 2, RQ4, análise do `edge`, `paper_stats.py`, artigo inteiro reescrito, `paper/MAPA_DE_EVIDENCIAS.md`.
 
 ## 11. Material fora do repositório
 

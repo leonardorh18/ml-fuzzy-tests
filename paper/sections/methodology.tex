@@ -1,10 +1,33 @@
 \section{Methodology}\label{sec:method}
 
-Our tool, \code{chatfuzz}, has four parts: a grammar-based prompt generator, chatbot clients, oracles, and an analysis stage that applies the differential and metamorphic relations. All code and unit tests are in the project repository.
+Our tool, \code{chatfuzz}, has four stages (Figure~\ref{fig:pipeline}): a grammar-based prompt generator, chatbot clients, oracles, and an analysis stage that applies the differential and metamorphic relations. The code, the grammar, and 19 unit tests are in the project repository.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[node distance=4mm and 6mm, font=\footnotesize,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=9mm, inner sep=3pt},
+  arr/.style={-{Stealth[length=2mm]}}]
+\node[box] (sk) {Skeleton\\{\scriptsize category + values}\\{\scriptsize $\Rightarrow$ expected answer}};
+\node[box, right=of sk] (gr) {Grammar\\{\scriptsize coverage-guided}\\{\scriptsize derivations}};
+\node[box, right=of gr] (pp) {Paraphrases\\{\scriptsize $v_1, v_2, v_3$}};
+\node[box, right=of pp] (md) {Models\\{\scriptsize $M_1, M_2, M_3$}\\{\scriptsize greedy decoding}};
+\node[box, below=7mm of md] (or) {Ground-truth\\oracle\\{\scriptsize canonical answers}};
+\node[box, left=of or] (df) {Differential\\{\scriptsize across models}};
+\node[box, left=of df] (mt) {Metamorphic\\{\scriptsize across paraphrases}};
+\node[box, left=of mt] (fd) {Findings\\{\scriptsize + summary}};
+\draw[arr] (sk) -- (gr); \draw[arr] (gr) -- (pp); \draw[arr] (pp) -- (md);
+\draw[arr] (md) -- node[right, font=\scriptsize]{replies} (or);
+\draw[arr] (or) -- (df);
+\draw[arr] (df) -- (mt); \draw[arr] (mt) -- (fd);
+\draw[arr, dashed] (sk.west) -- ++(-3mm,0) |- ([yshift=-4mm]or.south) -- (or.south);
+\end{tikzpicture}
+\caption{The \code{chatfuzz} pipeline. The expected answer travels with the test case (dashed arrow) and is never shown to the models.}
+\label{fig:pipeline}
+\end{figure}
 
 \subsection{Test Case Generation}
 
-Each test case starts from a \emph{skeleton}: a task category and randomly drawn values, such as the operands of an arithmetic expression. Because the values are stored, every test case knows its expected answer. A context-free grammar then derives the wording of the request. Deriving the same skeleton several times yields \emph{paraphrases} that must receive the same answer. The grammar has one start symbol per category (Table~\ref{tab:categories}).
+Each test case starts from a \emph{skeleton}: a task category and randomly drawn values, such as the operands of an arithmetic expression. Because the values are stored, every test case knows its expected answer. A context-free grammar then derives the wording of the request, filling nonterminals such as \code{<a>} and \code{<word>} from the skeleton's values. Deriving the same skeleton several times yields \emph{paraphrases} that must receive the same answer. The grammar has 16 nonterminals with 41 expansions in total, including one start symbol per category (Table~\ref{tab:categories}). For example, \code{<arith>} has three top-level templates, the operation word depends on the drawn operation (\code{+} or \emph{plus}; \code{*}, \emph{times}, or \emph{multiplied by}), and the closing instruction has three variants (\emph{Answer with only the number}, \emph{Reply with just the final number}, \emph{Give only the numeric result}).
 
 \begin{table}[ht]
 \centering
@@ -15,33 +38,35 @@ Each test case starts from a \emph{skeleton}: a task category and randomly drawn
 \toprule
 Category & Example prompt & Oracle \\
 \midrule
-\code{arith} & \emph{What is 4 multiplied by 101? Give only the numeric result.} & last integer in the reply equals the result \\
-\code{count} & \emph{How many times does the letter 'e' appear in the word 'referrer'?} & integer equals the true count \\
-\code{reverse} & \emph{Reverse the string 'NhFLOv2mp'. Reply with the result only.} & normalized reply equals the reversed string \\
-\code{json} & \emph{Return a JSON object with the keys "city" and "tags". Reply with JSON only.} & reply parses as a JSON object with the requested keys \\
+\code{arith} & \emph{How much is 795772 minus 43450? Reply with just the final number.} & last integer in the reply equals the result \\
+\code{count} & \emph{How many times does the letter 'r' appear in the word 'strawberry'?} & last integer equals the true count \\
+\code{reverse} & \emph{Write 'W2Cv' backwards. Reply with the result only.} & reply, stripped of quotes and final period, equals the reversed string \\
+\code{json} & \emph{Return a JSON object with the keys "age", "score" and "email". Reply with JSON only.} & reply (optionally inside a Markdown code fence) parses as a JSON object with the requested keys \\
 \code{echo} & \emph{Repeat exactly the following text, without any change:} followed by emoji, right-to-left or invisible characters & payload appears verbatim in the reply \\
 \code{edge} & \emph{Translate to Portuguese:} followed by a hard Unicode payload & no runtime error and a non-empty reply \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-Operands mix one-digit, three-digit, six-digit, and negative numbers. Letters for \code{count} are drawn mostly from the word and sometimes from outside it, so that the expected count is zero. The \code{echo} and \code{edge} payloads include combining emoji, right-to-left script, zero-width characters, ligatures, markup, and a 300-character repetition.
+Operands mix one-digit, three-digit, six-digit, and negative numbers, and the operation is addition, subtraction, or multiplication. Words for \code{count} come from a list of ten words with repeated letters (e.g., \emph{strawberry}, \emph{mississippi}, \emph{referrer}); the letter is drawn from the word with probability 0.85 and from outside it otherwise, so that the expected count can be zero. Strings for \code{reverse} are 4 to 12 random letters and digits, which avoids words a model could have memorized. JSON requests ask for two to four keys out of eight. The \code{echo} and \code{edge} categories draw from 12 payloads: combining emoji (\emph{woman technologist}, a rocket, and a flag), Arabic and Japanese text, zero-width spaces, ligatures, accented words, mathematical symbols, a tab-separated string, a two-line string, a JSON snippet, HTML markup, and a 300-character repetition. The generator applies no automatic capitalization or normalization, because doing so altered the payloads (it turned the ligature \emph{ﬁ} into \emph{FI}).
 
-\subsection{Coverage-Guided Expansion}
+The grammar guarantees that every prompt is well formed and states a task whose answer follows from the skeleton. It does not guarantee that the prompt is unambiguous to a model, nor that a model's tokenizer represents the payload faithfully; these properties are what the tests probe. The \code{edge} category is deliberately different: its requests (summarize, translate, or repeat a hard payload, or the bare payload) have no expected answer, so only the implicit oracle of errors and empty replies applies, complemented by manual inspection.
 
-When a nonterminal has several expansions, the generator chooses an expansion that has not yet been used with probability $b$ (\code{coverage\_bias}, 0.8 by default), and a uniformly random one otherwise. This follows the grammar coverage fuzzer of \citet{zeller2024fuzzingbook} and corresponds to 1-path grammar coverage \citep{havrikov2019kpath}. Grammar coverage is the fraction of all (nonterminal, expansion) pairs used so far. Paraphrases of a skeleton must differ in their words, not only in whitespace.
+\subsection{Coverage-Guided Expansion and Paraphrases}
+
+When a nonterminal has several expansions, the generator chooses an expansion not yet used with probability $b$ (\code{coverage\_bias}, 0.8 by default) and a uniformly random one otherwise. This follows the grammar coverage fuzzer of \citet{zeller2024fuzzingbook} and corresponds to 1-path grammar coverage \citep{havrikov2019kpath}. Grammar coverage is the fraction of the 41 (nonterminal, expansion) pairs used so far. For each skeleton, the generator draws up to $k$ derivations and keeps only those whose words differ from the derivations already kept, ignoring whitespace; a variant that differs only in a line break tests nothing. If the grammar cannot produce $k$ distinct wordings for a category, fewer paraphrases are kept. Generation is seeded, so the same seed and parameters reproduce the same prompts, and each test case records the grammar expansions used to derive it.
 
 \subsection{Chatbot Clients}
 
-Models are addressed as \code{local:<model>} or \code{api:<model>}. Local models are downloaded from the Hugging Face Hub and run with the \code{transformers} library, using the model's own chat template and greedy decoding, so that each prompt has a single deterministic reply. The API client sends OpenAI-compatible chat completion requests to the Hugging Face Inference Providers router. Runtime errors, timeouts, and malformed replies are recorded as data rather than raised. A reply that stops at the token limit is flagged as truncated.
+Models are addressed as \code{local:<model>} or \code{api:<model>}. Local models are downloaded from the Hugging Face Hub and run with the \code{transformers} library, using the model's own chat template, a single user turn without a system prompt, and greedy decoding, so that each prompt has a single deterministic reply. The API client sends OpenAI-compatible chat completion requests to the Hugging Face Inference Providers router and retries on rate limits, server errors, and timeouts. Both clients record runtime errors, timeouts, and malformed replies as data rather than raising them, and flag a reply that stops at the token limit as truncated.
 
 \subsection{Oracles and Analysis}
 
-The analysis applies three kinds of oracle:
+The analysis applies three kinds of oracle, matching the taxonomy of \citet{barr2015oracle}:
 \begin{enumerate}
-  \item \textbf{Ground-truth oracles} check each reply against the expected answer of its category (Table~\ref{tab:categories}) and extract a \emph{canonical answer}: an integer, a normalized string, the sorted key list of a JSON object, or a Boolean for \code{echo}.
-  \item \textbf{Differential oracle.} The same prompt is sent to every model. Different canonical answers produce a \emph{differential disagreement}, which names the models that are wrong when the expected answer is known; a model that fails at runtime while others reply produces a \emph{differential error}. When all models give the same wrong answer, the analysis reports a \emph{consensus-wrong} prompt, a case that a purely differential oracle cannot detect \citep{zhang2023sac3}.
-  \item \textbf{Metamorphic oracle.} For each model, the paraphrases of one skeleton must yield the same canonical answer; otherwise the tool reports a \emph{metamorphic inconsistency}.
+  \item \textbf{Ground-truth (specified) oracles} check each reply against the expected answer of its category (Table~\ref{tab:categories}) and extract a \emph{canonical answer}: an integer, a normalized string, the sorted key list of a JSON object, or a Boolean for \code{echo}. The numeric oracle takes the last integer in the reply because models often restate the expression before the result; it accepts thousands separators and the Unicode minus sign.
+  \item \textbf{Differential oracle.} The same prompt is sent to every model. Different canonical answers produce a \emph{differential disagreement}, which also names the models that are wrong when the expected answer is known; a model that fails at runtime while others reply produces a \emph{differential error}. When all models give the same wrong answer, the analysis reports a \emph{consensus-wrong} prompt, a case that a purely differential oracle cannot detect \citep{zhang2023sac3}.
+  \item \textbf{Metamorphic (derived) oracle.} For each model, the paraphrases of one skeleton must yield the same canonical answer; otherwise the tool reports a \emph{metamorphic inconsistency}.
 \end{enumerate}
 
-The tool reports, per model, the pass rate by category, metamorphic consistency, pairwise disagreement between models, and the number of runtime errors and truncated replies.
+Greedy decoding removes sampling as a source of discrepancy, so a disagreement between paraphrases or models cannot be explained by chance on a fixed software stack. Two other sources of spurious discrepancy remain, and the design handles them explicitly: replies cut at the token limit are flagged and counted separately, and differences in surface form are reduced by comparing canonical answers rather than raw text. For \code{echo}, the canonical answer is the oracle's verdict itself, so we exclude \code{echo} from the consensus-wrong check and from the oracle comparison of RQ2. The tool reports, per model, the pass rate by category, metamorphic consistency, pairwise disagreement between models, and the number of runtime errors and truncated replies.

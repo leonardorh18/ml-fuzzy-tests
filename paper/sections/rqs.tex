@@ -1,12 +1,29 @@
 \section{Research Questions and Objectives}\label{sec:rqs}
 
-Our objective is to assess whether grammar-based fuzzing combined with differential and metamorphic oracles is an effective way to reveal failures in open chat LLMs, and where the approach falls short. We address four research questions:
+Our objective is to assess whether grammar-based fuzzing combined with differential and metamorphic oracles is an effective way to reveal functional failures in small open chat models, and where the approach falls short. We address four research questions. Table~\ref{tab:rqs} lists, for each one, the metrics and the data that answer it.
 
 \begin{description}
-  \item[RQ1 (Effectiveness).] How many failures, and of which kinds, does grammar-based fuzzing reveal in small open chat models from the Hugging Face Hub?
-  \item[RQ2 (Oracles).] What do the differential (cross-model) and metamorphic (cross-paraphrase) oracles add beyond oracles that rely on a known expected answer?
-  \item[RQ3 (Guidance).] Does coverage-guided grammar expansion improve grammar coverage and the diversity of revealed failures compared with uniform random expansion under the same budget?
-  \item[RQ4 (Oracle reliability).] How often do the heuristic oracles misjudge a response, as measured on a manually inspected sample?
+  \item[RQ1 (Effectiveness).] How many failures, and of which kinds, does grammar-based fuzzing reveal in small open chat models from the Hugging Face Hub, and at what cost? \emph{Motivation:} a technique is only worth adopting if it finds failures that matter at a cost a developer can afford.
+  \item[RQ2 (Oracles).] What do the differential (cross-model) and metamorphic (cross-paraphrase) oracles add beyond oracles that rely on a known expected answer? \emph{Motivation:} for most real prompts no expected answer exists, so the practical value of the approach depends on these two oracles. Because our prompts do have an expected answer, we can measure their recall and precision instead of assuming them.
+  \item[RQ3 (Guidance).] Does coverage-guided grammar expansion improve grammar coverage and the diversity of revealed failures compared with uniform random expansion under the same budget? \emph{Motivation:} coverage guidance is the main design choice of the generator and has a cost in implementation complexity.
+  \item[RQ4 (Oracle reliability).] How often do the automatic oracles misjudge a response, as measured on a manually inspected sample? \emph{Motivation:} every number in RQ1--RQ3 depends on heuristic oracles; RQ4 bounds their error.
 \end{description}
 
-RQ1 and RQ2 characterize what the approach finds, RQ3 evaluates a design choice of the generator, and RQ4 bounds the validity of the reported numbers.
+\begin{table}[ht]
+\centering
+\caption{Research questions, metrics, and data sources.}
+\label{tab:rqs}
+\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\toprule
+RQ & Metrics & Data \\
+\midrule
+RQ1 & failures by type and category; pass rate per model with 95\% Wilson intervals; paired McNemar tests between models; replies cut at the token limit; latency & main campaign \\
+RQ2 & recall and precision of the differential and metamorphic flags against the ground-truth verdict; prompts on which all models give the same wrong answer & main campaign, verifiable categories \\
+RQ3 & grammar coverage after $n$ prompts; prompts to full coverage; failures, revealing rules, and distinct failure signatures & Ablations 1 and 2 \\
+RQ4 & agreement and Cohen's $\kappa$ between automatic verdict and manual judgment & stratified sample of 60 responses \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+We state no directional hypotheses for RQ1, RQ2, and RQ4, which are descriptive. For RQ3, the hypothesis implied by prior work \citep{zeller2024fuzzingbook,havrikov2019kpath} is that coverage guidance reaches full grammar coverage with fewer prompts; it would be refuted if random expansion reached full coverage as often and as fast. Whether higher grammar coverage also yields more diverse failures is an open question that Ablation~2 explores without enough seeds for a significance test.
