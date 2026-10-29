@@ -1,0 +1,81 @@
+% sbc-template.sty -- reimplementation of the SBC conference paper format.
+%
+% Written for this project because the official sbc-template.sty could not be
+% downloaded in the build environment. Every rule below follows the official
+% "Instructions for Authors of SBC Conferences Papers and Abstracts" (template v2017):
+%   A4, single column, margins 3.5 cm top / 2.5 cm bottom / 3.0 cm sides,
+%   no headers, footers or page numbers; Times 12 pt, 6 pt before each paragraph;
+%   title 16 pt bold centered with 12 pt before; authors 12 pt bold centered,
+%   12 pt after the title; addresses 12 pt centered, 12 pt after the authors;
+%   e-mails Courier 10 pt with 6 pt before and after; abstract/resumo 12 pt,
+%   indented 0.8 cm on both sides, preceded by a bold "Abstract."/"Resumo.";
+%   section titles 13 pt bold flush left with 12 pt extra space before;
+%   subsection titles 12 pt bold; first paragraph of a section not indented,
+%   following paragraphs indented 1.27 cm; captions Helvetica 10 pt bold, 6 pt
+%   before and after, centered if one line, otherwise justified and indented
+%   0.8 cm on both sides; references 12 pt, 6 pt before each, hanging indent 0.5 cm,
+%   citations as [Knuth 1984].
+% The official file can replace this one without changes to main.tex.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sbc-template}[2026/10/29 SBC conference format (reimplementation)]
+
+\RequirePackage[a4paper,top=3.5cm,bottom=2.5cm,left=3cm,right=3cm,
+                headheight=0pt,headsep=0pt,footskip=0pt]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{mathptmx}          % Times
+\RequirePackage[scaled=0.92]{helvet}
+\RequirePackage{courier}
+\RequirePackage{titlesec}
+\RequirePackage{caption}
+\RequirePackage[square,authoryear]{natbib}
+
+% --- page -------------------------------------------------------------------
+\pagestyle{empty}
+\AtBeginDocument{\thispagestyle{empty}}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{1.27cm}
+
+% --- sections ---------------------------------------------------------------
+\titleformat{\section}{\fontsize{13}{15}\selectfont\bfseries}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt}{0pt}
+\titleformat{\subsection}{\fontsize{12}{14}\selectfont\bfseries}{\thesubsection.}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{0pt}
+\titleformat{\subsubsection}{\fontsize{12}{14}\selectfont\bfseries}{\thesubsubsection.}{0.5em}{}
+\titlespacing*{\subsubsection}{0pt}{6pt}{0pt}
+
+% --- captions ---------------------------------------------------------------
+\DeclareCaptionFont{sbcten}{\fontsize{10}{12}\selectfont}
+\captionsetup{font={sf,bf,sbcten},labelsep=period,justification=justified,
+              singlelinecheck=true,margin=0.8cm,skip=6pt}
+
+% --- title block ------------------------------------------------------------
+\def\@address{}
+\newcommand{\address}[1]{\gdef\@address{#1}}
+\newcommand{\email}[1]{\par\vspace{6pt}{\fontsize{10}{12}\selectfont\ttfamily #1}\par\vspace{6pt}}
+\renewcommand{\maketitle}{%
+  \begin{center}
+    \vspace*{-12pt}\vspace{12pt}%
+    {\fontsize{16}{19}\selectfont\bfseries \@title\par}
+    \vspace{12pt}
+    {\fontsize{12}{14}\selectfont\bfseries \@author\par}
+    \vspace{12pt}
+    {\fontsize{12}{14}\selectfont \@address\par}
+  \end{center}%
+  \thispagestyle{empty}}
+
+% --- abstract and resumo ----------------------------------------------------
+\renewenvironment{abstract}%
+  {\list{}{\leftmargin=0.8cm\rightmargin=0.8cm\listparindent=0pt\topsep=6pt}%
+   \item\relax\itshape\textbf{Abstract.}\ }%
+  {\endlist}
+\newenvironment{resumo}%
+  {\list{}{\leftmargin=0.8cm\rightmargin=0.8cm\listparindent=0pt\topsep=6pt}%
+   \item\relax\itshape\textbf{Resumo.}\ }%
+  {\endlist}
+
+% --- references -------------------------------------------------------------
+\setcitestyle{square,aysep={},yysep={,},citesep={,}}
+\setlength{\bibsep}{6pt}
+\setlength{\bibhang}{0.5cm}
+\renewcommand{\bibsection}{\section*{\refname}}
+\renewcommand{\bibfont}{\fontsize{12}{14}\selectfont}

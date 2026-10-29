@@ -1,0 +1,12 @@
+\section{Research Questions and Objectives}\label{sec:rqs}
+
+Our objective is to assess whether grammar-based fuzzing combined with differential and metamorphic oracles is an effective way to reveal failures in open chat LLMs, and where the approach falls short. We address four research questions:
+
+\begin{description}
+  \item[RQ1 (Effectiveness).] How many failures, and of which kinds, does grammar-based fuzzing reveal in small open chat models from the Hugging Face Hub?
+  \item[RQ2 (Oracles).] What do the differential (cross-model) and metamorphic (cross-paraphrase) oracles add beyond oracles that rely on a known expected answer?
+  \item[RQ3 (Guidance).] Does coverage-guided grammar expansion improve grammar coverage and the diversity of revealed failures compared with uniform random expansion under the same budget?
+  \item[RQ4 (Oracle reliability).] How often do the heuristic oracles misjudge a response, as measured on a manually inspected sample?
+\end{description}
+
+RQ1 and RQ2 characterize what the approach finds, RQ3 evaluates a design choice of the generator, and RQ4 bounds the validity of the reported numbers.

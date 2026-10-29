@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\todo}[1]{\textcolor{red}{[#1]}}
+
+\sloppy
+
+\title{Grammar-Based Differential Fuzzing of\\Hugging Face Chatbots}
+
+\author{\todo{Author 1}\inst{1}, \todo{Author 2}\inst{1}, \todo{Author 3}\inst{1}, \todo{Author 4}\inst{1}}
+
+\newcommand{\inst}[1]{\textsuperscript{#1}}
+
+\address{\inst{1}\todo{Department -- University}\\
+  \todo{City -- State -- Brazil}
+  \email{\todo{\{author1,author2,author3,author4\}@university.br}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/related}
+\input{sections/rqs}
+\input{sections/methodology}
+\input{sections/setup}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/threats}
+\input{sections/conclusion}
+
+\section*{AI Use Disclosure}
+During the preparation of this work, the authors used Claude (Anthropic), through Claude Code, to implement the fuzzing tool and its unit tests, run the experiments, search and summarize related work, judge the oracle-validation sample, and draft this paper. All numerical results come from the runs described in Section~\ref{sec:setup} and can be reproduced with the scripts in the project repository. The authors are responsible for reviewing the content; bibliographic entries marked as unverified must be checked against the original sources before submission.
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}

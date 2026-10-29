@@ -1,0 +1,11 @@
+\section{Threats to Validity and Limitations}\label{sec:threats}
+
+\textbf{Construct validity.} The ground-truth oracles rely on heuristics: the numeric oracle takes the last integer in the reply, and the reversal oracle strips quotes and punctuation. A verbose but correct reply can therefore be judged wrong, and vice versa; RQ4 measures this error on a sample. The differential oracle compares canonical answers, so two semantically equivalent replies with different surface forms can count as a disagreement. The \code{edge} category only checks for runtime errors and empty replies, so it cannot reveal wrong answers.
+
+\textbf{Internal validity.} Greedy decoding makes each local model deterministic for a given software stack, but results may change with other library versions or hardware. Replies cut at the 256-token limit are flagged, and failures among them are reported separately rather than discarded. The oracle validation covers a sample, not all responses, and the manual judgments were made with AI assistance (see the AI use disclosure).
+
+\textbf{External validity.} We tested three small models (360\,M to 1.1\,B parameters) running locally. Larger models, models served through the API, and other providers may behave very differently, and our pass rates should not be read as statements about chat LLMs in general. The prompts are in English and cover six task categories; they do not represent open-ended conversation.
+
+\textbf{Conclusion validity.} The main campaign uses one grammar seed, and the failure-diversity ablation uses three, so differences between conditions in Ablation~2 are indicative rather than statistically established. Ablation~1, which needs no models, uses 30 seeds.
+
+\textbf{Naturalness of generated prompts.} Grammar-derived prompts are well formed but templated; real users phrase requests more freely. The grammar's coverage of phrasings is limited to the expansions we wrote.

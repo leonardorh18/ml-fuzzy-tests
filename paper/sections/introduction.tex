@@ -1,0 +1,16 @@
+\section{Introduction}
+
+Chat models built on large language models (LLMs) are now components of ordinary software: they answer questions, transform text, and produce structured output that other programs parse. Hundreds of open chat models are distributed through the Hugging Face Hub, many of them small enough to run on a laptop. Like any component, they need testing, but they are hard to test with classical techniques. They rarely crash, so a crash oracle reveals little; their input language is natural language, which has no parser to fuzz; and for most prompts there is no single correct output, which makes the test-oracle problem acute \citep{barr2015oracle}.
+
+Fuzzing research offers two tools for exactly these obstacles. Grammar-based fuzzing generates large numbers of structured, valid inputs from a grammar \citep{holler2012langfuzz}, and grammar coverage can guide generation when the internals of the system under test cannot be observed \citep{havrikov2019kpath}. Differential testing replaces a missing specification by comparing several implementations on the same input \citep{mckeeman1998differential}, and metamorphic testing replaces it by comparing a system's outputs on related inputs \citep{chen1998metamorphic}. Yet existing LLM fuzzers target jailbreaks rather than functional failures \citep{yu2023gptfuzzer,yao2024fuzzllm}, and metamorphic frameworks for LLMs compare each model only against itself \citep{hyun2024metal,cho2025metamorphic}.
+
+In this project we ask whether combining these techniques yields an effective way to find functional failures in open chat models. We built \code{chatfuzz}, a fuzzer whose context-free grammar generates \emph{verifiable} prompts: arithmetic, letter counting, string reversal, JSON formatting, verbatim echo of hard Unicode text, and free-form requests. Each derivation carries its expected answer and can be re-derived as paraphrases. The same prompts are sent to several chat models, so three oracles apply at once: correctness against ground truth, agreement across models, and invariance across paraphrases.
+
+This paper makes the following contributions:
+\begin{enumerate}
+  \item A grammar-based, coverage-guided fuzzer for chat models that generates paraphrase families with built-in ground truth, supporting local Hugging Face models and the Hugging Face Inference Providers API.
+  \item An analysis that combines ground-truth, differential, and metamorphic oracles and reports which model is wrong when models disagree, as well as prompts on which all models agree on a wrong answer.
+  \item An empirical evaluation on three small open chat models (Qwen2.5-0.5B-Instruct, SmolLM2-360M-Instruct, and TinyLlama-1.1B-Chat), including an ablation of coverage guidance and a manual check of oracle reliability.
+\end{enumerate}
+
+Section~\ref{sec:related} reviews related work, Section~\ref{sec:rqs} states the research questions, Sections~\ref{sec:method} and~\ref{sec:setup} describe the method and the experimental setup, Section~\ref{sec:results} reports the results, Section~\ref{sec:discussion} discusses them, Section~\ref{sec:threats} covers threats to validity, and Section~\ref{sec:conclusion} concludes.
