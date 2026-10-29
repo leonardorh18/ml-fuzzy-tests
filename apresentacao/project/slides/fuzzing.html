@@ -1,0 +1,38 @@
+<section id="fuzzing" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">What is fuzz testing</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Feeding a system generated inputs until something breaks</h2>
+</div>
+<div style="display:flex;gap:64px">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:32px;line-height:1.45;color:#4A5160">Instead of writing test cases by hand, a program (the <b>fuzzer</b>) generates thousands of inputs automatically and observes how the system behaves.</p>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-left:6px solid #2560B8;border-radius:12px;padding:36px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8">Classic example</p>
+<p style="font-size:28px;line-height:1.45;color:#161A22">A PDF reader receives thousands of slightly corrupted files. One of them crashes the program: a bug found before a user, or an attacker, finds it.</p>
+</div>
+</div>
+<div style="width:600px;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:12px;padding:20px 28px">
+<h3 style="font-size:28px;font-weight:600">1. Generate an input</h3>
+<p style="font-size:24px;color:#4A5160">at random, or by mutating an existing one</p>
+</div>
+<x-connector head="end" style="width:2px;height:28px;align-self:center;color:#8A90A0;border-width:3px"></x-connector>
+<div style="display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:12px;padding:20px 28px">
+<h3 style="font-size:28px;font-weight:600">2. Run the system</h3>
+<p style="font-size:24px;color:#4A5160">and record what it exercised</p>
+</div>
+<x-connector head="end" style="width:2px;height:28px;align-self:center;color:#8A90A0;border-width:3px"></x-connector>
+<div style="display:flex;flex-direction:column;gap:4px;background:#FBEDE6;border:2px solid #C4501E;border-radius:12px;padding:20px 28px">
+<h3 style="font-size:28px;font-weight:600">3. Check: did it fail?</h3>
+<p style="font-size:24px;color:#4A5160">the rule that decides is the <b>oracle</b></p>
+</div>
+<x-connector head="end" style="width:2px;height:28px;align-self:center;color:#8A90A0;border-width:3px"></x-connector>
+<div style="display:flex;flex-direction:column;gap:4px;background:#E6EEF9;border:2px solid #2560B8;border-radius:12px;padding:20px 28px">
+<h3 style="font-size:28px;font-weight:600">4. Keep it if it explored something new</h3>
+<p style="font-size:24px;color:#4A5160">guided by <b>coverage</b>; repeat thousands of times</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">AI-generated content · Fuzz Testing for ML · 2</p>
+<aside>Fuzz testing means testing with inputs that are generated automatically and in bulk. The classic example is a file reader: the fuzzer corrupts valid files in thousands of ways until one of them crashes the program. Modern fuzzers such as AFL and libFuzzer are coverage-guided: they record which parts of the program each input executed and keep the inputs that reached new code, so that they can mutate them further. Two concepts will appear throughout the talk: the oracle, which decides whether a failure occurred, and coverage, which guides the search.</aside>
+</section>

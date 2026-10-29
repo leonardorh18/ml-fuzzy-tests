@@ -1,0 +1,24 @@
+<section id="rqs" data-transition="fade" style="background:#F7F6F2;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;color:#2A78D6">2 · RESEARCH QUESTIONS AND MOTIVATION</p>
+<h2 style="font-size:64px;font-weight:700;line-height:1.1">Is grammar fuzzing + differential testing effective — and what limits it?</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:32px;border-left:6px solid #2A78D6;border-radius:8px">
+<h3 style="font-size:32px;font-weight:600">RQ1 · Effectiveness</h3>
+<p style="font-size:26px;line-height:1.35;color:#3F4A5A">How many failures, of which kinds, and at what cost?</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:32px;border-left:6px solid #2A78D6;border-radius:8px">
+<h3 style="font-size:32px;font-weight:600">RQ2 · Oracles</h3>
+<p style="font-size:26px;line-height:1.35;color:#3F4A5A">What do differential and metamorphic oracles add beyond a known answer?</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:32px;border-left:6px solid #EB6834;border-radius:8px">
+<h3 style="font-size:32px;font-weight:600">RQ3 · Guidance</h3>
+<p style="font-size:26px;line-height:1.35;color:#3F4A5A">Does coverage-guided expansion beat random expansion?</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:32px;border-left:6px solid #EB6834;border-radius:8px">
+<h3 style="font-size:32px;font-weight:600">RQ4 · Oracle reliability</h3>
+<p style="font-size:26px;line-height:1.35;color:#3F4A5A">How often do the automatic oracles misjudge a reply?</p>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#3F4A5A"><b style="color:#14213D">Motivation:</b> existing LLM fuzzers target jailbreaks, and metamorphic frameworks compare a model only with itself. Nobody measured how often these oracles are right.</p>
+<aside>Quatro perguntas. RQ1 e RQ2 descrevem o que a técnica encontra; RQ3 avalia uma escolha de projeto do gerador; RQ4 mede o erro dos próprios oráculos, que sustenta todos os outros números. A motivação: fuzzers de LLM hoje miram jailbreak, e frameworks metamórficos comparam o modelo consigo mesmo — ninguém mediu quanto esses oráculos acertam.</aside>
+</section>

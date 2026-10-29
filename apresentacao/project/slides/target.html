@@ -1,0 +1,24 @@
+<section id="target" data-transition="fade" style="background:#F7F6F2;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;color:#2A78D6">1 · TARGET SOFTWARE AND PROBLEM</p>
+<h2 style="font-size:72px;font-weight:700;line-height:1.1">Chat models are components, but hard to test</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:40px;border:1px solid #DCD9D0;border-radius:16px">
+<x-icon name="Chat" style="color:#2A78D6;width:56px;height:56px"></x-icon>
+<h3 style="font-size:36px;font-weight:600">They rarely crash</h3>
+<p style="font-size:28px;line-height:1.4;color:#3F4A5A">A crash oracle, the engine of most fuzzers, reveals almost nothing.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:40px;border:1px solid #DCD9D0;border-radius:16px">
+<x-icon name="Code" style="color:#2A78D6;width:56px;height:56px"></x-icon>
+<h3 style="font-size:36px;font-weight:600">Input is natural language</h3>
+<p style="font-size:28px;line-height:1.4;color:#3F4A5A">No parser whose structure a fuzzer could exploit.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:40px;border:1px solid #DCD9D0;border-radius:16px">
+<x-icon name="Search" style="color:#2A78D6;width:56px;height:56px"></x-icon>
+<h3 style="font-size:36px;font-weight:600">No single right answer</h3>
+<p style="font-size:28px;line-height:1.4;color:#3F4A5A">The test-oracle problem at its most acute.</p>
+</div>
+</div>
+<p style="font-size:32px;line-height:1.4;color:#3F4A5A"><b style="color:#14213D">Systems under test:</b> three small open chat models from the Hugging Face Hub — Qwen2.5-0.5B-Instruct, SmolLM2-360M-Instruct, TinyLlama-1.1B-Chat — run locally with <span style="font-family:'JetBrains Mono', monospace">transformers</span>.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">The hosted HF API client is implemented but was not used (no access token).</p>
+<aside>O alvo são modelos de chat abertos do Hugging Face. Eles viram componentes de software, mas três coisas dificultam o teste: quase não travam, a entrada é linguagem natural e quase nunca existe uma única resposta certa. Deixem claro que testamos os modelos rodando localmente, não a API hospedada, porque não havia token.</aside>
+</section>

@@ -1,0 +1,33 @@
+<section id="mutacoes" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Experimento 1 · Parâmetros</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Seis mutações, todas limitadas a ε = 0,08</h2>
+</div>
+<div style="display:flex;gap:64px">
+<table style="flex:1;font-size:28px;color:#161A22">
+<tr><th style="width:24%">Mutação</th><th style="width:44%">O que faz</th><th style="width:32%">Faixa</th></tr>
+<tr><td>ruído</td><td>soma ruído gaussiano</td><td>σ de 0,01 a 0,1</td></tr>
+<tr><td>brilho</td><td>soma uma constante</td><td>−0,15 a +0,15</td></tr>
+<tr><td>contraste</td><td>afasta pixels da média</td><td>fator 0,7 a 1,3</td></tr>
+<tr><td>rotação</td><td>gira a imagem</td><td>−15° a +15°</td></tr>
+<tr><td>blur</td><td>desfoque gaussiano</td><td>kernel 3 a 7</td></tr>
+<tr><td>patch</td><td>pinta um quadrado sólido</td><td>1/16 a 1/5 do lado</td></tr>
+</table>
+<div style="width:560px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<h3 style="font-size:32px;font-weight:600;color:#2560B8">ε = 0,08 (L∞)</h3>
+<p style="font-size:24px;line-height:1.4;color:#4A5160">nenhum pixel se afasta mais de ~20 níveis (de 255) da semente original</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<h3 style="font-size:32px;font-weight:600;color:#2560B8">Cobertura (DeepXplore)</h3>
+<p style="font-size:24px;line-height:1.4;color:#4A5160">ativações normalizadas por camada; neurônio coberto acima de 0,5</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<h3 style="font-size:32px;font-weight:600;color:#2560B8">Oráculo</h3>
+<p style="font-size:24px;line-height:1.4;color:#4A5160">classe do mutante diferente da classe da semente; sem rótulos manuais</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Fuzz Testing em ML · 6</p>
+<aside>As faixas das mutações são sorteadas a cada iteração. Repare que a projeção vem depois da mutação: uma rotação de 15 graus muda muito alguns pixels, mas a projeção corta essas mudanças para no máximo 0,08. Isso vai explicar parte dos resultados. A cobertura segue a definição do DeepXplore.</aside>
+</section>

@@ -1,0 +1,24 @@
+<section id="objetivo" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Objetivo</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Encontrar entradas que fazem um modelo errar</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:72px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:32px;line-height:1.45;color:#4A5160">Fuzzing gera entradas automaticamente e procura <b>falhas</b>: exceções, propriedades violadas ou predições que mudam sem motivo.</p>
+<p style="font-size:32px;line-height:1.45;color:#4A5160">Em ML, mudam duas ideias do fuzzing clássico: a <b>cobertura</b> (código ou neurônios) e o <b>oráculo</b> (crash ou relação metamórfica).</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:48px">
+<h3 style="font-size:32px;font-weight:600">Perguntas do trabalho</h3>
+<ul style="font-size:28px;line-height:1.4;color:#4A5160">
+<li>Perturbações pequenas mudam a classe prevista?</li>
+<li>Quais mutações quebram mais o modelo?</li>
+<li>CNN (ResNet) ou Transformer (ViT): qual é mais robusto?</li>
+<li>Mais cobertura de neurônios encontra mais falhas?</li>
+<li>O tokenizer aguenta qualquer texto Unicode?</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Fuzz Testing em ML · 2</p>
+<aside>A ideia central do fuzzing é gerar entradas automaticamente até achar uma que quebre o sistema. Em ML, o que muda é como medimos a exploração (cobertura de neurônios em vez de linhas de código) e como decidimos se houve falha (o oráculo). Estas são as cinco perguntas que o trabalho tenta responder.</aside>
+</section>

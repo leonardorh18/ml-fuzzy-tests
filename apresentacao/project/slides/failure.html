@@ -1,0 +1,21 @@
+<section id="failure" data-transition="fade" style="background:#14213D;color:#F7F6F2;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;color:#8FB8F0">6 · A CONCRETE FAILURE</p>
+<h2 style="font-size:64px;font-weight:700;line-height:1.1;color:#F7F6F2">Same task, three wordings, three answers</h2>
+<table style="font-size:28px;color:#F7F6F2;font-family:'IBM Plex Sans', Arial, sans-serif">
+<tr><th style="width:73%;text-align:left">Prompt to Qwen2.5-0.5B (expected: 3)</th><th style="width:27%;text-align:right">Answer</th></tr>
+<tr><td>How many times does the letter ‘r’ appear in the word ‘strawberry’? Give only the numeric result.</td><td style="text-align:right;color:#7FD3A8">3 · correct</td></tr>
+<tr><td>In the word “strawberry”, how many ‘r’ characters are there? Give only the numeric result.</td><td style="text-align:right;color:#F2B880">1 · wrong</td></tr>
+<tr><td>Count the occurrences of the letter ‘r’ in ‘strawberry’. Give only the numeric result.</td><td style="text-align:right;color:#F2B880">10 · wrong</td></tr>
+</table>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1F2F52;padding:32px;border-radius:12px">
+<h3 style="font-size:30px;font-weight:600;color:#F7F6F2">Only the closing instruction changed</h3>
+<p style="font-size:26px;line-height:1.35;color:#C9D3E3">Counting ‘t’: “Give only the numeric result” → 1, “Answer with only the number” → 2.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1F2F52;padding:32px;border-radius:12px">
+<h3 style="font-size:30px;font-weight:600;color:#F7F6F2">Asked to copy 👩‍💻🚀🇧🇷</h3>
+<p style="font-size:26px;line-height:1.35;color:#C9D3E3">Qwen returned a <i>man</i> technologist and appended an unrelated Chinese sentence.</p>
+</div>
+</div>
+<aside>Este é o exemplo de falha pedido. A mesma pergunta sobre "strawberry", em três formas geradas pela gramática, recebeu 3, 1 e 10 do Qwen. A resposta muda até quando só a instrução final muda. É uma falha que só o oráculo metamórfico nomeia, e vira um relatório de bug reproduzível: dois prompts, mesma tarefa, respostas diferentes. O segundo exemplo mostra corrupção de Unicode: o emoji de mulher virou homem.</aside>
+</section>

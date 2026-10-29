@@ -17,7 +17,7 @@ Trabalho final de uma disciplina de **teste de software / fuzzing**, em grupo de
 1. **Artefato de software** — `chatfuzz/` + `fuzz_chatbots.py` + `experiments/` + `tests/`. **Pronto.**
 2. **Avaliação experimental** — **concluída** (ver seção 6); falta revisão humana dos julgamentos manuais.
 3. **Artigo científico** — estrutura exigida: title and abstract, introduction, background and related work, research questions and objectives, methodology, experimental setup, results, discussion, threats to validity and limitations, conclusion and future work, references. Em `paper/`, **template SBC**, em inglês. **Versão completa** com números reais; faltam nomes dos autores e revisão humana. Mapa de evidências em `paper/MAPA_DE_EVIDENCIAS.md`.
-4. **Apresentação** — deve cobrir: (1) software alvo e problema, (2) pergunta de pesquisa e motivação, (3) técnicas, (4) implementação e desenho experimental, (5) resultados principais, (6) exemplo de falha/discrepância, (7) conclusões e limitações. **Não feita ainda** para o projeto novo.
+4. **Apresentação** — deve cobrir: (1) software alvo e problema, (2) pergunta de pesquisa e motivação, (3) técnicas, (4) implementação e desenho experimental, (5) resultados principais, (6) exemplo de falha/discrepância, (7) conclusões e limitações. **Feita:** https://claude.ai/artifact/F8jSSUJkvwYhfuJ6PWvjc1 (11 slides em inglês, notas em português; cópia em `apresentacao/`). Faltam os nomes dos autores na capa.
 
 O enunciado pede ir além de rodar um fuzzer: formular pergunta de pesquisa, desenhar a estratégia, experimentar, analisar e tirar conclusões **sobre a eficácia e as limitações da técnica** (não só sobre os modelos).
 
@@ -43,6 +43,7 @@ experiments/sample_validation.py  # sorteia a amostra da RQ4
 validation/                   # oracle_validation.csv (RQ4, 60 respostas julgadas) e edge_labels.csv (90 respostas edge rotuladas)
 tests/                        # 19 testes unitários da ferramenta (pytest)
 paper/                        # artigo SBC: main.tex, sections/*.tex, references.bib, sbc-template.sty, main.pdf
+apresentacao/                 # cópia do deck (claude.ai) e README com o mapa dos 7 pontos
 referencias/                  # FICHARIO.md, METODO_DE_BUSCA.md, baixar_artigos.py (PDFs fora do git)
 research_notes/Trabalhos relacionados fuzzing de chatbots/   # notas da busca de literatura (4 temas)
 reports/Trabalhos relacionados fuzzing de chatbots.md        # bibliografia anotada consolidada, com status de verificação
@@ -125,7 +126,7 @@ Mudança de código nesta etapa: `consensus_wrong` deixou de considerar `echo` (
 
 1. Revisão humana de `validation/oracle_validation.csv` e `validation/edge_labels.csv` (idealmente um segundo avaliador).
 2. Pedir os nomes do grupo e substituir os `\todo` do artigo.
-3. Fazer a apresentação com os 7 pontos do enunciado (exemplo de falha: Tabela 6 do artigo, *strawberry*; ou emoji trocado pelo Qwen).
+3. Pôr os nomes do grupo na capa da apresentação.
 4. Conferir McKeeman 1998 e Havrikov & Zeller 2019 na biblioteca; busca final no arXiv/DBLP para o "to our knowledge".
 5. Atualizar o rascunho no claude.ai (ainda tem 47 referências e seções vazias) ou descartá-lo.
 
@@ -156,8 +157,10 @@ Mudança de código nesta etapa: `consensus_wrong` deixou de considerar `echo` (
 15. Pediu este arquivo atualizado com todas as decisões e contexto.
 16. Pediu no máximo 20 referências (clássicos + atuais), download dos artigos, fichário com resumos e o método de busca → `referencias/`.
 17. Pediu o artigo completo como pesquisador sênior, baseado só em evidências, com mapa de evidências e marcadores de lacunas → Ablação 2, RQ4, análise do `edge`, `paper_stats.py`, artigo inteiro reescrito, `paper/MAPA_DE_EVIDENCIAS.md`.
+18. Pediu a apresentação refeita com os 7 pontos → deck no claude.ai + `apresentacao/`.
 
 ## 11. Material fora do repositório
 
 - Rascunho do artigo (inglês) no claude.ai, mesmo conteúdo das seções escritas: https://claude.ai/artifact/Ff8ZThoNqWKE1Crdhd388j
+- Apresentação atual: https://claude.ai/artifact/F8jSSUJkvwYhfuJ6PWvjc1
 - **Sobre o projeto antigo (desatualizados):** doc https://claude.ai/artifact/CbXwfNptHjc4N4oXic3kb4, slides https://claude.ai/artifact/THjW9Rse5tPXpL5QcqJ296, guia em português https://claude.ai/artifact/UdCMocEWpagFZJFM9KdYUy.

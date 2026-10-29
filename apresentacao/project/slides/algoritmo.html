@@ -1,0 +1,46 @@
+<section id="algoritmo" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Experimento 1 · Mini-TensorFuzz</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Cada mutante termina em um de três lugares</h2>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:600">1. Corpus</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">sorteia uma imagem; as menos usadas têm mais chance</p>
+</div>
+<x-connector head="end" style="width:40px;height:2px;color:#8A90A0;border-width:3px"></x-connector>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:600">2. Mutação</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">ruído, brilho, contraste, rotação, blur ou patch</p>
+</div>
+<x-connector head="end" style="width:40px;height:2px;color:#8A90A0;border-width:3px"></x-connector>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:600">3. Projeção L∞</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">cada pixel fica a até 0,08 da semente original</p>
+</div>
+<x-connector head="end" style="width:40px;height:2px;color:#8A90A0;border-width:3px"></x-connector>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:16px;padding:32px">
+<h3 style="font-size:32px;font-weight:600">4. Modelo</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">prevê a classe e mede os neurônios ativados</p>
+</div>
+</div>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FBEDE6;border:2px solid #C4501E;border-radius:16px;padding:36px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#A8431A">classe mudou</p>
+<h3 style="font-size:36px;font-weight:600">Falha registrada</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">a imagem é salva em failures/ com as duas classes no nome</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#E6EEF9;border:2px solid #2560B8;border-radius:16px;padding:36px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8">mesma classe, neurônios novos</p>
+<h3 style="font-size:36px;font-weight:600">Volta ao corpus</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">explorou uma região nova da rede, então vira semente</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #C9C7BE;border-radius:16px;padding:36px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#7A8090">mesma classe, nada novo</p>
+<h3 style="font-size:36px;font-weight:600">Descartada</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">não acrescenta nada ao teste</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Fuzz Testing em ML · 5</p>
+<aside>Este é o laço do fuzzer, no estilo TensorFuzz e DeepHunter. A seleção dá preferência a imagens sorteadas poucas vezes. A projeção garante que a perturbação continue pequena mesmo depois de várias mutações encadeadas. O oráculo compara a classe do mutante com a que o modelo deu à semente original, então não é preciso rotular nada. O feedback por cobertura é o que diferencia isso de mutação aleatória pura.</aside>
+</section>

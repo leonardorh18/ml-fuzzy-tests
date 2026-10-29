@@ -1,0 +1,28 @@
+<section id="conclusions" data-transition="fade" style="background:#F7F6F2;color:#14213D;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:44px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:28px;color:#2A78D6">7 · CONCLUSIONS AND LIMITATIONS</p>
+<h2 style="font-size:64px;font-weight:700;line-height:1.1">Input generation was not the bottleneck — oracles were</h2>
+<div style="display:flex;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:36px;font-weight:600;color:#2A78D6">Conclusions</h3>
+<ul style="font-size:28px;line-height:1.4;color:#3F4A5A">
+<li>Failures in 64.5% of replies, in every model and category</li>
+<li>Known answers turn differential and metamorphic signals into verdicts</li>
+<li>Paraphrases expose answers that depend on wording</li>
+<li>Coverage guidance covers the grammar, not more behaviors</li>
+<li>Report results under a content and a format criterion</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:36px;font-weight:600;color:#C4521F">Limitations</h3>
+<ul style="font-size:28px;line-height:1.4;color:#3F4A5A">
+<li>Three small local models; hosted API not tested</li>
+<li>Only tasks with a computable answer are checked</li>
+<li>One seed in the main campaign; 3 in Ablation 2</li>
+<li>Manual judgments AI-assisted, pending review</li>
+<li>English, single-turn, templated prompts</li>
+</ul>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">AI-generated content (Claude). Code, data and paper: project repository.</p>
+<aside>Fechamento: achar falhas em modelos desse tamanho é fácil; o que limita as conclusões é a definição de resposta correta em cada oráculo. Limitações honestas: modelos pequenos e locais, só tarefas com resposta calculável, poucas sementes, julgamento manual feito com ajuda da IA. Trabalho futuro: API hospedada com amostragem, modelos maiores, diálogos de várias rodadas e um avaliador humano independente.</aside>
+</section>

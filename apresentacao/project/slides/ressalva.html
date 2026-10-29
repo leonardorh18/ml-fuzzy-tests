@@ -1,0 +1,7 @@
+<section id="ressalva" data-transition="fade" style="background:#2560B8;color:#F5F4EF;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:48px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#DCE7F7;letter-spacing:2px;text-transform:uppercase">Antes dos resultados</p>
+<h2 style="font-size:112px;font-weight:600;line-height:1.05;width:1500px">Os modelos rodaram com pesos aleatórios</h2>
+<p style="font-size:40px;line-height:1.4;color:#EAF0FA;width:1450px">O ambiente bloqueou o Hugging Face. Usamos as arquiteturas reais com pesos aleatórios, 6 imagens sintéticas e um vocabulário local no tokenizer.</p>
+<p style="font-size:32px;line-height:1.4;color:#DCE7F7;width:1450px">Os testes provam que o pipeline funciona. Os números dos classificadores <b>não</b> medem a robustez dos modelos treinados.</p>
+<aside>Isto é importante para ler o resto da apresentação. O container onde os testes rodaram não conseguia acessar huggingface.co, então nenhum peso treinado foi baixado. O código tem a opção --random-weights, que monta a mesma arquitetura com pesos aleatórios fixos. A lógica do tokenizer é a mesma; só o vocabulário foi trocado por um pequeno criado localmente.</aside>
+</section>

@@ -1,0 +1,26 @@
+<section id="discussao" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">O que aconteceu</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">O comportamento dos modelos explica os números</h2>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:36px">
+<h3 style="font-size:32px;font-weight:600">A ResNet colapsou</h3>
+<p style="font-size:26px;line-height:1.4;color:#4A5160">As 6 sementes caíram na mesma classe com 98,4% de confiança. Quem sempre dá a mesma resposta é “robusto” por definição.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:36px">
+<h3 style="font-size:32px;font-weight:600">O ViT está quase indeciso</h3>
+<p style="font-size:26px;line-height:1.4;color:#4A5160">Confiança média de 0,7%, perto do chute uniforme (0,1%). Com margem tão pequena, qualquer empurrão troca a classe.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:36px">
+<h3 style="font-size:32px;font-weight:600">A implementação decide o fuzzing</h3>
+<p style="font-size:26px;line-height:1.4;color:#4A5160">Rust é invisível ao Atheris: 259 mil execuções sem progresso. Em Python, o dobro de cobertura e uma falha em menos de 1 s.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FBEDE6;border:2px solid #C4501E;border-radius:16px;padding:36px">
+<h3 style="font-size:32px;font-weight:600">O que não dá para concluir</h3>
+<p style="font-size:26px;line-height:1.4;color:#4A5160">Que o ViT é menos robusto, que o brilho é a pior mutação para modelos treinados, ou algo sobre o DistilBERT real além do truncamento.</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Fuzz Testing em ML · 12</p>
+<aside>Juntando tudo: a ResNet não falhou porque, com pesos aleatórios, ela virou um classificador constante. O ViT falhou muito porque está praticamente indeciso; com pesos treinados, a margem seria maior. No tokenizer, a escolha da implementação decidiu se o fuzzing guiado funcionava ou não. A falha de truncamento é um caso de borda, mas quebra o contrato de max_length, e código que aloca tensores desse tamanho quebraria. O quadro laranja é o mais importante: estes números não comparam a robustez real das arquiteturas.</aside>
+</section>

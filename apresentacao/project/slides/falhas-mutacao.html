@@ -1,0 +1,17 @@
+<section id="falhas-mutacao" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Resultados · Falhas por mutação no ViT</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">O brilho causou 38 das 45 falhas</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div style="display:flex;align-items:center;gap:24px"><p style="width:220px;font-size:28px;text-align:right">brilho</p><div style="width:1000px;height:44px;background:#2560B8;border-radius:6px"></div><p style="font-size:28px;font-weight:600">41,8% (38 de 91)</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:220px;font-size:28px;text-align:right">contraste</p><div style="width:89px;height:44px;background:#BDBAB0;border-radius:6px"></div><p style="font-size:28px;color:#4A5160">3,7% (3 de 81)</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:220px;font-size:28px;text-align:right">rotação</p><div style="width:51px;height:44px;background:#BDBAB0;border-radius:6px"></div><p style="font-size:28px;color:#4A5160">2,1% (2 de 94)</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:220px;font-size:28px;text-align:right">ruído</p><div style="width:37px;height:44px;background:#BDBAB0;border-radius:6px"></div><p style="font-size:28px;color:#4A5160">1,5% (1 de 65)</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:220px;font-size:28px;text-align:right">patch</p><div style="width:28px;height:44px;background:#BDBAB0;border-radius:6px"></div><p style="font-size:28px;color:#4A5160">1,1% (1 de 87)</p></div>
+<div style="display:flex;align-items:center;gap:24px"><p style="width:220px;font-size:28px;text-align:right">blur</p><div style="width:4px;height:44px;background:#BDBAB0;border-radius:2px"></div><p style="font-size:28px;color:#4A5160">0,0% (0 de 82)</p></div>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#4A5160;width:1600px">Por quê: o brilho é a única mutação que usa os 0,08 em <b>todos</b> os pixels. Rotação e blur mudam muito poucos pixels, e a projeção L∞ corta justamente essas mudanças. ResNet-50: 0% em todos os tipos.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Taxa de falha = falhas ÷ mutantes daquele tipo · Fuzz Testing em ML · 9</p>
+<aside>Quase todas as falhas do ViT vieram do brilho: 42% das mutações de brilho trocaram a classe. A explicação está na projeção: o brilho soma a mesma constante a todos os pixels, então aproveita o orçamento inteiro. Rotação e blur produzem mudanças grandes em poucos pixels, que a projeção corta. Na ResNet, nenhum tipo de mutação causou falha.</aside>
+</section>

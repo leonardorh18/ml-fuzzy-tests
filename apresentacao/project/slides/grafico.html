@@ -1,0 +1,10 @@
+<section id="grafico" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#2560B8;letter-spacing:2px;text-transform:uppercase">Results · coverage vs. failures</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">More coverage did not yield more failures</h2>
+</div>
+<img src="/_blob/485bb628d9c6d9d083370059cb3e5a79" alt="Two line charts by iteration. Neuron coverage: ViT flat near 98%, ResNet flat near 9%. Cumulative failures: ViT rises steadily to 45, ResNet stays at zero." style="width:1660px;height:540px;object-fit:contain">
+<p style="font-size:28px;line-height:1.4;color:#4A5160;width:1620px">ViT coverage started at 94.6% and ResNet coverage stalled at 9%. ViT failures grew at a steady rate, independent of coverage (r&#160;=&#160;−0.31).</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Source: log.csv of the 500-iteration runs · AI-generated content · Fuzz Testing for ML · 10</p>
+<aside>This chart addresses the coverage question. On the left, coverage barely moves: the seeds already covered almost all ViT neurons, and ResNet coverage stalled. On the right, ViT failures rise at a steady rate regardless of coverage. In this experiment, neuron coverage did not act as a useful guide. The correlation rests on only five windows of 100 iterations, so it is weak evidence.</aside>
+</section>

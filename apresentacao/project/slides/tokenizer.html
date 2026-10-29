@@ -1,0 +1,35 @@
+<section id="tokenizer" data-transition="fade" style="background:#F5F4EF;color:#161A22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#C4501E;letter-spacing:2px;text-transform:uppercase">Experimento 2 · Atheris</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1">Quatro oráculos vigiam o tokenizer</h2>
+</div>
+<p style="font-size:28px;line-height:1.4;color:#4A5160;width:1600px">O Atheris gera bytes guiado por cobertura de código. Cada entrada vira um <b>max_length</b> de 2 a 512 e um texto Unicode, que passa pelo tokenizer.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:32px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;color:#C4501E">1</p>
+<h3 style="font-size:28px;font-weight:600">Sem exceção</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">a chamada nunca pode quebrar</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:32px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;color:#C4501E">2</p>
+<h3 style="font-size:28px;font-weight:600">Respeita o limite</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">número de tokens ≤ max_length</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:32px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;color:#C4501E">3</p>
+<h3 style="font-size:28px;font-weight:600">Ids válidos</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">todo id dentro do vocabulário</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #DEDCD3;border-radius:16px;padding:32px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:40px;color:#C4501E">4</p>
+<h3 style="font-size:28px;font-weight:600">Metamórfico</h3>
+<p style="font-size:24px;line-height:1.35;color:#4A5160">decode(encode(x)) estável na 2ª volta</p>
+</div>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#ECEAE2;border-radius:16px;padding:28px 36px">
+<x-icon name="Warning" style="color:#A8431A;width:40px;height:40px"></x-icon>
+<p style="font-size:26px;line-height:1.4;color:#161A22">O Atheris só enxerga Python. O tokenizer padrão é Rust, então criamos o modo <b>FUZZ_SLOW=1</b> com o tokenizer em Python puro (transformers 4.x).</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7A8090">Fuzz Testing em ML · 7</p>
+<aside>Aqui o fuzzing é clássico: cobertura de linhas e ramos do código Python. Qualquer violação de oráculo lança uma exceção, e o Atheris salva a entrada como crash. O oráculo metamórfico permite que a primeira volta normalize o texto, mas a segunda não pode mudar mais nada. O detalhe do Rust vai ser decisivo nos resultados.</aside>
+</section>

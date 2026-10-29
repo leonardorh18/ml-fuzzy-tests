@@ -1,0 +1,15 @@
+<section id="proximos" data-transition="fade" style="background:#141821;color:#EEEDE8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#6FA8F5;letter-spacing:2px;text-transform:uppercase">Próximos passos</p>
+<h2 style="font-size:64px;font-weight:600;line-height:1.1;color:#EEEDE8">O código está pronto; falta rodar nos modelos reais</h2>
+</div>
+<ol style="font-size:32px;line-height:1.5;color:#B9C0CC">
+<li>Rodar o Experimento 1 com pesos reais, fotos de verdade em seeds/ e 2000 iterações</li>
+<li>Calibrar o limiar de cobertura por modelo para o ViT não saturar</li>
+<li>Confirmar a falha de truncamento com o tokenizer real do DistilBERT</li>
+<li>Adicionar um oráculo diferencial: tokenizer rápido e em Python devem concordar</li>
+<li>Variar ε (0,02 a 0,16) e ver quando cada modelo começa a falhar</li>
+</ol>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;color:#7A8090">github.com/leonardorh18/ml-fuzzy-tests · branch claude/jolly-galileo-ghok7l</p>
+<aside>O próximo passo óbvio é rodar tudo com os pesos treinados, numa máquina com acesso ao Hugging Face: basta tirar a opção --random-weights. Depois, ajustar o limiar de cobertura, confirmar a falha do tokenizer com o vocabulário real e testar vários valores de epsilon. Obrigado.</aside>
+</section>
