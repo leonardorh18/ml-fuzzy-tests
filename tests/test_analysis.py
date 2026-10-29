@@ -41,3 +41,11 @@ def test_differential_metamorphic_and_error_findings():
 
     assert metamorphic_consistency(df) == {"A": 0.0, "B": 1.0}
     assert pairwise_disagreement(df)["A | B"]["disagreement"] == 1.0
+
+
+def test_consensus_wrong_is_reported():
+    cases = [case("2-0", "2", 0, "arith", 10)]
+    df = build_records(cases, [("2-0", r("A", "11")), ("2-0", r("B", "11"))])
+    findings = find_issues(df)
+    assert list(findings["type"]).count("consensus_wrong") == 1
+    assert "differential_disagreement" not in set(findings["type"])

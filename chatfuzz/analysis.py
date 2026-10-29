@@ -4,6 +4,8 @@
   são um achado. Quando a resposta esperada é conhecida, o achado diz quem errou.
 - Metamórfico: paráfrases do mesmo esqueleto devem receber a mesma resposta do mesmo
   modelo; se não recebem, o modelo é inconsistente.
+- Consenso errado: todos os modelos dão a mesma resposta errada, caso que o
+  diferencial sozinho não vê; só aparece porque a resposta esperada é conhecida.
 """
 
 import itertools
@@ -61,6 +63,11 @@ def find_issues(df):
         if category not in COMPARABLE:
             continue
         answered = g[g["answer"].notna()]
+        if (len(answered) == len(g) > 1 and answered["answer"].nunique() == 1
+                and (answered["passed"] == False).all()):  # noqa: E712
+            findings.append({"type": "consensus_wrong", "models": ", ".join(sorted(g["model"])),
+                             "case_id": case_id, "category": category,
+                             "detail": f"esperado {g['expected'].iloc[0]} | todos responderam {answered['answer'].iloc[0]}"})
         if answered["answer"].nunique() > 1:
             wrong = sorted(answered.loc[answered["passed"] == False, "model"])  # noqa: E712
             detail = "; ".join(f"{m}={a}" for m, a in zip(answered["model"], answered["answer"]))
