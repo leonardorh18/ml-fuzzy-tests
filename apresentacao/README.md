@@ -16,4 +16,6 @@ Slides em inglês, notas do apresentador em português. **Guia em português exp
 | 6. Exemplo de falha | `failure` |
 | 7. Conclusões e limitações | `conclusions` |
 
+**PDF:** `slides.pdf` (11 páginas), gerado por `node apresentacao/gerar_pdf.js` a partir de `project/`; é uma aproximação fiel do deck. O PDF oficial também pode ser exportado no próprio deck, em Share › Export.
+
 `project/` é uma cópia dos arquivos do deck (`deck.json` + um HTML por slide). Os números vêm de `results_local/paper_stats.json`, os mesmos do artigo.
