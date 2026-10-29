@@ -76,17 +76,31 @@ class APIClient:
         return ChatResponse(self.spec, "", error, status, time.time() - start)
 
 
+# Revisões dos modelos usadas nos experimentos do artigo; fixá-las garante os mesmos pesos.
+PINNED_REVISIONS = {
+    "Qwen/Qwen2.5-0.5B-Instruct": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "HuggingFaceTB/SmolLM2-360M-Instruct": "a10cc1512eabd3dde888204e902eca88bddb4951",
+    "TinyLlama/TinyLlama-1.1B-Chat-v1.0": "fe8a4ea1ffedaf415f4da2f062534de366a451e6",
+}
+
+
 class LocalClient:
-    """Baixa o modelo do Hugging Face (fica no cache) e gera com decodificação gulosa."""
+    """Baixa o modelo do Hugging Face (fica no cache) e gera com decodificação gulosa.
+
+    A revisão vem de `modelo@revisão`; sem ela, usa PINNED_REVISIONS ou a mais recente.
+    O nome registrado nos resultados não inclui a revisão.
+    """
 
     def __init__(self, model, max_tokens=256, device=None):
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
+        model, _, revision = model.partition("@")
+        self.revision = revision or PINNED_REVISIONS.get(model)
         self.spec = f"local:{model}"
         self.torch = torch
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-        self.tokenizer = AutoTokenizer.from_pretrained(model)
-        self.model = AutoModelForCausalLM.from_pretrained(model).to(self.device).eval()
+        self.tokenizer = AutoTokenizer.from_pretrained(model, revision=self.revision)
+        self.model = AutoModelForCausalLM.from_pretrained(model, revision=self.revision).to(self.device).eval()
         self.model.generation_config.max_length = None  # vale só max_new_tokens
         self.max_tokens = max_tokens
 

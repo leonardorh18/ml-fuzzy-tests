@@ -17,7 +17,7 @@ Trabalho final de uma disciplina de **teste de software / fuzzing**, em grupo de
 1. **Artefato de software** — `chatfuzz/` + `fuzz_chatbots.py` + `experiments/` + `tests/`. **Pronto.**
 2. **Avaliação experimental** — **concluída** (ver seção 6); falta revisão humana dos julgamentos manuais.
 3. **Artigo científico** — estrutura exigida: title and abstract, introduction, background and related work, research questions and objectives, methodology, experimental setup, results, discussion, threats to validity and limitations, conclusion and future work, references. Em `paper/`, **template SBC**, em inglês. **Versão completa** com números reais; faltam nomes dos autores e revisão humana. Mapa de evidências em `paper/MAPA_DE_EVIDENCIAS.md`.
-4. **Apresentação** — deve cobrir: (1) software alvo e problema, (2) pergunta de pesquisa e motivação, (3) técnicas, (4) implementação e desenho experimental, (5) resultados principais, (6) exemplo de falha/discrepância, (7) conclusões e limitações. **Feita:** https://claude.ai/artifact/F8jSSUJkvwYhfuJ6PWvjc1 (11 slides em inglês, notas em português; cópia em `apresentacao/`). Faltam os nomes dos autores na capa.
+4. **Apresentação** — deve cobrir: (1) software alvo e problema, (2) pergunta de pesquisa e motivação, (3) técnicas, (4) implementação e desenho experimental, (5) resultados principais, (6) exemplo de falha/discrepância, (7) conclusões e limitações. **Feita:** https://claude.ai/artifact/F8jSSUJkvwYhfuJ6PWvjc1 (11 slides em inglês, notas em português; cópia em `apresentacao/`). Faltam os nomes dos autores na capa. Guia em português de cada slide (Claude Docs): https://claude.ai/artifact/NZkJ6BqEJrYV7q3TwiRRja.
 
 O enunciado pede ir além de rodar um fuzzer: formular pergunta de pesquisa, desenhar a estratégia, experimentar, analisar e tirar conclusões **sobre a eficácia e as limitações da técnica** (não só sobre os modelos).
 
@@ -40,6 +40,9 @@ experiments/grammar_coverage.py   # Ablação 1 (sem modelos)
 experiments/failure_diversity.py  # Ablação 2 (com modelos)
 experiments/paper_stats.py        # todas as estatísticas e figuras do artigo -> results_local/paper_stats.json, paper/figures/
 experiments/sample_validation.py  # sorteia a amostra da RQ4
+experiments/compare_runs.py       # compara uma execução nova com a de referência
+referencia/                   # respostas e resultados de referência (execução principal e ablações), versionados
+REPRODUZIR.md                 # guia de reprodução local
 validation/                   # oracle_validation.csv (RQ4, 60 respostas julgadas) e edge_labels.csv (90 respostas edge rotuladas)
 tests/                        # 19 testes unitários da ferramenta (pytest)
 paper/                        # artigo SBC: main.tex, sections/*.tex, references.bib, sbc-template.sty, main.pdf
@@ -52,6 +55,8 @@ results_ablation/             # ablações (no .gitignore)
 ```
 
 ## 4. Comandos
+
+Passo a passo completo, com tempos e resultados esperados: `REPRODUZIR.md`. Versões exatas: `requirements-experimentos.txt`. Respostas de referência versionadas em `referencia/` (comparar com `python experiments/compare_runs.py results_local`).
 
 ```bash
 pip install -r requirements.txt
@@ -81,6 +86,8 @@ cd paper && latexmk -pdf main.tex                         # compila o artigo
 | Prompts em inglês | Modelos pequenos são bem mais fracos em português. |
 | Oráculo numérico = último inteiro da resposta | Modelos repetem a conta antes do resultado. Heurística; a RQ4 mede o erro. |
 | `local:` com decodificação gulosa | Determinismo, essencial para diferencial e metamórfico. |
+| Revisões dos modelos fixadas em `PINNED_REVISIONS` (`chatfuzz/clients.py`); `local:modelo@rev` escolhe outra | Antes não estavam fixadas no código; sem isso, um download futuro poderia trazer outros pesos. O nome nos resultados não inclui a revisão. |
+| Resultados de referência versionados em `referencia/` (≈600 KB) | `results*/` fica fora do git; sem a referência, ninguém conseguiria conferir uma reprodução. |
 | `max_tokens` padrão 256 e flag `truncated` | No piloto com 128, o TinyLlama era cortado antes do número; falhas em respostas cortadas são contadas à parte. |
 | `api:` usa `https://router.huggingface.co/v1/chat/completions` (OpenAI-compatível) | Qualquer provedor (`modelo:provedor`), repete em 429/5xx/timeout. Não usado nos experimentos (sem `HF_TOKEN`). |
 | Achado `consensus_wrong` (todos os modelos dão a mesma resposta errada) | Sugestão da literatura (SAC3): diferencial puro não vê erros compartilhados. |
@@ -158,9 +165,11 @@ Mudança de código nesta etapa: `consensus_wrong` deixou de considerar `echo` (
 16. Pediu no máximo 20 referências (clássicos + atuais), download dos artigos, fichário com resumos e o método de busca → `referencias/`.
 17. Pediu o artigo completo como pesquisador sênior, baseado só em evidências, com mapa de evidências e marcadores de lacunas → Ablação 2, RQ4, análise do `edge`, `paper_stats.py`, artigo inteiro reescrito, `paper/MAPA_DE_EVIDENCIAS.md`.
 18. Pediu a apresentação refeita com os 7 pontos → deck no claude.ai + `apresentacao/`.
+19. Pediu um doc em português explicando cada slide e os testes documentados para reprodução local → guia no Claude Docs, `REPRODUZIR.md`, `referencia/`, `compare_runs.py`, revisões fixadas.
 
 ## 11. Material fora do repositório
 
 - Rascunho do artigo (inglês) no claude.ai, mesmo conteúdo das seções escritas: https://claude.ai/artifact/Ff8ZThoNqWKE1Crdhd388j
 - Apresentação atual: https://claude.ai/artifact/F8jSSUJkvwYhfuJ6PWvjc1
+- Guia dos slides em português: https://claude.ai/artifact/NZkJ6BqEJrYV7q3TwiRRja
 - **Sobre o projeto antigo (desatualizados):** doc https://claude.ai/artifact/CbXwfNptHjc4N4oXic3kb4, slides https://claude.ai/artifact/THjW9Rse5tPXpL5QcqJ296, guia em português https://claude.ai/artifact/UdCMocEWpagFZJFM9KdYUy.

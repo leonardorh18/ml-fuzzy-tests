@@ -1,0 +1,112 @@
+{
+  "runs": [
+    {
+      "seed": 0,
+      "bias": 0.0,
+      "prompts": 60,
+      "failures": 29,
+      "failure_rate": 0.58,
+      "revealing_rules": 22,
+      "distinct_signatures": 18
+    },
+    {
+      "seed": 0,
+      "bias": 0.8,
+      "prompts": 60,
+      "failures": 31,
+      "failure_rate": 0.62,
+      "revealing_rules": 21,
+      "distinct_signatures": 18
+    },
+    {
+      "seed": 1,
+      "bias": 0.0,
+      "prompts": 60,
+      "failures": 28,
+      "failure_rate": 0.56,
+      "revealing_rules": 18,
+      "distinct_signatures": 16
+    },
+    {
+      "seed": 1,
+      "bias": 0.8,
+      "prompts": 60,
+      "failures": 28,
+      "failure_rate": 0.56,
+      "revealing_rules": 22,
+      "distinct_signatures": 18
+    },
+    {
+      "seed": 2,
+      "bias": 0.0,
+      "prompts": 60,
+      "failures": 33,
+      "failure_rate": 0.66,
+      "revealing_rules": 25,
+      "distinct_signatures": 17
+    },
+    {
+      "seed": 2,
+      "bias": 0.8,
+      "prompts": 60,
+      "failures": 32,
+      "failure_rate": 0.64,
+      "revealing_rules": 28,
+      "distinct_signatures": 20
+    }
+  ],
+  "summary": {
+    "0.0": {
+      "failures": {
+        "mean": 30,
+        "values": [
+          29,
+          28,
+          33
+        ]
+      },
+      "revealing_rules": {
+        "mean": 21.666666666666668,
+        "values": [
+          22,
+          18,
+          25
+        ]
+      },
+      "distinct_signatures": {
+        "mean": 17,
+        "values": [
+          18,
+          16,
+          17
+        ]
+      }
+    },
+    "0.8": {
+      "failures": {
+        "mean": 30.333333333333332,
+        "values": [
+          31,
+          28,
+          32
+        ]
+      },
+      "revealing_rules": {
+        "mean": 23.666666666666668,
+        "values": [
+          21,
+          22,
+          28
+        ]
+      },
+      "distinct_signatures": {
+        "mean": 18.666666666666668,
+        "values": [
+          18,
+          18,
+          20
+        ]
+      }
+    }
+  }
+}

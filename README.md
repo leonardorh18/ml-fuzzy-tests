@@ -2,6 +2,8 @@
 
 > **Conteúdo gerado por IA (Claude).** O código, os testes e esta documentação foram gerados com o Claude Code. As decisões tomadas estão em `CLAUDE.md`. Revise antes de usar.
 
+> **Para reproduzir os experimentos do artigo passo a passo, veja [`REPRODUZIR.md`](REPRODUZIR.md).** Artigo em `paper/main.pdf`; apresentação e guia dos slides em `apresentacao/`.
+
 ## Objetivo
 
 Aplicar **fuzzing baseado em gramática** e **teste diferencial** a chatbots de linguagem natural do Hugging Face, para encontrar entradas em que eles erram, se contradizem ou falham.
@@ -71,7 +73,7 @@ Além do oráculo de cada categoria, a análise gera:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt        # ou requirements-experimentos.txt, com as versões exatas do artigo
 ```
 
 ### Modo 1: modelos baixados e rodados localmente (padrão)
@@ -137,7 +139,7 @@ Os dois modos podem ser misturados na mesma execução.
 pytest
 ```
 
-Os testes verificam a gramática, os oráculos, a análise e o cliente da API (contra uma sessão HTTP falsa). Eles testam o código, não os chatbots.
+Use `python -m pytest` se o `pytest` do sistema for de outro Python. Os testes verificam a gramática, os oráculos, a análise e o cliente da API (contra uma sessão HTTP falsa). Eles testam o código, não os chatbots.
 
 ---
 

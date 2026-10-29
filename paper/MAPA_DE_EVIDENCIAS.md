@@ -30,7 +30,7 @@ Cada afirmação importante do artigo, com a fonte que a sustenta. Os números v
 | Inversão: 1 acerto em 90; 21 respostas iguais à entrada | `pass_rate_by_category`; `failure_details.reverse_returned_input` |
 | Aritmética: 44,4% vs 9,3% por tamanho do operando; 77% dentro de 10× | `failure_details.arith_pass_by_operand`, `arith_wrong_within_10x` |
 | 25 de 150 pares modelo–esqueleto com acerto misto | `main_run.paraphrase_groups` |
-| Exemplo do *strawberry* (Tabela 5) | `results_local/records.csv`, casos `0001-*` e `0035-*` |
+| Exemplo do *strawberry* (Tabela 6) | `results_local/records.csv`, casos `0001-*` e `0037-*` |
 | Qwen troca emoji de mulher por homem e acrescenta frase em chinês | `records.csv`, caso `0004-1` |
 | RQ2: recall/precisão 98,8/73,9 (diferencial), 79,5/88,0 (metamórfico) | `main_run.rq2_oracles_without_ground_truth` |
 | 111 prompts com respostas divergentes: 58 sem modelo correto | `failure_details.disagreeing_prompts_by_correct_models` |

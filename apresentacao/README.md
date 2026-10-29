@@ -4,7 +4,7 @@
 
 Deck publicado no claude.ai: https://claude.ai/artifact/F8jSSUJkvwYhfuJ6PWvjc1 (privado até ser compartilhado pelo menu Share; exporta para PDF e PPTX).
 
-Slides em inglês, notas do apresentador em português. Cobre os 7 pontos do enunciado:
+Slides em inglês, notas do apresentador em português. **Guia em português explicando cada slide:** https://claude.ai/artifact/NZkJ6BqEJrYV7q3TwiRRja (privado até ser compartilhado). Cobre os 7 pontos do enunciado:
 
 | Ponto | Slide |
 | --- | --- |

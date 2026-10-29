@@ -1,0 +1,453 @@
+type,models,case_id,category,detail
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0000-1,arith,"wrong_answer: esperado 752322, obtido 652372"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0001-1,count,"wrong_answer: esperado 3, obtido 1"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0001-2,count,"wrong_answer: esperado 3, obtido 10"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0002-0,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""oGocEim3t"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0002-1,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""P0sKov3t6T"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0002-2,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""m0s6Kop3eT"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0004-0,echo,"not_verbatim: esperado ""👩‍💻🚀🇧🇷"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0004-1,echo,"not_verbatim: esperado ""👩‍💻🚀🇧🇷"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0006-2,arith,"wrong_answer: esperado -367, obtido 405"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0007-2,count,"wrong_answer: esperado 1, obtido 4"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0008-0,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""zJsaDqy1Qq"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0008-1,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""SDasJqjY1"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0008-2,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""r\""JSAjdY1q"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0010-0,echo,"not_verbatim: esperado ""<b>bold</b> & <i>italic</i>"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0012-0,arith,"wrong_answer: esperado -677261, obtido -677253"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0012-1,arith,"wrong_answer: esperado -677261, obtido -677263"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0012-2,arith,"wrong_answer: esperado -677261, obtido -677253"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0013-1,count,"wrong_answer: esperado 1, obtido 4"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0013-2,count,"wrong_answer: esperado 1, obtido 3"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0014-0,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""cXnVb"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0014-1,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""cXnvc"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0014-2,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""cXnVb"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0016-0,echo,"not_verbatim: esperado ""line one\nline two"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0018-0,arith,"wrong_answer: esperado 63064546, obtido 627000000"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0018-1,arith,"wrong_answer: esperado 63064546, obtido 627000000"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0018-2,arith,"wrong_answer: esperado 63064546, obtido 627000020"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0019-0,count,"wrong_answer: esperado 4, obtido 1"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0019-1,count,"wrong_answer: esperado 4, obtido 2"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0019-2,count,"wrong_answer: esperado 4, obtido 1"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0020-0,reverse,"wrong_answer: esperado ""vC2W"", obtido ""cv2W"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0020-1,reverse,"wrong_answer: esperado ""vC2W"", obtido ""V2CW"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0020-2,reverse,"wrong_answer: esperado ""vC2W"", obtido ""W2Cv reversed is CV2W"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0022-0,echo,"not_verbatim: esperado ""tab\tseparated\tvalues"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0022-1,echo,"not_verbatim: esperado ""tab\tseparated\tvalues"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0024-0,arith,"wrong_answer: esperado -382083122, obtido -378501632"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0024-1,arith,"wrong_answer: esperado -382083122, obtido -3580160688"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0024-2,arith,"wrong_answer: esperado -382083122, obtido -358010348"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0025-2,count,"wrong_answer: esperado 4, obtido 3"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0026-0,reverse,"wrong_answer: esperado ""9UjXA"", obtido ""XAUj9"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0026-1,reverse,"wrong_answer: esperado ""9UjXA"", obtido ""AXjU9"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0026-2,reverse,"wrong_answer: esperado ""9UjXA"", obtido ""AXjU9"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0028-0,echo,"not_verbatim: esperado ""日本語のテキストです"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0032-0,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""tMzsoJ"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0032-1,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""YmsMjs"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0032-2,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""YmsJj"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0034-1,echo,"not_verbatim: esperado ""日本語のテキストです"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0036-0,arith,"wrong_answer: esperado -229106, obtido -229516"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0036-1,arith,"wrong_answer: esperado -229106, obtido -229556"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0036-2,arith,"wrong_answer: esperado -229106, obtido -229566"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0037-1,count,"wrong_answer: esperado 1, obtido 2"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0038-0,reverse,"wrong_answer: esperado ""SO3r"", obtido ""OOSR"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0038-1,reverse,"wrong_answer: esperado ""SO3r"", obtido ""osOReLTiC"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0038-2,reverse,"wrong_answer: esperado ""SO3r"", obtido ""O3S0R"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0040-0,echo,"not_verbatim: esperado ""{\""key\"": [1, 2, 3]}"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0042-0,arith,"wrong_answer: esperado -833767, obtido -177197"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0042-1,arith,"wrong_answer: esperado -833767, obtido -182736"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0042-2,arith,"wrong_answer: esperado -833767, obtido -834391"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0043-0,count,"wrong_answer: esperado 2, obtido 10"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0043-1,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0043-2,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0044-0,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""jFcaDEja7"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0044-1,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""DFAJEJCAO"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0044-2,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""DAFCJEAuD7"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0046-0,echo,"not_verbatim: esperado ""👩‍💻🚀🇧🇷"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0046-1,echo,"not_verbatim: esperado ""👩‍💻🚀🇧🇷"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0048-0,arith,"wrong_answer: esperado 90, obtido 100"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0048-1,arith,"wrong_answer: esperado 90, obtido 30"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0048-2,arith,"wrong_answer: esperado 90, obtido 200"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0049-0,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0049-1,count,"wrong_answer: esperado 2, obtido 10"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0049-2,count,"wrong_answer: esperado 2, obtido 10"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0050-0,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""oZtMzT"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0050-1,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""tMzTmu"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0050-2,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""oztmN"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0052-0,echo,"not_verbatim: esperado ""Ω≈ç√∫˜µ≤≥÷"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0052-1,echo,"not_verbatim: esperado ""Ω≈ç√∫˜µ≤≥÷"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0055-0,count,"wrong_answer: esperado 2, obtido 4"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0055-1,count,"wrong_answer: esperado 2, obtido 4"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0055-2,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0056-0,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""QwEjxCXIKJq"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0056-1,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""KJIuECXQ"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0056-2,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""KIJQCej"""
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0058-0,echo,"not_verbatim: esperado ""مرحبا بالعالم"", obtido false"
+oracle_failure,local:Qwen/Qwen2.5-0.5B-Instruct,0058-1,echo,"not_verbatim: esperado ""مرحبا بالعالم"", obtido false"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0001-0,count,"wrong_answer: esperado 3, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0001-1,count,"wrong_answer: esperado 3, obtido 4"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0001-2,count,"wrong_answer: esperado 3, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0002-0,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""ZKopT3em6Kop"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0002-1,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""T3em6KopZ"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0002-2,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""Z6T3emKopT"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0006-0,arith,"wrong_answer: esperado -367, obtido -368"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0006-1,arith,"wrong_answer: esperado -367, obtido -369"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0006-2,arith,"wrong_answer: esperado -367, obtido 367"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0008-0,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""JQjSaDq1QqjJsA"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0008-1,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""DjQjY1S"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0008-2,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""Y1QQJJSAD"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0012-0,arith,"wrong_answer: esperado -677261, obtido 127299"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0012-1,arith,"wrong_answer: esperado -677261, obtido 12559"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0012-2,arith,"wrong_answer: esperado -677261, obtido 1000000"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0013-0,count,"wrong_answer: esperado 1, obtido 5"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0014-0,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""vXNcc"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0014-1,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""XNCCV"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0014-2,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""XNCCVX"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0016-1,echo,"not_verbatim: esperado ""line one\nline two"", obtido false"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0018-0,arith,"wrong_answer: esperado 63064546, obtido 60974036"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0018-1,arith,"wrong_answer: esperado 63064546, obtido 609733363"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0018-2,arith,"wrong_answer: esperado 63064546, obtido 679841336"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0019-0,count,"wrong_answer: esperado 4, obtido 3"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0019-1,count,"wrong_answer: esperado 4, obtido 3"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0019-2,count,"wrong_answer: esperado 4, obtido 3"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0020-0,reverse,"wrong_answer: esperado ""vC2W"", obtido ""c2Wv"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0020-1,reverse,"wrong_answer: esperado ""vC2W"", obtido ""W2Cv"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0020-2,reverse,"wrong_answer: esperado ""vC2W"", obtido ""W2Cv is spelled as 'CV2W"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0022-0,echo,"not_verbatim: esperado ""tab\tseparated\tvalues"", obtido false"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0024-0,arith,"wrong_answer: esperado -382083122, obtido 962"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0024-1,arith,"wrong_answer: esperado -382083122, obtido 962"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0024-2,arith,"wrong_answer: esperado -382083122, obtido 962"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0025-0,count,"wrong_answer: esperado 4, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0025-1,count,"wrong_answer: esperado 4, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0025-2,count,"wrong_answer: esperado 4, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0026-1,reverse,"wrong_answer: esperado ""9UjXA"", obtido ""AXjU9"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0026-2,reverse,"wrong_answer: esperado ""9UjXA"", obtido ""U9jAX"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0032-0,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""YjMjJ"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0032-1,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""YMSJ"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0032-2,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""jmsj y"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0036-0,arith,"wrong_answer: esperado -229106, obtido -229600"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0036-1,arith,"wrong_answer: esperado -229106, obtido 494"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0036-2,arith,"wrong_answer: esperado -229106, obtido 200000"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0037-0,count,"wrong_answer: esperado 1, obtido 4"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0037-1,count,"wrong_answer: esperado 1, obtido 4"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0038-0,reverse,"wrong_answer: esperado ""SO3r"", obtido ""R3OS is backwards as R3OS"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0038-1,reverse,"wrong_answer: esperado ""SO3r"", obtido ""r3OS spelled in reverse order is 'os3r"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0038-2,reverse,"wrong_answer: esperado ""SO3r"", obtido ""3OS"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0042-0,arith,"wrong_answer: esperado -833767, obtido -1002200"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0042-1,arith,"wrong_answer: esperado -833767, obtido -1022229"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0042-2,arith,"wrong_answer: esperado -833767, obtido 1214"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0043-0,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0043-1,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0043-2,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0044-0,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""7JeaDFUC"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0044-1,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""7JeaDFUC"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0044-2,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""7JeaDFUC"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0048-2,arith,"wrong_answer: esperado 90, obtido 288"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0049-0,count,"wrong_answer: esperado 2, obtido 4"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0049-1,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0049-2,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0050-0,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""MzTm0u"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0050-1,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""0u0mZTm0"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0050-2,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""Tm0uMz"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0054-0,arith,"wrong_answer: esperado -4291, obtido -4391"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0054-1,arith,"wrong_answer: esperado -4291, obtido 4901"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0054-2,arith,"wrong_answer: esperado -4291, obtido -4341"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0055-0,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0055-1,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0055-2,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0056-0,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""XIKJQEJ"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0056-1,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""JEKIQJQ"""
+oracle_failure,local:HuggingFaceTB/SmolLM2-360M-Instruct,0056-2,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""JEKIJCQ"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0000-0,arith,"wrong_answer: esperado 752322, obtido 790322"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0000-1,arith,"wrong_answer: esperado 752322, obtido 5"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0000-2,arith,"wrong_answer: esperado 752322, obtido 795772"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0001-0,count,"no_number: esperado 3, obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0001-1,count,"wrong_answer: esperado 3, obtido 2"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0001-2,count,"wrong_answer: esperado 3, obtido 1"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0002-0,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""T3em6KopZ"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0002-1,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""T3em6KopZ\"" backwards is \""T3em6KopZ"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0002-2,reverse,"wrong_answer: esperado ""ZpoK6me3T"", obtido ""Here's a Python program that reverses a string:\n\n```python\ndef reverse_string(s):\n    \""\""\""\n    Reverse a string using the built-in Python function `reversed`.\n    \""\""\""\n    return s[::-1]\n\nprint(reverse_string(\""T3em6KopZ\""))  # Output: \""opzt3em6K\""\n```\n\nThis program uses the `reversed` function from the `string` module to reverse the string. The `::-1` syntax reverses the string from right to left, so the reversed string is \""opzt3em6K"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0003-0,json,"invalid_json: esperado [""age"", ""email"", ""score""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0003-1,json,"invalid_json: esperado [""age"", ""email"", ""score""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0003-2,json,"invalid_json: esperado [""age"", ""email"", ""score""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0006-0,arith,"wrong_answer: esperado -367, obtido 150"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0006-1,arith,"wrong_answer: esperado -367, obtido 368"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0006-2,arith,"wrong_answer: esperado -367, obtido 368"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0007-2,count,"wrong_answer: esperado 1, obtido 3"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0008-0,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""y1QqjJSaD"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0008-1,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""Here's a Python program that reverses the string 'y1QqjJSaD' without quotes:\n\n```python\nstring = input(\""Enter a string: \"")\nreversed_string = \""\""\n\nfor char in string:\n    reversed_string += char\n\nprint(reversed_string)\n```\n\nThis program prompts the user to enter a string, and then uses a loop to iterate through each character in the string. Inside the loop, we use the `+=` operator to concatenate the current character with the reversed string. Finally, we print the reversed string"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0008-2,reverse,"wrong_answer: esperado ""DaSJjqQ1y"", obtido ""y1QqjJSaD"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0009-0,json,"invalid_json: esperado [""active"", ""city"", ""email"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0009-1,json,"invalid_json: esperado [""active"", ""city"", ""email"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0009-2,json,"invalid_json: esperado [""active"", ""city"", ""email"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0010-0,echo,"not_verbatim: esperado ""<b>bold</b> & <i>italic</i>"", obtido false"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0010-1,echo,"not_verbatim: esperado ""<b>bold</b> & <i>italic</i>"", obtido false"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0012-0,arith,"wrong_answer: esperado -677261, obtido 677269"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0012-1,arith,"wrong_answer: esperado -677261, obtido 211218"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0012-2,arith,"wrong_answer: esperado -677261, obtido 11"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0013-0,count,"wrong_answer: esperado 1, obtido 2"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0013-1,count,"wrong_answer: esperado 1, obtido 5"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0014-0,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""vXNcc"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0014-1,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""vXNcc"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0014-2,reverse,"wrong_answer: esperado ""ccNXv"", obtido ""vXNcc"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0015-0,json,"invalid_json: esperado [""active"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0015-1,json,"invalid_json: esperado [""active"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0015-2,json,"invalid_json: esperado [""active"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0018-0,arith,"wrong_answer: esperado 63064546, obtido 56908340"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0018-1,arith,"wrong_answer: esperado 63064546, obtido 569110834"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0018-2,arith,"wrong_answer: esperado 63064546, obtido 63912000"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0019-0,count,"wrong_answer: esperado 4, obtido 1"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0019-1,count,"no_number: esperado 4, obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0019-2,count,"wrong_answer: esperado 4, obtido 2"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0020-0,reverse,"wrong_answer: esperado ""vC2W"", obtido ""Reverse the string \""W2Cv\"" using Python's built-in `reversed()` function:\n\n```python\nstring = \""W2Cv\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\ncvW2\n```\n\nExplanation:\n\n1. We first define a string `string` containing the input string \""W2Cv\"".\n2. We then call the `reversed()` function on the `string` variable, which returns a new string with the reversed characters.\n3. We print the reversed string using the `print()` function.\n\nNote: The `reversed()` function is a built-in function in Python that reverses a string"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0020-1,reverse,"wrong_answer: esperado ""vC2W"", obtido ""W2Cv"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0020-2,reverse,"wrong_answer: esperado ""vC2W"", obtido ""W2Cv' is spelled in reverse order, which is \""W2Cv"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0021-0,json,"invalid_json: esperado [""age"", ""city"", ""id"", ""tags""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0021-1,json,"invalid_json: esperado [""age"", ""city"", ""id"", ""tags""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0021-2,json,"invalid_json: esperado [""age"", ""city"", ""id"", ""tags""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0022-0,echo,"not_verbatim: esperado ""tab\tseparated\tvalues"", obtido false"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0022-1,echo,"not_verbatim: esperado ""tab\tseparated\tvalues"", obtido false"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0024-0,arith,"wrong_answer: esperado -382083122, obtido 1000000000000000000"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0024-1,arith,"wrong_answer: esperado -382083122, obtido 397"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0024-2,arith,"wrong_answer: esperado -382083122, obtido -29398400"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0025-0,count,"wrong_answer: esperado 4, obtido 1"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0025-1,count,"wrong_answer: esperado 4, obtido 1"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0025-2,count,"no_number: esperado 4, obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0026-0,reverse,"wrong_answer: esperado ""9UjXA"", obtido ""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""AXjU9\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\n9jAUXj\n```\n\nIn this example, the string \""AXjU9\"" is reversed to \""9jAUXj"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0026-1,reverse,"wrong_answer: esperado ""9UjXA"", obtido ""AXjU9' is spelled in reverse order as 'jU9ax"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0026-2,reverse,"wrong_answer: esperado ""9UjXA"", obtido ""9AJU9"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0027-0,json,"invalid_json: esperado [""active"", ""name""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0027-1,json,"invalid_json: esperado [""active"", ""name""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0027-2,json,"invalid_json: esperado [""active"", ""name""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0031-2,count,"wrong_answer: esperado 1, obtido 2"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0032-0,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""JMSjY' is spelled in reverse order, without quotes"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0032-1,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""JMSjY\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a string `string` containing the input string, and then reverses it using the `reversed()` function. Finally, it prints the reversed string"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0032-2,reverse,"wrong_answer: esperado ""YjSMJ"", obtido ""jmsjY"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0033-0,json,"invalid_json: esperado [""age"", ""email"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0033-1,json,"invalid_json: esperado [""age"", ""email"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0033-2,json,"invalid_json: esperado [""age"", ""email"", ""id""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0036-0,arith,"wrong_answer: esperado -229106, obtido 274400"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0036-1,arith,"wrong_answer: esperado -229106, obtido 24400"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0036-2,arith,"wrong_answer: esperado -229106, obtido 274"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0037-0,count,"wrong_answer: esperado 1, obtido 2"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0037-1,count,"wrong_answer: esperado 1, obtido 2"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0038-0,reverse,"wrong_answer: esperado ""SO3r"", obtido ""r3OS"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0038-1,reverse,"wrong_answer: esperado ""SO3r"", obtido ""r3OS' is spelled in reverse order"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0038-2,reverse,"wrong_answer: esperado ""SO3r"", obtido ""Reverse the string \""r3OS\"" without quotes using the following steps:\n\n1. Split the string into an array of characters using the `split()` method.\n\n```javascript\nconst string = \""r3OS\"";\nconst array = string.split(\""\"");\n```\n\n2. Reverse the array using the `reverse()` method.\n\n```javascript\nconst reversedArray = array.reverse();\n```\n\n3. Join the reversed array back into a single string using the `join()` method.\n\n```javascript\nconst reversedString = reversedArray.join(\""\"");\n```\n\n4. Output the reversed string without quotes.\n\n```javascript\nconsole.log(reversedString);\n```\n\nExplanation:\n\n1. We first split the string into an array of characters using the `split()` method.\n\n2. We then reverse the array using the `reverse()` method.\n\n3. We join the reversed array back into a single string using the `join()` method.\n\n4. Finally, we output the reversed string without quotes using the `console.log()` method"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0039-0,json,"invalid_json: esperado [""active"", ""age"", ""city"", ""email""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0039-1,json,"invalid_json: esperado [""active"", ""age"", ""city"", ""email""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0039-2,json,"invalid_json: esperado [""active"", ""age"", ""city"", ""email""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0040-1,echo,"not_verbatim: esperado ""{\""key\"": [1, 2, 3]}"", obtido false"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0042-0,arith,"wrong_answer: esperado -833767, obtido 546100"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0042-1,arith,"wrong_answer: esperado -833767, obtido 596"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0042-2,arith,"wrong_answer: esperado -833767, obtido 630"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0043-0,count,"wrong_answer: esperado 2, obtido 35"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0043-1,count,"wrong_answer: esperado 2, obtido 0"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0043-2,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0044-0,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""7JeaDFUC\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a new string `reversed_string` by reversing the original string `string`. Then, it prints the reversed string.\n\nOutput:\n```\nu'CDFUJ7EA"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0044-1,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""7JEADEFC"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0044-2,reverse,"wrong_answer: esperado ""CUFDaeJ7"", obtido ""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""7JeaDFUC\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a new string `reversed_string` by reversing the original string `string`. Then, it prints the reversed string"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0045-0,json,"invalid_json: esperado [""city"", ""email""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0045-1,json,"invalid_json: esperado [""city"", ""email""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0045-2,json,"invalid_json: esperado [""city"", ""email""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0048-0,arith,"wrong_answer: esperado 90, obtido 116"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0048-1,arith,"wrong_answer: esperado 90, obtido 106"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0048-2,arith,"wrong_answer: esperado 90, obtido 116"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0049-2,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0050-0,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""MzTm0u"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0050-1,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""Reverse the string \""MzTm0u\"" using Python's built-in `reversed()` function:\n\n```python\nstring = \""MzTm0u\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\nuMzT0\n```\n\nExplanation:\n\n1. We first define a string `string` containing the input string.\n2. We then define a string `reversed_string` using the `reversed()` function.\n3. We use the `reversed()` function to reverse the string using the `string` variable.\n4. Finally, we print the reversed string using the `print()` function"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0050-2,reverse,"wrong_answer: esperado ""u0mTzM"", obtido ""MzTm0u' is spelled in reverse order, and the reversed string is not outputted"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0051-0,json,"invalid_json: esperado [""city"", ""email"", ""tags""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0051-1,json,"invalid_json: esperado [""city"", ""email"", ""tags""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0051-2,json,"invalid_json: esperado [""city"", ""email"", ""tags""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0054-0,arith,"wrong_answer: esperado -4291, obtido 427"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0054-1,arith,"wrong_answer: esperado -4291, obtido 4096"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0054-2,arith,"wrong_answer: esperado -4291, obtido 4166"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0055-1,count,"wrong_answer: esperado 2, obtido 1"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0055-2,count,"no_number: esperado 2, obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0056-0,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""JEcXIKJq"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0056-1,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""JEcXIKJq"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0056-2,reverse,"wrong_answer: esperado ""qJKIXcEJ"", obtido ""The backwards of \""JEcXIKJq\"" is \""qJEcXIK"""
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0057-0,json,"invalid_json: esperado [""active"", ""score""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0057-1,json,"invalid_json: esperado [""active"", ""score""], obtido nan"
+oracle_failure,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0057-2,json,"invalid_json: esperado [""active"", ""score""], obtido nan"
+differential_disagreement,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0000-0,arith,esperado 752322 | local:Qwen/Qwen2.5-0.5B-Instruct=752322; local:HuggingFaceTB/SmolLM2-360M-Instruct=752322; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=790322
+differential_disagreement,"local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0000-1,arith,esperado 752322 | local:Qwen/Qwen2.5-0.5B-Instruct=652372; local:HuggingFaceTB/SmolLM2-360M-Instruct=752322; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=5
+differential_disagreement,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0000-2,arith,esperado 752322 | local:Qwen/Qwen2.5-0.5B-Instruct=752322; local:HuggingFaceTB/SmolLM2-360M-Instruct=752322; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=795772
+differential_disagreement,local:HuggingFaceTB/SmolLM2-360M-Instruct,0001-0,count,esperado 3 | local:Qwen/Qwen2.5-0.5B-Instruct=3; local:HuggingFaceTB/SmolLM2-360M-Instruct=1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0001-1,count,esperado 3 | local:Qwen/Qwen2.5-0.5B-Instruct=1; local:HuggingFaceTB/SmolLM2-360M-Instruct=4; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0001-2,count,esperado 3 | local:Qwen/Qwen2.5-0.5B-Instruct=10; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0002-0,reverse,"esperado ""ZpoK6me3T"" | local:Qwen/Qwen2.5-0.5B-Instruct=""oGocEim3t""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""ZKopT3em6Kop""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""T3em6KopZ"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0002-1,reverse,"esperado ""ZpoK6me3T"" | local:Qwen/Qwen2.5-0.5B-Instruct=""P0sKov3t6T""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""T3em6KopZ""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""T3em6KopZ\"" backwards is \""T3em6KopZ"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0002-2,reverse,"esperado ""ZpoK6me3T"" | local:Qwen/Qwen2.5-0.5B-Instruct=""m0s6Kop3eT""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""Z6T3emKopT""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""Here's a Python program that reverses a string:\n\n```python\ndef reverse_string(s):\n    \""\""\""\n    Reverse a string using the built-in Python function `reversed`.\n    \""\""\""\n    return s[::-1]\n\nprint(reverse_string(\""T3em6KopZ\""))  # Output: \""opzt3em6K\""\n```\n\nThis program uses the `reversed` function from the `string` module to reverse the string. The `::-1` syntax reverses the string from right to left, so the reversed string is \""opzt3em6K"""
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0004-0,echo,"esperado ""👩‍💻🚀🇧🇷"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0004-1,echo,"esperado ""👩‍💻🚀🇧🇷"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0006-0,arith,esperado -367 | local:Qwen/Qwen2.5-0.5B-Instruct=-367; local:HuggingFaceTB/SmolLM2-360M-Instruct=-368; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=150
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0006-1,arith,esperado -367 | local:Qwen/Qwen2.5-0.5B-Instruct=-367; local:HuggingFaceTB/SmolLM2-360M-Instruct=-369; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=368
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0006-2,arith,esperado -367 | local:Qwen/Qwen2.5-0.5B-Instruct=405; local:HuggingFaceTB/SmolLM2-360M-Instruct=367; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=368
+differential_disagreement,"local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0007-2,count,esperado 1 | local:Qwen/Qwen2.5-0.5B-Instruct=4; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=3
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0008-0,reverse,"esperado ""DaSJjqQ1y"" | local:Qwen/Qwen2.5-0.5B-Instruct=""zJsaDqy1Qq""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""JQjSaDq1QqjJsA""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""y1QqjJSaD"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0008-1,reverse,"esperado ""DaSJjqQ1y"" | local:Qwen/Qwen2.5-0.5B-Instruct=""SDasJqjY1""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""DjQjY1S""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""Here's a Python program that reverses the string 'y1QqjJSaD' without quotes:\n\n```python\nstring = input(\""Enter a string: \"")\nreversed_string = \""\""\n\nfor char in string:\n    reversed_string += char\n\nprint(reversed_string)\n```\n\nThis program prompts the user to enter a string, and then uses a loop to iterate through each character in the string. Inside the loop, we use the `+=` operator to concatenate the current character with the reversed string. Finally, we print the reversed string"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0008-2,reverse,"esperado ""DaSJjqQ1y"" | local:Qwen/Qwen2.5-0.5B-Instruct=""r\""JSAjdY1q""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""Y1QQJJSAD""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""y1QqjJSaD"""
+differential_disagreement,"local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0010-0,echo,"esperado ""<b>bold</b> & <i>italic</i>"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=false"
+differential_disagreement,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0010-1,echo,"esperado ""<b>bold</b> & <i>italic</i>"" | local:Qwen/Qwen2.5-0.5B-Instruct=true; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=false"
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0012-0,arith,esperado -677261 | local:Qwen/Qwen2.5-0.5B-Instruct=-677253; local:HuggingFaceTB/SmolLM2-360M-Instruct=127299; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=677269
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0012-1,arith,esperado -677261 | local:Qwen/Qwen2.5-0.5B-Instruct=-677263; local:HuggingFaceTB/SmolLM2-360M-Instruct=12559; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=211218
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0012-2,arith,esperado -677261 | local:Qwen/Qwen2.5-0.5B-Instruct=-677253; local:HuggingFaceTB/SmolLM2-360M-Instruct=1000000; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=11
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0013-0,count,esperado 1 | local:Qwen/Qwen2.5-0.5B-Instruct=1; local:HuggingFaceTB/SmolLM2-360M-Instruct=5; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0013-1,count,esperado 1 | local:Qwen/Qwen2.5-0.5B-Instruct=4; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=5
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0013-2,count,esperado 1 | local:Qwen/Qwen2.5-0.5B-Instruct=3; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0014-0,reverse,"esperado ""ccNXv"" | local:Qwen/Qwen2.5-0.5B-Instruct=""cXnVb""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""vXNcc""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""vXNcc"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0014-1,reverse,"esperado ""ccNXv"" | local:Qwen/Qwen2.5-0.5B-Instruct=""cXnvc""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""XNCCV""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""vXNcc"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0014-2,reverse,"esperado ""ccNXv"" | local:Qwen/Qwen2.5-0.5B-Instruct=""cXnVb""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""XNCCVX""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""vXNcc"""
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0016-0,echo,"esperado ""line one\nline two"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,local:HuggingFaceTB/SmolLM2-360M-Instruct,0016-1,echo,"esperado ""line one\nline two"" | local:Qwen/Qwen2.5-0.5B-Instruct=true; local:HuggingFaceTB/SmolLM2-360M-Instruct=false; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0018-0,arith,esperado 63064546 | local:Qwen/Qwen2.5-0.5B-Instruct=627000000; local:HuggingFaceTB/SmolLM2-360M-Instruct=60974036; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=56908340
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0018-1,arith,esperado 63064546 | local:Qwen/Qwen2.5-0.5B-Instruct=627000000; local:HuggingFaceTB/SmolLM2-360M-Instruct=609733363; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=569110834
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0018-2,arith,esperado 63064546 | local:Qwen/Qwen2.5-0.5B-Instruct=627000020; local:HuggingFaceTB/SmolLM2-360M-Instruct=679841336; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=63912000
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0019-0,count,esperado 4 | local:Qwen/Qwen2.5-0.5B-Instruct=1; local:HuggingFaceTB/SmolLM2-360M-Instruct=3; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct",0019-1,count,esperado 4 | local:Qwen/Qwen2.5-0.5B-Instruct=2; local:HuggingFaceTB/SmolLM2-360M-Instruct=3
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0019-2,count,esperado 4 | local:Qwen/Qwen2.5-0.5B-Instruct=1; local:HuggingFaceTB/SmolLM2-360M-Instruct=3; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0020-0,reverse,"esperado ""vC2W"" | local:Qwen/Qwen2.5-0.5B-Instruct=""cv2W""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""c2Wv""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""Reverse the string \""W2Cv\"" using Python's built-in `reversed()` function:\n\n```python\nstring = \""W2Cv\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\ncvW2\n```\n\nExplanation:\n\n1. We first define a string `string` containing the input string \""W2Cv\"".\n2. We then call the `reversed()` function on the `string` variable, which returns a new string with the reversed characters.\n3. We print the reversed string using the `print()` function.\n\nNote: The `reversed()` function is a built-in function in Python that reverses a string"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0020-1,reverse,"esperado ""vC2W"" | local:Qwen/Qwen2.5-0.5B-Instruct=""V2CW""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""W2Cv""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""W2Cv"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0020-2,reverse,"esperado ""vC2W"" | local:Qwen/Qwen2.5-0.5B-Instruct=""W2Cv reversed is CV2W""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""W2Cv is spelled as 'CV2W""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""W2Cv' is spelled in reverse order, which is \""W2Cv"""
+differential_disagreement,"local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0022-1,echo,"esperado ""tab\tseparated\tvalues"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=false"
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0024-0,arith,esperado -382083122 | local:Qwen/Qwen2.5-0.5B-Instruct=-378501632; local:HuggingFaceTB/SmolLM2-360M-Instruct=962; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=1000000000000000000
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0024-1,arith,esperado -382083122 | local:Qwen/Qwen2.5-0.5B-Instruct=-3580160688; local:HuggingFaceTB/SmolLM2-360M-Instruct=962; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=397
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0024-2,arith,esperado -382083122 | local:Qwen/Qwen2.5-0.5B-Instruct=-358010348; local:HuggingFaceTB/SmolLM2-360M-Instruct=962; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=-29398400
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0025-0,count,esperado 4 | local:Qwen/Qwen2.5-0.5B-Instruct=4; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0025-1,count,esperado 4 | local:Qwen/Qwen2.5-0.5B-Instruct=4; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct",0025-2,count,esperado 4 | local:Qwen/Qwen2.5-0.5B-Instruct=3; local:HuggingFaceTB/SmolLM2-360M-Instruct=1
+differential_disagreement,"local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0026-0,reverse,"esperado ""9UjXA"" | local:Qwen/Qwen2.5-0.5B-Instruct=""XAUj9""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""9UjXA""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""AXjU9\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\n9jAUXj\n```\n\nIn this example, the string \""AXjU9\"" is reversed to \""9jAUXj"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0026-1,reverse,"esperado ""9UjXA"" | local:Qwen/Qwen2.5-0.5B-Instruct=""AXjU9""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""AXjU9""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""AXjU9' is spelled in reverse order as 'jU9ax"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0026-2,reverse,"esperado ""9UjXA"" | local:Qwen/Qwen2.5-0.5B-Instruct=""AXjU9""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""U9jAX""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""9AJU9"""
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0028-0,echo,"esperado ""日本語のテキストです"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0031-2,count,esperado 1 | local:Qwen/Qwen2.5-0.5B-Instruct=1; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0032-0,reverse,"esperado ""YjSMJ"" | local:Qwen/Qwen2.5-0.5B-Instruct=""tMzsoJ""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""YjMjJ""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""JMSjY' is spelled in reverse order, without quotes"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0032-1,reverse,"esperado ""YjSMJ"" | local:Qwen/Qwen2.5-0.5B-Instruct=""YmsMjs""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""YMSJ""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""JMSjY\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a string `string` containing the input string, and then reverses it using the `reversed()` function. Finally, it prints the reversed string"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0032-2,reverse,"esperado ""YjSMJ"" | local:Qwen/Qwen2.5-0.5B-Instruct=""YmsJj""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""jmsj y""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""jmsjY"""
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0034-1,echo,"esperado ""日本語のテキストです"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0036-0,arith,esperado -229106 | local:Qwen/Qwen2.5-0.5B-Instruct=-229516; local:HuggingFaceTB/SmolLM2-360M-Instruct=-229600; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=274400
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0036-1,arith,esperado -229106 | local:Qwen/Qwen2.5-0.5B-Instruct=-229556; local:HuggingFaceTB/SmolLM2-360M-Instruct=494; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=24400
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0036-2,arith,esperado -229106 | local:Qwen/Qwen2.5-0.5B-Instruct=-229566; local:HuggingFaceTB/SmolLM2-360M-Instruct=200000; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=274
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0037-0,count,esperado 1 | local:Qwen/Qwen2.5-0.5B-Instruct=1; local:HuggingFaceTB/SmolLM2-360M-Instruct=4; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0037-1,count,esperado 1 | local:Qwen/Qwen2.5-0.5B-Instruct=2; local:HuggingFaceTB/SmolLM2-360M-Instruct=4; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0038-0,reverse,"esperado ""SO3r"" | local:Qwen/Qwen2.5-0.5B-Instruct=""OOSR""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""R3OS is backwards as R3OS""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""r3OS"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0038-1,reverse,"esperado ""SO3r"" | local:Qwen/Qwen2.5-0.5B-Instruct=""osOReLTiC""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""r3OS spelled in reverse order is 'os3r""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""r3OS' is spelled in reverse order"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0038-2,reverse,"esperado ""SO3r"" | local:Qwen/Qwen2.5-0.5B-Instruct=""O3S0R""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""3OS""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""Reverse the string \""r3OS\"" without quotes using the following steps:\n\n1. Split the string into an array of characters using the `split()` method.\n\n```javascript\nconst string = \""r3OS\"";\nconst array = string.split(\""\"");\n```\n\n2. Reverse the array using the `reverse()` method.\n\n```javascript\nconst reversedArray = array.reverse();\n```\n\n3. Join the reversed array back into a single string using the `join()` method.\n\n```javascript\nconst reversedString = reversedArray.join(\""\"");\n```\n\n4. Output the reversed string without quotes.\n\n```javascript\nconsole.log(reversedString);\n```\n\nExplanation:\n\n1. We first split the string into an array of characters using the `split()` method.\n\n2. We then reverse the array using the `reverse()` method.\n\n3. We join the reversed array back into a single string using the `join()` method.\n\n4. Finally, we output the reversed string without quotes using the `console.log()` method"""
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0040-0,echo,"esperado ""{\""key\"": [1, 2, 3]}"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0040-1,echo,"esperado ""{\""key\"": [1, 2, 3]}"" | local:Qwen/Qwen2.5-0.5B-Instruct=true; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=false"
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0042-0,arith,esperado -833767 | local:Qwen/Qwen2.5-0.5B-Instruct=-177197; local:HuggingFaceTB/SmolLM2-360M-Instruct=-1002200; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=546100
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0042-1,arith,esperado -833767 | local:Qwen/Qwen2.5-0.5B-Instruct=-182736; local:HuggingFaceTB/SmolLM2-360M-Instruct=-1022229; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=596
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0042-2,arith,esperado -833767 | local:Qwen/Qwen2.5-0.5B-Instruct=-834391; local:HuggingFaceTB/SmolLM2-360M-Instruct=1214; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=630
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0043-0,count,esperado 2 | local:Qwen/Qwen2.5-0.5B-Instruct=10; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=35
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0043-1,count,esperado 2 | local:Qwen/Qwen2.5-0.5B-Instruct=1; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=0
+consensus_wrong,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0043-2,count,esperado 2 | todos responderam 1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0044-0,reverse,"esperado ""CUFDaeJ7"" | local:Qwen/Qwen2.5-0.5B-Instruct=""jFcaDEja7""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""7JeaDFUC""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""7JeaDFUC\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a new string `reversed_string` by reversing the original string `string`. Then, it prints the reversed string.\n\nOutput:\n```\nu'CDFUJ7EA"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0044-1,reverse,"esperado ""CUFDaeJ7"" | local:Qwen/Qwen2.5-0.5B-Instruct=""DFAJEJCAO""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""7JeaDFUC""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""7JEADEFC"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0044-2,reverse,"esperado ""CUFDaeJ7"" | local:Qwen/Qwen2.5-0.5B-Instruct=""DAFCJEAuD7""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""7JeaDFUC""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""7JeaDFUC\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a new string `reversed_string` by reversing the original string `string`. Then, it prints the reversed string"""
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0046-0,echo,"esperado ""👩‍💻🚀🇧🇷"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0046-1,echo,"esperado ""👩‍💻🚀🇧🇷"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,"local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0048-0,arith,esperado 90 | local:Qwen/Qwen2.5-0.5B-Instruct=100; local:HuggingFaceTB/SmolLM2-360M-Instruct=90; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=116
+differential_disagreement,"local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0048-1,arith,esperado 90 | local:Qwen/Qwen2.5-0.5B-Instruct=30; local:HuggingFaceTB/SmolLM2-360M-Instruct=90; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=106
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0048-2,arith,esperado 90 | local:Qwen/Qwen2.5-0.5B-Instruct=200; local:HuggingFaceTB/SmolLM2-360M-Instruct=288; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=116
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct",0049-0,count,esperado 2 | local:Qwen/Qwen2.5-0.5B-Instruct=1; local:HuggingFaceTB/SmolLM2-360M-Instruct=4; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct",0049-1,count,esperado 2 | local:Qwen/Qwen2.5-0.5B-Instruct=10; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0049-2,count,esperado 2 | local:Qwen/Qwen2.5-0.5B-Instruct=10; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0050-0,reverse,"esperado ""u0mTzM"" | local:Qwen/Qwen2.5-0.5B-Instruct=""oZtMzT""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""MzTm0u""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""MzTm0u"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0050-1,reverse,"esperado ""u0mTzM"" | local:Qwen/Qwen2.5-0.5B-Instruct=""tMzTmu""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""0u0mZTm0""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""Reverse the string \""MzTm0u\"" using Python's built-in `reversed()` function:\n\n```python\nstring = \""MzTm0u\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\nuMzT0\n```\n\nExplanation:\n\n1. We first define a string `string` containing the input string.\n2. We then define a string `reversed_string` using the `reversed()` function.\n3. We use the `reversed()` function to reverse the string using the `string` variable.\n4. Finally, we print the reversed string using the `print()` function"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0050-2,reverse,"esperado ""u0mTzM"" | local:Qwen/Qwen2.5-0.5B-Instruct=""oztmN""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""Tm0uMz""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""MzTm0u' is spelled in reverse order, and the reversed string is not outputted"""
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0052-0,echo,"esperado ""Ω≈ç√∫˜µ≤≥÷"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0052-1,echo,"esperado ""Ω≈ç√∫˜µ≤≥÷"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0054-0,arith,esperado -4291 | local:Qwen/Qwen2.5-0.5B-Instruct=-4291; local:HuggingFaceTB/SmolLM2-360M-Instruct=-4391; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=427
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0054-1,arith,esperado -4291 | local:Qwen/Qwen2.5-0.5B-Instruct=-4291; local:HuggingFaceTB/SmolLM2-360M-Instruct=4901; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=4096
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0054-2,arith,esperado -4291 | local:Qwen/Qwen2.5-0.5B-Instruct=-4291; local:HuggingFaceTB/SmolLM2-360M-Instruct=-4341; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=4166
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct",0055-0,count,esperado 2 | local:Qwen/Qwen2.5-0.5B-Instruct=4; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=2
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0055-1,count,esperado 2 | local:Qwen/Qwen2.5-0.5B-Instruct=4; local:HuggingFaceTB/SmolLM2-360M-Instruct=1; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=1
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0056-0,reverse,"esperado ""qJKIXcEJ"" | local:Qwen/Qwen2.5-0.5B-Instruct=""QwEjxCXIKJq""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""XIKJQEJ""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""JEcXIKJq"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0056-1,reverse,"esperado ""qJKIXcEJ"" | local:Qwen/Qwen2.5-0.5B-Instruct=""KJIuECXQ""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""JEKIQJQ""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""JEcXIKJq"""
+differential_disagreement,"local:HuggingFaceTB/SmolLM2-360M-Instruct, local:Qwen/Qwen2.5-0.5B-Instruct, local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",0056-2,reverse,"esperado ""qJKIXcEJ"" | local:Qwen/Qwen2.5-0.5B-Instruct=""KIJQCej""; local:HuggingFaceTB/SmolLM2-360M-Instruct=""JEKIJCQ""; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=""The backwards of \""JEcXIKJq\"" is \""qJEcXIK"""
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0058-0,echo,"esperado ""مرحبا بالعالم"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+differential_disagreement,local:Qwen/Qwen2.5-0.5B-Instruct,0058-1,echo,"esperado ""مرحبا بالعالم"" | local:Qwen/Qwen2.5-0.5B-Instruct=false; local:HuggingFaceTB/SmolLM2-360M-Instruct=true; local:TinyLlama/TinyLlama-1.1B-Chat-v1.0=true"
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0001,count,v0=1; v1=4; v2=1
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0002,reverse,"v0=""ZKopT3em6Kop""; v1=""T3em6KopZ""; v2=""Z6T3emKopT"""
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0006,arith,v0=-368; v1=-369; v2=367
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0008,reverse,"v0=""JQjSaDq1QqjJsA""; v1=""DjQjY1S""; v2=""Y1QQJJSAD"""
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0012,arith,v0=127299; v1=12559; v2=1000000
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0013,count,v0=5; v1=1; v2=1
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0014,reverse,"v0=""vXNcc""; v1=""XNCCV""; v2=""XNCCVX"""
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0016,echo,v0=true; v1=false
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0018,arith,v0=60974036; v1=609733363; v2=679841336
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0020,reverse,"v0=""c2Wv""; v1=""W2Cv""; v2=""W2Cv is spelled as 'CV2W"""
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0022,echo,v0=false; v1=true
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0026,reverse,"v0=""9UjXA""; v1=""AXjU9""; v2=""U9jAX"""
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0032,reverse,"v0=""YjMjJ""; v1=""YMSJ""; v2=""jmsj y"""
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0036,arith,v0=-229600; v1=494; v2=200000
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0037,count,v0=4; v1=4; v2=1
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0038,reverse,"v0=""R3OS is backwards as R3OS""; v1=""r3OS spelled in reverse order is 'os3r""; v2=""3OS"""
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0042,arith,v0=-1002200; v1=-1022229; v2=1214
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0048,arith,v0=90; v1=90; v2=288
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0049,count,v0=4; v1=1; v2=1
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0050,reverse,"v0=""MzTm0u""; v1=""0u0mZTm0""; v2=""Tm0uMz"""
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0054,arith,v0=-4391; v1=4901; v2=-4341
+metamorphic_inconsistency,local:HuggingFaceTB/SmolLM2-360M-Instruct,0056,reverse,"v0=""XIKJQEJ""; v1=""JEKIQJQ""; v2=""JEKIJCQ"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0000,arith,v0=752322; v1=652372; v2=752322
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0001,count,v0=3; v1=1; v2=10
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0002,reverse,"v0=""oGocEim3t""; v1=""P0sKov3t6T""; v2=""m0s6Kop3eT"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0006,arith,v0=-367; v1=-367; v2=405
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0007,count,v0=1; v1=1; v2=4
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0008,reverse,"v0=""zJsaDqy1Qq""; v1=""SDasJqjY1""; v2=""r\""JSAjdY1q"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0010,echo,v0=false; v1=true
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0012,arith,v0=-677253; v1=-677263; v2=-677253
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0013,count,v0=1; v1=4; v2=3
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0014,reverse,"v0=""cXnVb""; v1=""cXnvc""; v2=""cXnVb"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0016,echo,v0=false; v1=true
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0018,arith,v0=627000000; v1=627000000; v2=627000020
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0019,count,v0=1; v1=2; v2=1
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0020,reverse,"v0=""cv2W""; v1=""V2CW""; v2=""W2Cv reversed is CV2W"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0024,arith,v0=-378501632; v1=-3580160688; v2=-358010348
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0025,count,v0=4; v1=4; v2=3
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0026,reverse,"v0=""XAUj9""; v1=""AXjU9""; v2=""AXjU9"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0028,echo,v0=false; v1=true
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0032,reverse,"v0=""tMzsoJ""; v1=""YmsMjs""; v2=""YmsJj"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0034,echo,v0=true; v1=false
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0036,arith,v0=-229516; v1=-229556; v2=-229566
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0037,count,v0=1; v1=2; v2=1
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0038,reverse,"v0=""OOSR""; v1=""osOReLTiC""; v2=""O3S0R"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0040,echo,v0=false; v1=true
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0042,arith,v0=-177197; v1=-182736; v2=-834391
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0043,count,v0=10; v1=1; v2=1
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0044,reverse,"v0=""jFcaDEja7""; v1=""DFAJEJCAO""; v2=""DAFCJEAuD7"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0048,arith,v0=100; v1=30; v2=200
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0049,count,v0=1; v1=10; v2=10
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0050,reverse,"v0=""oZtMzT""; v1=""tMzTmu""; v2=""oztmN"""
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0055,count,v0=4; v1=4; v2=1
+metamorphic_inconsistency,local:Qwen/Qwen2.5-0.5B-Instruct,0056,reverse,"v0=""QwEjxCXIKJq""; v1=""KJIuECXQ""; v2=""KIJQCej"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0000,arith,v0=790322; v1=5; v2=795772
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0001,count,v0=<sem resposta>; v1=2; v2=1
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0002,reverse,"v0=""T3em6KopZ""; v1=""T3em6KopZ\"" backwards is \""T3em6KopZ""; v2=""Here's a Python program that reverses a string:\n\n```python\ndef reverse_string(s):\n    \""\""\""\n    Reverse a string using the built-in Python function `reversed`.\n    \""\""\""\n    return s[::-1]\n\nprint(reverse_string(\""T3em6KopZ\""))  # Output: \""opzt3em6K\""\n```\n\nThis program uses the `reversed` function from the `string` module to reverse the string. The `::-1` syntax reverses the string from right to left, so the reversed string is \""opzt3em6K"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0006,arith,v0=150; v1=368; v2=368
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0007,count,v0=1; v1=1; v2=3
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0008,reverse,"v0=""y1QqjJSaD""; v1=""Here's a Python program that reverses the string 'y1QqjJSaD' without quotes:\n\n```python\nstring = input(\""Enter a string: \"")\nreversed_string = \""\""\n\nfor char in string:\n    reversed_string += char\n\nprint(reversed_string)\n```\n\nThis program prompts the user to enter a string, and then uses a loop to iterate through each character in the string. Inside the loop, we use the `+=` operator to concatenate the current character with the reversed string. Finally, we print the reversed string""; v2=""y1QqjJSaD"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0012,arith,v0=677269; v1=211218; v2=11
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0013,count,v0=2; v1=5; v2=1
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0018,arith,v0=56908340; v1=569110834; v2=63912000
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0019,count,v0=1; v1=<sem resposta>; v2=2
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0020,reverse,"v0=""Reverse the string \""W2Cv\"" using Python's built-in `reversed()` function:\n\n```python\nstring = \""W2Cv\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\ncvW2\n```\n\nExplanation:\n\n1. We first define a string `string` containing the input string \""W2Cv\"".\n2. We then call the `reversed()` function on the `string` variable, which returns a new string with the reversed characters.\n3. We print the reversed string using the `print()` function.\n\nNote: The `reversed()` function is a built-in function in Python that reverses a string""; v1=""W2Cv""; v2=""W2Cv' is spelled in reverse order, which is \""W2Cv"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0024,arith,v0=1000000000000000000; v1=397; v2=-29398400
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0025,count,v0=1; v1=1; v2=<sem resposta>
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0026,reverse,"v0=""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""AXjU9\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\n9jAUXj\n```\n\nIn this example, the string \""AXjU9\"" is reversed to \""9jAUXj""; v1=""AXjU9' is spelled in reverse order as 'jU9ax""; v2=""9AJU9"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0031,count,v0=1; v1=1; v2=2
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0032,reverse,"v0=""JMSjY' is spelled in reverse order, without quotes""; v1=""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""JMSjY\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a string `string` containing the input string, and then reverses it using the `reversed()` function. Finally, it prints the reversed string""; v2=""jmsjY"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0036,arith,v0=274400; v1=24400; v2=274
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0037,count,v0=2; v1=2; v2=1
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0038,reverse,"v0=""r3OS""; v1=""r3OS' is spelled in reverse order""; v2=""Reverse the string \""r3OS\"" without quotes using the following steps:\n\n1. Split the string into an array of characters using the `split()` method.\n\n```javascript\nconst string = \""r3OS\"";\nconst array = string.split(\""\"");\n```\n\n2. Reverse the array using the `reverse()` method.\n\n```javascript\nconst reversedArray = array.reverse();\n```\n\n3. Join the reversed array back into a single string using the `join()` method.\n\n```javascript\nconst reversedString = reversedArray.join(\""\"");\n```\n\n4. Output the reversed string without quotes.\n\n```javascript\nconsole.log(reversedString);\n```\n\nExplanation:\n\n1. We first split the string into an array of characters using the `split()` method.\n\n2. We then reverse the array using the `reverse()` method.\n\n3. We join the reversed array back into a single string using the `join()` method.\n\n4. Finally, we output the reversed string without quotes using the `console.log()` method"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0040,echo,v0=true; v1=false
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0042,arith,v0=546100; v1=596; v2=630
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0043,count,v0=35; v1=0; v2=1
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0044,reverse,"v0=""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""7JeaDFUC\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a new string `reversed_string` by reversing the original string `string`. Then, it prints the reversed string.\n\nOutput:\n```\nu'CDFUJ7EA""; v1=""7JEADEFC""; v2=""To reverse a string in Python, you can use the `reversed()` function. Here's an example:\n\n```python\nstring = \""7JeaDFUC\""\nreversed_string = string[::-1]\nprint(reversed_string)\n```\n\nThis code first creates a new string `reversed_string` by reversing the original string `string`. Then, it prints the reversed string"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0048,arith,v0=116; v1=106; v2=116
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0049,count,v0=2; v1=2; v2=1
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0050,reverse,"v0=""MzTm0u""; v1=""Reverse the string \""MzTm0u\"" using Python's built-in `reversed()` function:\n\n```python\nstring = \""MzTm0u\""\nreversed_string = reversed(string)\nprint(reversed_string)\n```\n\nOutput:\n\n```\nuMzT0\n```\n\nExplanation:\n\n1. We first define a string `string` containing the input string.\n2. We then define a string `reversed_string` using the `reversed()` function.\n3. We use the `reversed()` function to reverse the string using the `string` variable.\n4. Finally, we print the reversed string using the `print()` function""; v2=""MzTm0u' is spelled in reverse order, and the reversed string is not outputted"""
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0054,arith,v0=427; v1=4096; v2=4166
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0055,count,v0=2; v1=1; v2=<sem resposta>
+metamorphic_inconsistency,local:TinyLlama/TinyLlama-1.1B-Chat-v1.0,0056,reverse,"v0=""JEcXIKJq""; v1=""JEcXIKJq""; v2=""The backwards of \""JEcXIKJq\"" is \""qJEcXIK"""

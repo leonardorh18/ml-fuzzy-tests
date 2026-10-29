@@ -1,0 +1,660 @@
+{
+  "main_run": {
+    "responses": 510,
+    "prompts": 170,
+    "skeletons": 60,
+    "prompts_by_category": {
+      "arith": 30,
+      "count": 30,
+      "reverse": 30,
+      "json": 30,
+      "edge": 30,
+      "echo": 20
+    },
+    "pass_rate": {
+      "local:HuggingFaceTB/SmolLM2-360M-Instruct": {
+        "k": 66,
+        "n": 140,
+        "rate": 0.4714285714285714,
+        "ci95": [
+          0.39060995973633705,
+          0.5537733063007483
+        ]
+      },
+      "local:Qwen/Qwen2.5-0.5B-Instruct": {
+        "k": 56,
+        "n": 140,
+        "rate": 0.4,
+        "ci95": [
+          0.3225654718077856,
+          0.4827759593220129
+        ]
+      },
+      "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+        "k": 27,
+        "n": 140,
+        "rate": 0.19285714285714287,
+        "ci95": [
+          0.13606304869402092,
+          0.26605706120464545
+        ]
+      }
+    },
+    "pass_rate_by_category": {
+      "local:HuggingFaceTB/SmolLM2-360M-Instruct": {
+        "arith": {
+          "k": 8,
+          "n": 30,
+          "rate": 0.26666666666666666,
+          "ci95": [
+            0.14182495553910618,
+            0.4444830204431169
+          ]
+        },
+        "count": {
+          "k": 9,
+          "n": 30,
+          "rate": 0.3,
+          "ci95": [
+            0.16664562643958933,
+            0.4787612101166018
+          ]
+        },
+        "echo": {
+          "k": 18,
+          "n": 20,
+          "rate": 0.9,
+          "ci95": [
+            0.6989617935882066,
+            0.9721341060158468
+          ]
+        },
+        "json": {
+          "k": 30,
+          "n": 30,
+          "rate": 1.0,
+          "ci95": [
+            0.8864829086095221,
+            1.0
+          ]
+        },
+        "reverse": {
+          "k": 1,
+          "n": 30,
+          "rate": 0.03333333333333333,
+          "ci95": [
+            0.0059084379948573795,
+            0.16670751396958874
+          ]
+        }
+      },
+      "local:Qwen/Qwen2.5-0.5B-Instruct": {
+        "arith": {
+          "k": 10,
+          "n": 30,
+          "rate": 0.3333333333333333,
+          "ci95": [
+            0.19230295526846194,
+            0.5122027418616973
+          ]
+        },
+        "count": {
+          "k": 11,
+          "n": 30,
+          "rate": 0.36666666666666664,
+          "ci95": [
+            0.21873702204017678,
+            0.5448675356639506
+          ]
+        },
+        "echo": {
+          "k": 5,
+          "n": 20,
+          "rate": 0.25,
+          "ci95": [
+            0.11186005278940309,
+            0.4687050099580636
+          ]
+        },
+        "json": {
+          "k": 30,
+          "n": 30,
+          "rate": 1.0,
+          "ci95": [
+            0.8864829086095221,
+            1.0
+          ]
+        },
+        "reverse": {
+          "k": 0,
+          "n": 30,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.113517091390478
+          ]
+        }
+      },
+      "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+        "arith": {
+          "k": 3,
+          "n": 30,
+          "rate": 0.1,
+          "ci95": [
+            0.03459925995971615,
+            0.25621441315266624
+          ]
+        },
+        "count": {
+          "k": 9,
+          "n": 30,
+          "rate": 0.3,
+          "ci95": [
+            0.16664562643958933,
+            0.4787612101166018
+          ]
+        },
+        "echo": {
+          "k": 15,
+          "n": 20,
+          "rate": 0.75,
+          "ci95": [
+            0.5312949900419365,
+            0.888139947210597
+          ]
+        },
+        "json": {
+          "k": 0,
+          "n": 30,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.113517091390478
+          ]
+        },
+        "reverse": {
+          "k": 0,
+          "n": 30,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.113517091390478
+          ]
+        }
+      }
+    },
+    "reasons": {
+      "local:HuggingFaceTB/SmolLM2-360M-Instruct": {
+        "ok": 96,
+        "wrong_answer": 72,
+        "not_verbatim": 2
+      },
+      "local:Qwen/Qwen2.5-0.5B-Instruct": {
+        "ok": 86,
+        "wrong_answer": 69,
+        "not_verbatim": 15
+      },
+      "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+        "wrong_answer": 74,
+        "ok": 57,
+        "invalid_json": 30,
+        "not_verbatim": 5,
+        "no_number": 4
+      }
+    },
+    "mcnemar": {
+      "SmolLM2-360M vs Qwen2.5-0.5B": {
+        "n": 140,
+        "only_first": 21,
+        "only_second": 11,
+        "p": 0.11018416518345475
+      },
+      "SmolLM2-360M vs TinyLlama-1.1B": {
+        "n": 140,
+        "only_first": 43,
+        "only_second": 4,
+        "p": 2.781192165457469e-09
+      },
+      "Qwen2.5-0.5B vs TinyLlama-1.1B": {
+        "n": 140,
+        "only_first": 45,
+        "only_second": 16,
+        "p": 0.00026427866182729843
+      }
+    },
+    "all_models_wrong": 60,
+    "all_models_wrong_by_category": {
+      "reverse": 29,
+      "arith": 17,
+      "count": 13,
+      "echo": 1
+    },
+    "consensus_wrong": 2,
+    "all_models_right": 10,
+    "graded_prompts": 140,
+    "rq2_oracles_without_ground_truth": {
+      "responses": 360,
+      "failures": 249,
+      "differential": {
+        "flagged": 333,
+        "failures_flagged": 246,
+        "recall": 0.9879518072289156,
+        "precision": 0.7387387387387387
+      },
+      "metamorphic": {
+        "flagged": 225,
+        "failures_flagged": 198,
+        "recall": 0.7951807228915663,
+        "precision": 0.88
+      },
+      "either": {
+        "flagged": 344,
+        "failures_flagged": 248,
+        "recall": 0.9959839357429718,
+        "precision": 0.7209302325581395
+      },
+      "failures_missed_by_both": 1,
+      "by_category": {
+        "arith": {
+          "failures": 69,
+          "recall_either": 1.0,
+          "precision_either": 0.8518518518518519
+        },
+        "count": {
+          "failures": 61,
+          "recall_either": 0.9836065573770492,
+          "precision_either": 0.7228915662650602
+        },
+        "json": {
+          "failures": 30,
+          "recall_either": 1.0,
+          "precision_either": 0.3333333333333333
+        },
+        "reverse": {
+          "failures": 89,
+          "recall_either": 1.0,
+          "precision_either": 0.9888888888888889
+        }
+      }
+    },
+    "paraphrase_groups": {
+      "local:HuggingFaceTB/SmolLM2-360M-Instruct": {
+        "all_correct": 22,
+        "all_wrong": 22,
+        "mixed": 6
+      },
+      "local:Qwen/Qwen2.5-0.5B-Instruct": {
+        "all_correct": 13,
+        "all_wrong": 25,
+        "mixed": 12
+      },
+      "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+        "all_correct": 8,
+        "all_wrong": 35,
+        "mixed": 7
+      }
+    },
+    "truncated": {
+      "local:HuggingFaceTB/SmolLM2-360M-Instruct": {
+        "all": 9,
+        "edge": 6
+      },
+      "local:Qwen/Qwen2.5-0.5B-Instruct": {
+        "all": 3,
+        "edge": 3
+      },
+      "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+        "all": 25,
+        "edge": 15
+      }
+    },
+    "latency": {
+      "local:HuggingFaceTB/SmolLM2-360M-Instruct": {
+        "mean_s": 2.700764705882353,
+        "median_s": 1.5539999999999998,
+        "total_min": 7.652166666666667
+      },
+      "local:Qwen/Qwen2.5-0.5B-Instruct": {
+        "mean_s": 2.7655588235294117,
+        "median_s": 1.14,
+        "total_min": 7.83575
+      },
+      "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+        "mean_s": 13.56035882352941,
+        "median_s": 6.0745000000000005,
+        "total_min": 38.42101666666667
+      }
+    },
+    "total_compute_min": 53.90893333333334,
+    "failures_total": 271,
+    "unique_prompts": 161,
+    "repeated_prompt_pairs": {
+      "model_prompt_pairs": 27,
+      "identical_responses": 27
+    },
+    "json_lenient_pass_rate": {
+      "local:HuggingFaceTB/SmolLM2-360M-Instruct": {
+        "k": 30,
+        "n": 30,
+        "rate": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ]
+      },
+      "local:Qwen/Qwen2.5-0.5B-Instruct": {
+        "k": 30,
+        "n": 30,
+        "rate": 1.0,
+        "ci95": [
+          0.8864829086095221,
+          1.0
+        ]
+      },
+      "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+        "k": 25,
+        "n": 30,
+        "rate": 0.8333333333333334,
+        "ci95": [
+          0.6643529481431982,
+          0.9266356575964831
+        ]
+      }
+    },
+    "failure_details": {
+      "arith_pass_by_operand": {
+        "small": {
+          "k": 16,
+          "n": 36,
+          "rate": 0.4444444444444444,
+          "ci95": [
+            0.2954102987654314,
+            0.6041921268399659
+          ]
+        },
+        "large": {
+          "k": 5,
+          "n": 54,
+          "rate": 0.09259259259259259,
+          "ci95": [
+            0.040200542070567336,
+            0.1991012753065453
+          ]
+        }
+      },
+      "arith_wrong_within_10x": {
+        "k": 53,
+        "n": 69,
+        "rate": 0.7681159420289855,
+        "ci95": [
+          0.6560292969473013,
+          0.8519222032943189
+        ]
+      },
+      "reverse_returned_input": {
+        "local:HuggingFaceTB/SmolLM2-360M-Instruct": 8,
+        "local:Qwen/Qwen2.5-0.5B-Instruct": 2,
+        "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": 11
+      },
+      "disagreeing_prompts_by_correct_models": {
+        "0": 58,
+        "1": 19,
+        "2": 34,
+        "3": 0
+      }
+    }
+  },
+  "grammar_coverage": {
+    "0.0": {
+      "coverage_after": {
+        "6": 0.32926829268292684,
+        "12": 0.5056910569105691,
+        "24": 0.708130081300813,
+        "48": 0.859349593495935
+      },
+      "prompts_to_full_coverage": {
+        "reached": "4/30",
+        "median": 94.0,
+        "min": 79,
+        "max": 115
+      }
+    },
+    "0.8": {
+      "coverage_after": {
+        "6": 0.33902439024390246,
+        "12": 0.5910569105691057,
+        "24": 0.8040650406504065,
+        "48": 0.9195121951219513
+      },
+      "prompts_to_full_coverage": {
+        "reached": "27/30",
+        "median": 73,
+        "min": 55,
+        "max": 109
+      }
+    }
+  },
+  "failure_diversity": {
+    "runs": [
+      {
+        "seed": 0,
+        "bias": 0.0,
+        "prompts": 60,
+        "failures": 29,
+        "failure_rate": 0.58,
+        "revealing_rules": 22,
+        "distinct_signatures": 18
+      },
+      {
+        "seed": 0,
+        "bias": 0.8,
+        "prompts": 60,
+        "failures": 31,
+        "failure_rate": 0.62,
+        "revealing_rules": 21,
+        "distinct_signatures": 18
+      },
+      {
+        "seed": 1,
+        "bias": 0.0,
+        "prompts": 60,
+        "failures": 28,
+        "failure_rate": 0.56,
+        "revealing_rules": 18,
+        "distinct_signatures": 16
+      },
+      {
+        "seed": 1,
+        "bias": 0.8,
+        "prompts": 60,
+        "failures": 28,
+        "failure_rate": 0.56,
+        "revealing_rules": 22,
+        "distinct_signatures": 18
+      },
+      {
+        "seed": 2,
+        "bias": 0.0,
+        "prompts": 60,
+        "failures": 33,
+        "failure_rate": 0.66,
+        "revealing_rules": 25,
+        "distinct_signatures": 17
+      },
+      {
+        "seed": 2,
+        "bias": 0.8,
+        "prompts": 60,
+        "failures": 32,
+        "failure_rate": 0.64,
+        "revealing_rules": 28,
+        "distinct_signatures": 20
+      }
+    ],
+    "summary": {
+      "0.0": {
+        "failures": {
+          "mean": 30,
+          "values": [
+            29,
+            28,
+            33
+          ]
+        },
+        "revealing_rules": {
+          "mean": 21.666666666666668,
+          "values": [
+            22,
+            18,
+            25
+          ]
+        },
+        "distinct_signatures": {
+          "mean": 17,
+          "values": [
+            18,
+            16,
+            17
+          ]
+        }
+      },
+      "0.8": {
+        "failures": {
+          "mean": 30.333333333333332,
+          "values": [
+            31,
+            28,
+            32
+          ]
+        },
+        "revealing_rules": {
+          "mean": 23.666666666666668,
+          "values": [
+            21,
+            22,
+            28
+          ]
+        },
+        "distinct_signatures": {
+          "mean": 18.666666666666668,
+          "values": [
+            18,
+            18,
+            20
+          ]
+        }
+      }
+    }
+  },
+  "edge_labels": {
+    "local:HuggingFaceTB/SmolLM2-360M-Instruct": {
+      "benign": 14,
+      "refusal": 6,
+      "degenerate_loop": 6,
+      "hallucinated_or_wrong": 4
+    },
+    "local:Qwen/Qwen2.5-0.5B-Instruct": {
+      "hallucinated_or_wrong": 12,
+      "benign": 10,
+      "refusal": 7,
+      "degenerate_loop": 1
+    },
+    "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
+      "hallucinated_or_wrong": 13,
+      "benign": 9,
+      "degenerate_loop": 5,
+      "chat_template_leak": 3
+    },
+    "all": {
+      "benign": 33,
+      "hallucinated_or_wrong": 29,
+      "refusal": 13,
+      "degenerate_loop": 12,
+      "chat_template_leak": 3
+    }
+  },
+  "oracle_validation": {
+    "n": 60,
+    "agreement": {
+      "k": 57,
+      "n": 60,
+      "rate": 0.95,
+      "ci95": [
+        0.8629926537490016,
+        0.9828508088208587
+      ]
+    },
+    "cohen_kappa": 0.8915662650602408,
+    "oracle_pass_human_fail": 0,
+    "oracle_fail_human_pass": 3,
+    "both_pass": 20,
+    "both_fail": 37,
+    "by_category": {
+      "arith": {
+        "n": 12,
+        "agreement": 1.0
+      },
+      "count": {
+        "n": 12,
+        "agreement": 1.0
+      },
+      "echo": {
+        "n": 12,
+        "agreement": 1.0
+      },
+      "json": {
+        "n": 12,
+        "agreement": 0.75
+      },
+      "reverse": {
+        "n": 12,
+        "agreement": 1.0
+      }
+    },
+    "disagreements": [
+      {
+        "model": "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+        "case_id": "0003-2",
+        "category": "json",
+        "auto_passed": false,
+        "human_correct": true,
+        "note": "valid JSON with the keys inside a fence, surrounded by prose"
+      },
+      {
+        "model": "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+        "case_id": "0057-1",
+        "category": "json",
+        "auto_passed": false,
+        "human_correct": true,
+        "note": "valid JSON inside prose"
+      },
+      {
+        "model": "local:TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+        "case_id": "0027-1",
+        "category": "json",
+        "auto_passed": false,
+        "human_correct": true,
+        "note": "valid JSON inside prose"
+      }
+    ],
+    "format_ok_rate": {
+      "k": 17,
+      "n": 60,
+      "rate": 0.2833333333333333,
+      "ci95": [
+        0.1850667860430859,
+        0.40767525049735165
+      ]
+    },
+    "agreement_strict": {
+      "k": 57,
+      "n": 60,
+      "rate": 0.95,
+      "ci95": [
+        0.8629926537490016,
+        0.9828508088208587
+      ]
+    },
+    "strict_oracle_pass_human_fail": 3
+  }
+}

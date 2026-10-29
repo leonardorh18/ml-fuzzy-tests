@@ -1,0 +1,13 @@
+# Versões exatas usadas nos experimentos do artigo (Python 3.13, CPU, Linux).
+# Instale com: pip install -r requirements-experimentos.txt
+# Outras versões funcionam (requirements.txt), mas podem mudar algumas respostas dos modelos.
+torch==2.14.1
+transformers==5.21.0
+tokenizers==0.23.3
+safetensors==0.8.0
+huggingface_hub==2.3.0
+numpy==2.5.3
+pandas==3.0.5
+matplotlib==3.11.2
+requests==2.34.2
+pytest==9.2.0
