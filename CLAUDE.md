@@ -8,7 +8,7 @@ Guia do projeto e registro de **todas as decisões e do contexto**, para que out
 
 ## 1. O que é o projeto
 
-Trabalho final de uma disciplina de **teste de software / fuzzing**, em grupo de 3 ou 4 pessoas (nomes ainda não informados pelo usuário). O tema escolhido pelo usuário:
+Trabalho final de uma disciplina de **teste de software / fuzzing**, em grupo de 4 pessoas: **Leonardo, Eduarda, Luis e Valeria** (sobrenomes e afiliação ainda não informados). O tema escolhido pelo usuário:
 
 > **Natural Language Chatbot APIs (Hugging Face) — Grammar-based fuzzing and differential testing.**
 
@@ -101,7 +101,7 @@ cd paper && latexmk -pdf main.tex                         # compila o artigo
 | Inglês | O enunciado da disciplina está em inglês; o usuário pediu inglês acadêmico antes. |
 | Template SBC **reimplementado** em `paper/sbc-template.sty` | O `.sty` oficial não pôde ser baixado (sbc.org.br bloqueado; Overleaf exige login para o código). As regras vieram do PDF oficial do template no Overleaf ("SBC Conferences Template", v2017): A4, margens 3,5/2,5/3,0 cm, Times 12, 6pt antes de parágrafos, título 16pt negrito, seções 13pt, legendas Helvetica 10pt negrito, resumo com recuo de 0,8 cm, referências com recuo pendente de 0,5 cm, citações `[Autor Ano]`. O `.sty` oficial pode substituir o nosso sem mudar o `main.tex`. |
 | `apalike` + natbib (`square`, sem vírgula entre autor e ano) | Reproduz o formato de referências e citações da SBC (o `sbc.bst` oficial deriva do `apalike`). Use `\citep` para `[Autor Ano]` e `\citet` para "Autor [Ano]". |
-| Autores e afiliação como `\todo{...}` em vermelho | Nomes do grupo ainda não informados. |
+| Autores: Leonardo, Eduarda, Luis, Valeria; sobrenomes e afiliação como `\todo{...}` | Só os primeiros nomes foram informados. |
 | Declaração de uso de IA no fim | Exigência ética; também diz que a validação dos oráculos (RQ4) foi feita com ajuda da IA. |
 | Afirmação de novidade com "to our knowledge" | A busca não encontrou trabalho que combine os quatro elementos, mas arXiv/DBLP/ACM DL não puderam ser consultados diretamente. |
 
@@ -132,8 +132,7 @@ Mudança de código nesta etapa: `consensus_wrong` deixou de considerar `echo` (
 ## 7. Próximos passos (em ordem)
 
 1. Revisão humana de `validation/oracle_validation.csv` e `validation/edge_labels.csv` (idealmente um segundo avaliador).
-2. Pedir os nomes do grupo e substituir os `\todo` do artigo.
-3. Pôr os nomes do grupo na capa da apresentação.
+2. Pedir sobrenomes, afiliação e e-mails do grupo e substituir os `\todo` restantes do artigo (os primeiros nomes já estão no artigo e nas capas).
 4. Conferir McKeeman 1998 e Havrikov & Zeller 2019 na biblioteca; busca final no arXiv/DBLP para o "to our knowledge".
 5. Atualizar o rascunho no claude.ai (ainda tem 47 referências e seções vazias) ou descartá-lo.
 
@@ -165,6 +164,7 @@ Mudança de código nesta etapa: `consensus_wrong` deixou de considerar `echo` (
 16. Pediu no máximo 20 referências (clássicos + atuais), download dos artigos, fichário com resumos e o método de busca → `referencias/`.
 17. Pediu o artigo completo como pesquisador sênior, baseado só em evidências, com mapa de evidências e marcadores de lacunas → Ablação 2, RQ4, análise do `edge`, `paper_stats.py`, artigo inteiro reescrito, `paper/MAPA_DE_EVIDENCIAS.md`.
 18. Pediu a apresentação refeita com os 7 pontos → deck no claude.ai + `apresentacao/`.
+20. Seminário sobre o artigo CheckList (Ribeiro et al., 2020): explicação em português (https://claude.ai/artifact/1L4MABSnfibKb7s387dTNb) e em inglês (https://claude.ai/artifact/UGBdyncasSUdZpzwASgorJ); slides do seminário em inglês, divididos entre Leonardo (contribuições e trabalhos relacionados), Eduarda (conceitos), Luis (metodologia) e Valeria (resultados e aplicação ao projeto): https://claude.ai/artifact/H2kUtV9vqwkdLNNRsoDxKc.
 19. Pediu um doc em português explicando cada slide e os testes documentados para reprodução local → guia no Claude Docs, `REPRODUZIR.md`, `referencia/`, `compare_runs.py`, revisões fixadas.
 
 ## 11. Material fora do repositório
