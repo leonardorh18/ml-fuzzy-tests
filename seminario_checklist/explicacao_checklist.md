@@ -18,9 +18,24 @@ A frase para guardar: **o CheckList troca a pergunta "quanto o modelo acerta?" p
 
 ---
 
-## Parte 1 — Contribuições e trabalhos relacionados
+## Mapa dos slides
 
-### O problema que motivou o artigo
+A apresentação tem 14 slides: capa, 4 partes de 3 slides cada e referências.
+
+| Parte | Slides | Assunto |
+| --- | --- | --- |
+| — | 1 | Capa |
+| **Parte 1** | 2 · 3 · 4 | Motivação · Contribuições · Trabalhos relacionados |
+| **Parte 2** | 5 · 6 · 7 | Acurácia × teste comportamental · Capacidade, perturbação e teste metamórfico · Tarefas e modelos |
+| **Parte 3** | 8 · 9 · 10 | A matriz · Os três tipos de teste · Gerando testes e desenho experimental |
+| **Parte 4** | 11 · 12 · 13 | Resultados principais · Aplicação ao nosso projeto · Conclusão |
+| — | 14 | Referências |
+
+---
+
+## Parte 1 — Motivação, contribuições e trabalhos relacionados
+
+### O problema que motivou o artigo (slide 2)
 
 A forma padrão de avaliar um modelo de PLN (Processamento de Linguagem Natural) é:
 
@@ -34,7 +49,11 @@ Os autores apontam três defeitos nisso:
 - **Um número só não diz onde o modelo erra** nem como corrigir.
 - **As alternativas que existiam eram fragmentadas:** cada uma olhava uma tarefa ou uma habilidade (só robustez, só justiça…). Faltava um guia geral do que testar.
 
-### As contribuições (slide 2)
+**O exemplo do slide:** o BERT tem **92,7%** de acurácia no benchmark de sentimento SST-2, mas erra **85%** das frases simples com a negação no fim, como *"I thought the plane would be awful, but it wasn't"*. A resposta dos autores: testar modelos de linguagem como se testa software.
+
+**Como fechar o slide:** "Então, se a acurácia não basta, o que o artigo propõe?" e passar para as contribuições.
+
+### As contribuições (slide 3)
 
 | # | Contribuição | Em palavras simples |
 | --- | --- | --- |
@@ -47,7 +66,7 @@ Os autores apontam três defeitos nisso:
 
 **Como resumir na fala:** "O artigo entrega um método, uma ferramenta e a evidência de que esse tipo de teste acha bugs que a acurácia esconde."
 
-### Trabalhos relacionados (slide 3)
+### Trabalhos relacionados (slide 4)
 
 A mensagem central: **cada abordagem anterior resolve um pedaço do problema; o CheckList junta tudo num roteiro só.**
 
@@ -68,14 +87,14 @@ A mensagem central: **cada abordagem anterior resolve um pedaço do problema; o 
 
 ## Parte 2 — Conceitos que você precisa entender
 
-### Acurácia × teste comportamental (slide 4)
+### Acurácia × teste comportamental (slide 5)
 
 - **Acurácia em dados reservados (*held-out accuracy*):** porcentagem de acertos em exemplos que o modelo não viu no treino. Exemplo: o BERT tem 92,7% no SST-2 (resenhas de filmes).
 - **Teste comportamental (caixa-preta):** testar só pela entrada e saída, sem olhar código ou pesos. Cada teste verifica um comportamento.
 
 **Analogia:** a acurácia é a **média final** do aluno. O teste comportamental é o **boletim por matéria**. Um aluno com média 9 pode estar tirando zero em uma matéria.
 
-### Capacidade, perturbação e teste metamórfico (slide 5)
+### Capacidade, perturbação e teste metamórfico (slide 6)
 
 | Conceito | O que é | Exemplo |
 | --- | --- | --- |
@@ -87,7 +106,7 @@ A mensagem central: **cada abordagem anterior resolve um pedaço do problema; o 
 
 **Analogia:** é como conferir uma balança. Sem saber seu peso exato, você sabe que tirar o relógio não pode fazer o número subir.
 
-### As tarefas e os modelos (slide 6)
+### As tarefas e os modelos (slide 7)
 
 | Tarefa | O que o modelo precisa fazer |
 | --- | --- |
@@ -102,7 +121,7 @@ A mensagem central: **cada abordagem anterior resolve um pedaço do problema; o 
 
 ## Parte 3 — Metodologia
 
-### A matriz (slide 7)
+### A matriz (slide 8)
 
 O teste é organizado numa tabela:
 
@@ -120,7 +139,7 @@ Exemplo do artigo (Figura 1), com um modelo comercial de sentimento:
 
 Ou seja: o modelo erra 76,4% de um teste simples de negação.
 
-### Os três tipos de teste (slide 8)
+### Os três tipos de teste (slide 9)
 
 | Tipo | Ideia | Exemplo | O que deve acontecer |
 | --- | --- | --- | --- |
@@ -136,7 +155,11 @@ Ou seja: o modelo erra 76,4% de um teste simples de negação.
 - **INV:** "restaurante em Curitiba" → "restaurante em Recife" não pode mudar a nota.
 - **DIR:** acrescentar "Péssimo atendimento" não pode deixar a avaliação melhor.
 
-### Gerando muitos testes (slide 9)
+### Gerando testes e desenho experimental (slide 10)
+
+Este slide junta duas coisas: como os testes são gerados (a faixa escura no topo) e como o estudo foi organizado (os dois cartões A e B embaixo).
+
+#### Gerando muitos testes
 
 Escrever milhares de testes à mão é inviável. A ferramenta usa **modelos de frase** (*templates*):
 
@@ -158,7 +181,7 @@ A ferramenta também:
 
 **Analogia:** o modelo de frase é uma fábrica. "Eu {não gostei / não recomendo} do {comida / atendimento / preço}" gera 2 × 3 = 6 frases de uma vez.
 
-### Desenho experimental (slide 10)
+#### Desenho experimental
 
 **Parte A — testar os modelos**
 
@@ -186,9 +209,13 @@ A ferramenta também:
 
 ---
 
-## Parte 4 — Resultados e aplicações
+## Parte 4 — Resultados, aplicações e conclusão
 
-### Os modelos falham no básico (slide 11)
+### Resultados principais (slide 11)
+
+Este slide tem duas colunas: à esquerda, as falhas dos modelos; à direita, os resultados com usuários.
+
+#### Os modelos falham no básico (coluna da esquerda)
 
 | Número | O que aconteceu |
 | --- | --- |
@@ -203,7 +230,7 @@ A ferramenta também:
 - **A acurácia escondia o problema:** o BERT acerta mais de 90% das frases com negação do próprio benchmark SST-2, mas falha nos testes simples de negação do CheckList.
 - **Interpretação dos autores:** os modelos usam **atalhos**, por exemplo se apoiar nos nomes próprios, em vez de entender de verdade.
 
-### Quem usou o CheckList achou mais bugs (slide 12)
+#### Quem usou o CheckList achou mais bugs (coluna da direita)
 
 Comparando o grupo com a ferramenta completa e o grupo sem ajuda:
 
@@ -217,7 +244,7 @@ Comparando o grupo com a ferramenta completa e o grupo sem ajuda:
 - A **equipe da Microsoft** achou bugs novos num modelo maduro. Também testou coisas que não tinha pensado, como hashtags ("#IHateYou") e negação implícita ("I wish it was good"), e disse que vai adotar o CheckList.
 - **Ressalva:** cada grupo tinha só 6 pessoas e o artigo não traz teste estatístico. É uma indicação forte, não uma prova.
 
-### Aplicação ao nosso projeto (slide 13)
+### Aplicação ao nosso projeto (slide 12)
 
 O nosso projeto é **fuzzing com gramática de modelos de chat do Hugging Face**. As ideias do CheckList se encaixam quase uma a uma:
 
@@ -231,7 +258,7 @@ O nosso projeto é **fuzzing com gramática de modelos de chat do Hugging Face**
 
 **Exemplo real dos nossos experimentos:** perguntamos ao Qwen 2.5 quantas letras "r" tem em "strawberry", de três formas diferentes. Ele respondeu **3, 1 e 10**. É exatamente uma falha de invariância, o tipo de problema que o CheckList foi criado para revelar.
 
-### Conclusão (slide 14)
+### Conclusão (slide 13)
 
 - **A acurácia é útil, mas não basta.**
 - **Pontos fortes:** o CheckList serve para qualquer tarefa e modelo, acha bugs até em produtos comerciais e é fácil de aprender.
