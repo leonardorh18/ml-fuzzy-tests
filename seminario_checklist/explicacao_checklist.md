@@ -28,7 +28,7 @@ A apresentação tem 14 slides: capa, 4 partes de 3 slides cada e referências.
 | **Parte 1** | 2 · 3 · 4 | Motivação · Contribuições · Trabalhos relacionados |
 | **Parte 2** | 5 · 6 · 7 | Acurácia × teste comportamental · Capacidade, perturbação e teste metamórfico · Tarefas e modelos |
 | **Parte 3** | 8 · 9 · 10 | A matriz · Os três tipos de teste · Gerando testes e desenho experimental |
-| **Parte 4** | 11 · 12 · 13 | Resultados principais · Aplicação ao nosso projeto · Conclusão |
+| **Parte 4** | 11 · 12 · 13 | Resultados principais · Aplicações do CheckList · Conclusão |
 | — | 14 | Referências |
 
 ---
@@ -244,19 +244,20 @@ Comparando o grupo com a ferramenta completa e o grupo sem ajuda:
 - A **equipe da Microsoft** achou bugs novos num modelo maduro. Também testou coisas que não tinha pensado, como hashtags ("#IHateYou") e negação implícita ("I wish it was good"), e disse que vai adotar o CheckList.
 - **Ressalva:** cada grupo tinha só 6 pessoas e o artigo não traz teste estatístico. É uma indicação forte, não uma prova.
 
-### Aplicação ao nosso projeto (slide 12)
+### Aplicações do CheckList (slide 12)
 
-O nosso projeto é **fuzzing com gramática de modelos de chat do Hugging Face**. As ideias do CheckList se encaixam quase uma a uma:
+O slide mostra **onde o CheckList pode ser usado na prática**, segundo o próprio artigo. São quatro aplicações:
 
-| CheckList | No nosso projeto |
-| --- | --- |
-| Modelos de frase (*templates*) | Nossa gramática gera os prompts |
-| MFT | Tarefas com resposta conhecida: contas, contar letras, inverter texto, JSON |
-| INV | Paráfrases da mesma pergunta têm que receber a mesma resposta |
-| Capacidades | Uma categoria por habilidade, por exemplo copiar texto Unicode exatamente |
-| DIR | Ainda não usamos: trabalho futuro |
+| Aplicação | O que significa | De onde vem no artigo |
+| --- | --- | --- |
+| **Escolher um modelo** | Comparar modelos habilidade por habilidade, e não por uma nota só | Os autores compararam modelos de pesquisa com os serviços da Microsoft, do Google e da Amazon |
+| **Ciclo de desenvolvimento** | Rodar a mesma bateria de testes a cada nova versão do modelo | A equipe da Microsoft disse que vai incorporar o CheckList ao ciclo de desenvolvimento e corrigir os bugs na próxima versão |
+| **Benchmarks e pipelines de avaliação** | Acrescentar os testes aos benchmarks e às avaliações que já existem | Conclusão do artigo: os testes servem para qualquer modelo e entram facilmente em benchmarks e pipelines |
+| **Suítes de teste compartilhadas** | Equipes criam e reaproveitam testes juntas | Os autores esperam criação colaborativa, porque muitos testes servem para várias tarefas (erros de digitação, troca de nomes) |
 
-**Exemplo real dos nossos experimentos:** perguntamos ao Qwen 2.5 quantas letras "r" tem em "strawberry", de três formas diferentes. Ele respondeu **3, 1 e 10**. É exatamente uma falha de invariância, o tipo de problema que o CheckList foi criado para revelar.
+**A frase embaixo do slide:** tudo isso funciona com qualquer modelo, até uma API paga, porque o CheckList é caixa-preta: não precisa dos dados de treino nem dos pesos do modelo.
+
+**O que falar:** "Where can CheckList be used in practice? To choose between models, to re-test every new version, to extend existing benchmarks, and to build shared test suites. And it works on any model, even a paid API, because it only needs inputs and outputs."
 
 ### Conclusão (slide 13)
 
@@ -301,8 +302,8 @@ O nosso projeto é **fuzzing com gramática de modelos de chat do Hugging Face**
    Sondas olham o interior do modelo; o CheckList testa o comportamento na tarefa final.
 10. **Quais as limitações?**
     Não cobre erros de rótulo, versão dos dados, ataques nem interpretabilidade. E depende da criatividade de quem escreve os testes.
-11. **Como isso se liga ao projeto de vocês?**
-    Nossa gramática faz o papel dos templates, nossas tarefas com resposta conhecida são MFT e nosso teste de paráfrase é INV.
+11. **Onde o CheckList pode ser usado na prática?**
+    Para escolher entre modelos, para testar de novo cada nova versão, para ampliar benchmarks e pipelines de avaliação e para criar suítes de teste compartilhadas entre equipes.
 
 ---
 
