@@ -25,7 +25,7 @@ A apresentação tem 14 slides: capa, 4 partes de 3 slides cada e referências.
 | Parte | Slides | Assunto |
 | --- | --- | --- |
 | — | 1 | Capa |
-| **Parte 1** | 2 · 3 · 4 | Motivação · Contribuições · Trabalhos relacionados |
+| **Parte 1** | 2 · 3 · 4 | Motivação · O que o artigo contribui · Trabalhos relacionados |
 | **Parte 2** | 5 · 6 · 7 | Acurácia × teste comportamental · Capacidade, perturbação e teste metamórfico · Tarefas e modelos |
 | **Parte 3** | 8 · 9 · 10 | A matriz · Os três tipos de teste · Gerando testes e desenho experimental |
 | **Parte 4** | 11 · 12 · 13 | Resultados principais · Aplicações do CheckList · Conclusão |
@@ -55,16 +55,17 @@ Os autores apontam três defeitos nisso:
 
 ### As contribuições (slide 3)
 
+O slide resume o artigo em **três contribuições**:
+
 | # | Contribuição | Em palavras simples |
 | --- | --- | --- |
-| 1 | **Metodologia** | Traz o *teste comportamental* (caixa-preta) da engenharia de software para modelos de linguagem. Serve para qualquer tarefa e qualquer modelo. |
-| 2 | **Matriz de capacidades** | Uma lista de 10 habilidades linguísticas que diz **o que** testar: negação, nomes próprios, correferência… |
-| 3 | **Três tipos de teste** | MFT, INV e DIR dizem **como** testar. Dois deles (INV e DIR) não precisam de dados rotulados. |
-| 4 | **Ferramenta de código aberto** | Gera milhares de casos de teste com modelos de frase, sugestões do RoBERTa e perturbações prontas. Disponível em github.com/marcotcr/checklist. |
-| 5 | **Bugs encontrados** | Em 3 tarefas, falhas de até 100% em modelos de pesquisa (BERT, RoBERTa) e em serviços comerciais (Microsoft, Google, Amazon). |
-| 6 | **Evidência com usuários** | Quem usou o CheckList criou 2× mais testes e achou ~3× mais bugs. A própria equipe da Microsoft achou bugs novos num modelo já muito testado. |
+| 1 | **Um método** | Testar modelos de linguagem como se testa software: **uma habilidade de cada vez** (negação, nomes…), em vez de uma nota só. Serve para qualquer tarefa e qualquer modelo. |
+| 2 | **Uma ferramenta gratuita** | Gera **milhares de testes automaticamente**, a partir de modelos de frase. Disponível em github.com/marcotcr/checklist. |
+| 3 | **Evidências** | Achou bugs graves em modelos de pesquisa (BERT) e em produtos da Microsoft, do Google e da Amazon. Quem usou o CheckList achou **cerca de 3× mais bugs**. |
 
-**Como resumir na fala:** "O artigo entrega um método, uma ferramenta e a evidência de que esse tipo de teste acha bugs que a acurácia esconde."
+Os detalhes ficam para depois: a lista de habilidades e os tipos de teste aparecem na Parte 3; os números dos bugs, na Parte 4.
+
+**Como resumir na fala:** "Three things: a method, a tool, and evidence that it works."
 
 ### Trabalhos relacionados (slide 4)
 

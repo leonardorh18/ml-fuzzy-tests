@@ -47,23 +47,17 @@ Words in **bold** are the points that must not be skipped.
 
 *Tip: read the example slowly and stress that the sentence is positive.*
 
-### Slide 3 — Brief overview of the contributions
+### Slide 3 — What the paper contributes
 
-> "The paper makes six contributions. The first four, in blue, are what the authors **built**. The last two, in orange, are the **evidence** that it works.
+> "So what does the paper propose? **Three things.**
 >
-> First, a **methodology**: black-box testing from software engineering, applied to language models. It works for any task and any model.
+> First, **a method**: test language models the way we test software, checking **one skill at a time** — like negation or names — instead of looking at one overall score. It works for any task and any model.
 >
-> Second, a **capability matrix**: a list of ten skills a model should have, like understanding negation, names, or who 'he' and 'she' refer to. This tells us *what* to test.
+> Second, **a free tool** that generates **thousands of tests automatically**, so this kind of testing is cheap.
 >
-> Third, **three test types**, which tell us *how* to test. We'll explain them later; the key point is that two of them don't need labelled data.
+> And third, **evidence** that it works: the authors found serious bugs both in research models like BERT and in commercial products from Microsoft, Google and Amazon. And people who used CheckList found about **three times as many bugs** as people who didn't.
 >
-> Fourth, an **open-source tool** that generates thousands of test cases automatically.
->
-> Fifth, **real bugs**: failure rates up to 100%, both in research models like BERT and RoBERTa and in commercial products from Microsoft, Google and Amazon.
->
-> And sixth, **user evidence**: people using CheckList wrote twice as many tests and found about three times as many bugs. Even Microsoft's own team found new bugs in their model.
->
-> In short: a method, a tool, and evidence that this kind of testing finds bugs that accuracy hides. Now, how does this compare with previous work?"
+> Now, how does this compare with previous work?"
 
 ### Slide 4 — Related work
 
