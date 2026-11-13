@@ -63,13 +63,13 @@ Words in **bold** are the points that must not be skipped.
 
 > "How does CheckList compare with previous work? Before CheckList, each approach covered **only one piece** of the problem.
 >
-> **Accuracy** gives only one number, so it doesn't show where the model fails.
+> **Accuracy** — for example, the SQuAD leaderboard by Rajpurkar and colleagues — gives only one number, so it doesn't show where the model fails.
 >
-> **Robustness and fairness tests**, like adding typos or swapping names, look at one skill or one task at a time.
+> **Robustness and fairness tests** look at one skill or one task at a time. For example, Belinkov and Bisk showed that noise and typos break translation models, and Prabhakaran and colleagues swapped names to detect bias.
 >
-> **Challenge sets** are small and made by hand.
+> **Challenge sets**, like the stress tests by Naik and colleagues, are small and made by hand.
 >
-> And **knowledge tests** check what the model has learned internally. They show the model *knows* something, but not that it *uses* it. For example, a knowledge test shows BERT recognizes names with 96.7% accuracy, yet BERT fine-tuned on a real task still fails simple tests with names.
+> And **knowledge tests** check what the model has learned internally. They show the model *knows* something, but not that it *uses* it. For example, Tenney and colleagues showed that BERT recognizes names with 96.7% accuracy, yet BERT fine-tuned on a real task still fails simple tests with names.
 >
 > **CheckList brings these together** in one method, using ideas from **software testing**: unit tests and metamorphic tests.
 >
@@ -187,7 +187,7 @@ Words in **bold** are the points that must not be skipped.
 
 ### Slide 13 — References
 
-> "These are our references: the paper itself, plus three works it builds on — Beizer for black-box testing, Segura and colleagues for metamorphic testing, and Tenney and colleagues for the probing result we mentioned. The CheckList tool is open source on GitHub."
+> "These are our references: the paper itself, plus the works it builds on that we mentioned — Beizer for black-box testing, Segura and colleagues for metamorphic testing, Rajpurkar and colleagues for the SQuAD benchmark, Belinkov and Bisk for robustness, Prabhakaran and colleagues for bias tests, Naik and colleagues for challenge sets, and Tenney and colleagues for knowledge tests. The CheckList tool is open source on GitHub."
 
 ---
 

@@ -73,10 +73,10 @@ O título do slide é **"Before CheckList: one piece at a time"** ("antes do Che
 
 | Cartão | O que era | Por que não bastava |
 | --- | --- | --- |
-| **Accuracy** | A nota geral num benchmark | É **um número só**: não mostra onde o modelo erra |
-| **Robustness and fairness tests** | Testes com erros de digitação, troca de nomes… | Olham **uma habilidade ou uma tarefa** de cada vez |
-| **Challenge sets** | Conjuntos de frases difíceis | São **pequenos e feitos à mão** |
-| **Knowledge tests** (testes de conhecimento; no artigo, *probes* ou sondas) | Pequenos classificadores que leem o interior do modelo para ver o que ele aprendeu | Mostram que o modelo **sabe** algo, mas não que ele **usa** isso na tarefa real |
+| **Accuracy** (ex.: ranking do SQuAD, Rajpurkar et al., 2016) | A nota geral num benchmark | É **um número só**: não mostra onde o modelo erra |
+| **Robustness and fairness tests** (Belinkov & Bisk, 2018; Prabhakaran et al., 2019) | Testes com erros de digitação, troca de nomes… | Olham **uma habilidade ou uma tarefa** de cada vez |
+| **Challenge sets** (Naik et al., 2018) | Conjuntos de frases difíceis | São **pequenos e feitos à mão** |
+| **Knowledge tests** (testes de conhecimento; no artigo, *probes* ou sondas; Tenney et al., 2019) | Pequenos classificadores que leem o interior do modelo para ver o que ele aprendeu | Mostram que o modelo **sabe** algo, mas não que ele **usa** isso na tarefa real |
 
 **A frase de baixo:** o CheckList junta tudo isso num método só, usando ideias do **teste de software** (teste unitário e teste metamórfico).
 

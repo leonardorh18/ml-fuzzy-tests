@@ -71,10 +71,10 @@ The slide title is **"Before CheckList: one piece at a time"**. The message: **e
 
 | Card | What it was | Why it wasn't enough |
 | --- | --- | --- |
-| **Accuracy** | The overall score on a benchmark | **Only one number**: it doesn't show where the model fails |
-| **Robustness and fairness tests** | Tests with typos, swapped names… | Look at **one skill or one task** at a time |
-| **Challenge sets** | Sets of difficult sentences | **Small and hand-made** |
-| **Knowledge tests** (called *probes* in the paper) | Small classifiers that read the model's internals to see what it learned | Show the model **knows** something, not that it **uses** it on the real task |
+| **Accuracy** (e.g. SQuAD leaderboard, Rajpurkar et al., 2016) | The overall score on a benchmark | **Only one number**: it doesn't show where the model fails |
+| **Robustness and fairness tests** (Belinkov & Bisk, 2018; Prabhakaran et al., 2019) | Tests with typos, swapped names… | Look at **one skill or one task** at a time |
+| **Challenge sets** (Naik et al., 2018) | Sets of difficult sentences | **Small and hand-made** |
+| **Knowledge tests** (called *probes* in the paper; Tenney et al., 2019) | Small classifiers that read the model's internals to see what it learned | Show the model **knows** something, not that it **uses** it on the real task |
 
 **The bottom line:** CheckList brings all of these together in one method, using ideas from **software testing** (unit tests and metamorphic tests).
 
