@@ -69,7 +69,7 @@ Words in **bold** are the points that must not be skipped.
 >
 > **Challenge sets** are small and made by hand.
 >
-> And **probes** look inside the model, but not at how it behaves on the real task. For example, a probe shows BERT can recognize names, yet BERT fine-tuned on a real task still fails simple tests with names.
+> And some studies **look inside the model** to see what it has learned. That shows what the model *knows*, not what it *does*. For example, BERT's internals encode names well, yet BERT fine-tuned on a real task still fails simple tests with names.
 >
 > **CheckList brings these together** in one method, using ideas from **software testing**: unit tests and metamorphic tests.
 >

@@ -76,11 +76,11 @@ O título do slide é **"Before CheckList: one piece at a time"** ("antes do Che
 | **Accuracy** | A nota geral num benchmark | É **um número só**: não mostra onde o modelo erra |
 | **Robustness and fairness tests** | Testes com erros de digitação, troca de nomes… | Olham **uma habilidade ou uma tarefa** de cada vez |
 | **Challenge sets** | Conjuntos de frases difíceis | São **pequenos e feitos à mão** |
-| **Probes** (sondas) | Olham o interior do modelo | Não mostram como ele **se comporta** na tarefa real |
+| **Looking inside the model** (olhar dentro do modelo; no artigo, *probes* ou sondas) | Pequenos classificadores que leem o interior do modelo para ver o que ele aprendeu | Mostram o que o modelo **sabe**, não o que ele **faz** na tarefa real |
 
 **A frase de baixo:** o CheckList junta tudo isso num método só, usando ideias do **teste de software** (teste unitário e teste metamórfico).
 
-**Exemplo bom para as sondas:** uma sonda mostra que o BERT "sabe" reconhecer nomes (96,7%), mas o BERT usado numa tarefa real erra testes simples com nomes. Saber algo por dentro não garante usar isso na prática.
+**Exemplo bom para "Looking inside the model":** uma sonda mostra que o BERT "sabe" reconhecer nomes (96,7%), mas o BERT usado numa tarefa real erra testes simples com nomes. Saber algo por dentro não garante usar isso na prática.
 
 **O que o CheckList não cobre**, segundo os autores: erros de rótulo, versão dos dados, ataques de segurança e interpretabilidade. Não está no slide, mas é bom saber se perguntarem.
 
