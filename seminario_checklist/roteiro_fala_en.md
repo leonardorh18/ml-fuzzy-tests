@@ -69,7 +69,7 @@ Words in **bold** are the points that must not be skipped.
 >
 > **Challenge sets** are small and made by hand.
 >
-> And some studies **look inside the model** to see what it has learned. That shows what the model *knows*, not what it *does*. For example, BERT's internals encode names well, yet BERT fine-tuned on a real task still fails simple tests with names.
+> And **knowledge tests** check what the model has learned internally. They show the model *knows* something, but not that it *uses* it. For example, a knowledge test shows BERT recognizes names with 96.7% accuracy, yet BERT fine-tuned on a real task still fails simple tests with names.
 >
 > **CheckList brings these together** in one method, using ideas from **software testing**: unit tests and metamorphic tests.
 >
