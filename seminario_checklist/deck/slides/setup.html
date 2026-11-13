@@ -1,0 +1,20 @@
+<section id="setup" data-transition="fade" style="background:#F8F6F1;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:28px;letter-spacing:3px;color:#2F5D8A">PART 3 · METHODOLOGY</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">Generating tests and experimental design</h2>
+<div style="display:flex;flex-direction:column;gap:12px;background:#1B2A41;padding:36px;border-radius:12px">
+<p style="font-size:40px;color:#F8F6F1">I {NEGATION} {POS_VERB} the {THING}.</p>
+<p style="font-size:28px;color:#C9D2DE">didn’t / can’t say I · love / like · food / flight / service → every combination is a test · plus RoBERTa word suggestions, name lists, typos</p>
+</div>
+<div style="display:flex;gap:28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border-top:8px solid #2F5D8A;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600">A · Test the models</h3>
+<p style="font-size:26px;line-height:1.4;color:#4A5568">3 tasks · Microsoft, Google, Amazon APIs + BERT, RoBERTa · failure rate per test</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border-top:8px solid #C8652B;border-radius:12px">
+<h3 style="font-size:32px;font-weight:600">B · Test with users</h3>
+<p style="font-size:26px;line-height:1.4;color:#4A5568">Microsoft team, 5 h · 18 users, 2 h, 3 groups of 6</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">Ribeiro et al. (2020), §2.3, §3 and §4</p>
+<aside>Part 3: Writing thousands of tests by hand would be impossible, so CheckList uses templates. In “I {NEGATION} {POS_VERB} the {THING}”, each slot is filled from a list, such as “didn’t” or “can’t say I”, “love” or “like”, and “food”, “flight” or “service”, and every combination becomes a test case. The tool helps fill these lists with word suggestions from RoBERTa, and it comes with lists of names and places and with ready-made perturbations such as typos. The evaluation then has two parts. In part A, the authors tested three tasks with the commercial APIs of Microsoft, Google and Amazon and with BERT and RoBERTa; the metric is the failure rate of each test. A case fails if the label is wrong, or, for INV and DIR, if the prediction moves the wrong way by more than 0.1 in probability. In part B, they tested CheckList with people: a five-hour session with Microsoft’s sentiment team, and a controlled experiment with 18 participants, two hours each, in three groups of six: no help, a list of capabilities, or the full tool. Next, Part 4 presents the results.</aside>
+</section>

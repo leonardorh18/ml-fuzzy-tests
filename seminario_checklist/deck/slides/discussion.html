@@ -1,0 +1,7 @@
+<section id="discussion" data-transition="fade" style="background:#1B2A41;color:#F8F6F1;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:48px">
+<p style="font-size:28px;letter-spacing:3px;color:#E9A06B">4 · DISCUSSION</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:80px;font-weight:600;line-height:1.1;color:#F8F6F1">“Solved” benchmarks are not solved tasks.</h2>
+<p style="font-size:40px;line-height:1.35;color:#C9D2DE">Testing one behavior at a time measures capabilities more precisely than accuracy — and the same method works across tasks.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#8E9AAD">Ribeiro et al. (2020), §3 and §5</p>
+<aside>How should we interpret these results? The authors argue that tasks considered solved by benchmark accuracy are not, and that models probably rely on shortcuts. Isolating behaviors measures capabilities more precisely than aggregate accuracy. The method is general: the same matrix worked for three very different tasks, and many tests transfer as is, like typos, or with small changes, like names. Compared with related work, challenge datasets give control but are small and often unrealistic, and probing classifiers show what representations encode, not how the fine-tuned model behaves. For example, an NER probe on BERT reaches 96.7% (Tenney et al., 2019), yet BERT fine-tuned on QQP or SST-2 fails basic named-entity tests.</aside>
+</section>

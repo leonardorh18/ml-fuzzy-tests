@@ -1,0 +1,13 @@
+<section id="concepts3" data-transition="fade" style="background:#F8F6F1;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:28px;letter-spacing:3px;color:#2F5D8A">PART 2 · KEY CONCEPTS</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1">The tasks and models</h2>
+<table style="font-size:32px;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif">
+<tr><th style="width:32%;text-align:left">Task</th><th style="width:68%;text-align:left">The model must…</th></tr>
+<tr><td>Sentiment analysis</td><td>label text positive, negative or neutral</td></tr>
+<tr style="background:#EFEBE2"><td>Quora Question Pairs</td><td>decide if two questions are duplicates</td></tr>
+<tr><td>Reading comprehension</td><td>answer a question from a paragraph (SQuAD)</td></tr>
+</table>
+<p style="font-size:32px;line-height:1.4;color:#4A5568"><b style="color:#1B2A41">BERT / RoBERTa:</b> pretrained Transformer language models, fine-tuned per task. A <b style="color:#1B2A41">masked LM</b> fills in a hidden word: “I really [mask] the flight.”</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">Ribeiro et al. (2020), §1 and §3</p>
+<aside>Part 2: Finally, the tasks and models. Sentiment analysis labels a text as positive, negative or neutral. Quora Question Pairs asks whether two questions are duplicates, that is, ask the same thing. Reading comprehension, on the SQuAD dataset, asks the model to answer a question using a paragraph. The models tested include BERT and RoBERTa: Transformer language models pretrained on large text corpora and then fine-tuned for each task. RoBERTa also appears as a tool: as a masked language model it predicts a hidden word, which CheckList uses to suggest words for its templates. With these concepts in place, the next part explains the methodology.</aside>
+</section>

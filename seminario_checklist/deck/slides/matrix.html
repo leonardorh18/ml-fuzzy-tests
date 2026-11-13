@@ -1,0 +1,13 @@
+<section id="matrix" data-transition="fade" style="background:#F8F6F1;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:28px;letter-spacing:3px;color:#2F5D8A">PART 3 · METHODOLOGY</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1">A matrix of capabilities × test types</h2>
+<table style="font-size:34px;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif">
+<tr><th style="width:34%;text-align:left">Capability</th><th style="width:22%;text-align:right">MFT</th><th style="width:22%;text-align:right">INV</th><th style="width:22%;text-align:right">DIR</th></tr>
+<tr><td>Vocabulary</td><td style="text-align:right">15.0%</td><td style="text-align:right">16.2%</td><td style="text-align:right">34.6%</td></tr>
+<tr style="background:#EFEBE2"><td>Named entities</td><td style="text-align:right">0.0%</td><td style="text-align:right">20.8%</td><td style="text-align:right">—</td></tr>
+<tr><td>Negation</td><td style="text-align:right"><b>76.4%</b></td><td style="text-align:right">—</td><td style="text-align:right">—</td></tr>
+</table>
+<p style="font-size:34px;color:#4A5568">Each cell = failure rate of a commercial model. Black box: no access to internals needed.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">Ribeiro et al. (2020), Figure 1</p>
+<aside>Conceptually, users “CheckList” a model by filling in a matrix. Rows are linguistic capabilities, such as vocabulary, named entities or negation; the paper also suggests taxonomy, robustness, fairness, temporal reasoning, coreference, semantic roles and logic. Columns are three test types, explained next. Each cell reports a failure rate. In this example from Figure 1, a commercial sentiment model fails 76.4% of a simple negation test. Because the model is treated as a black box, research and commercial systems can be compared directly.</aside>
+</section>

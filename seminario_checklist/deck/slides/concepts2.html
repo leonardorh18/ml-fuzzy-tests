@@ -1,0 +1,23 @@
+<section id="concepts2" data-transition="fade" style="background:#F8F6F1;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:28px;letter-spacing:3px;color:#2F5D8A">PART 2 · KEY CONCEPTS</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1">Capabilities, perturbations, metamorphic tests</h2>
+<div style="display:flex;gap:28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:40px;border-top:8px solid #2F5D8A;border-radius:12px">
+<h3 style="font-size:36px;font-weight:600">Capability</h3>
+<p style="font-size:28px;line-height:1.4;color:#4A5568">A skill the task needs</p>
+<p style="font-size:28px;line-height:1.4">Negation: “not poor” ≠ negative</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:40px;border-top:8px solid #2F5D8A;border-radius:12px">
+<h3 style="font-size:36px;font-weight:600">Perturbation</h3>
+<p style="font-size:28px;line-height:1.4;color:#4A5568">A controlled input change</p>
+<p style="font-size:28px;line-height:1.4">Chicago → Dallas</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:40px;border-top:8px solid #C8652B;border-radius:12px">
+<h3 style="font-size:36px;font-weight:600">Metamorphic test</h3>
+<p style="font-size:28px;line-height:1.4;color:#4A5568">Compare outputs, no answer key</p>
+<p style="font-size:28px;line-height:1.4">Same city swap → same sentiment</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">Ribeiro et al. (2020), §2; Segura et al. (2016)</p>
+<aside>Part 2: Three more concepts. A linguistic capability is a skill the task requires, for example understanding negation, named entities, the order of events, or who did what to whom. A perturbation is a controlled change to the input, such as replacing “Chicago” with “Dallas” in a tweet or introducing a typo. A metamorphic test, a technique from software testing, checks a relation between the outputs of related inputs instead of comparing each output with a correct answer. If I only change the city name, the sentiment must stay the same, even if I do not know what the correct sentiment is. This is what allows testing on unlabeled data.</aside>
+</section>

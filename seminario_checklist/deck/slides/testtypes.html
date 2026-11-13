@@ -1,0 +1,24 @@
+<section id="testtypes" data-transition="fade" style="background:#F8F6F1;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:28px;letter-spacing:3px;color:#2F5D8A">PART 3 · METHODOLOGY</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1">Three test types</h2>
+<div style="display:flex;gap:28px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;padding:40px;border-top:8px solid #2F5D8A;border-radius:12px">
+<h3 style="font-size:44px;font-weight:600;color:#2F5D8A">MFT</h3>
+<p style="font-size:30px;color:#4A5568">Simple labelled cases</p>
+<p style="font-size:30px;line-height:1.35">“I didn’t love the flight.” → negative</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;padding:40px;border-top:8px solid #C8652B;border-radius:12px">
+<h3 style="font-size:44px;font-weight:600;color:#A44E1E">INV</h3>
+<p style="font-size:30px;color:#4A5568">Change should not matter</p>
+<p style="font-size:30px;line-height:1.35">Cuba → Canada: same prediction</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;padding:40px;border-top:8px solid #C8652B;border-radius:12px">
+<h3 style="font-size:44px;font-weight:600;color:#A44E1E">DIR</h3>
+<p style="font-size:30px;color:#4A5568">Change has a known effect</p>
+<p style="font-size:30px;line-height:1.35">+ “You are lame.”: not more positive</p>
+</div>
+</div>
+<p style="font-size:34px;color:#1B2A41">INV and DIR need <b>no labels</b>.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">Ribeiro et al. (2020), §2.2</p>
+<aside>The columns of the matrix are three test types. A Minimum Functionality Test, or MFT, is like a unit test: simple examples with labels that check one behavior. An Invariance test applies a change that should not alter the label, such as replacing a location, and checks that the prediction stays the same. A Directional Expectation test applies a change with a known effect, such as appending a negative sentence, and checks that the prediction moves only in the allowed direction. INV and DIR are metamorphic tests, after Segura et al. (2016): they compare predictions before and after the change, so they work on unlabeled data.</aside>
+</section>

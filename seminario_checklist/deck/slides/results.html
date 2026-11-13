@@ -1,0 +1,26 @@
+<section id="results" data-transition="fade" style="background:#F8F6F1;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:28px;letter-spacing:3px;color:#A44E1E">PART 4 · PRIMARY RESULTS</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">“Solved” models fail the basics; users find more bugs</h2>
+<div style="display:flex;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<h3 style="font-size:32px;font-weight:600;color:#A44E1E">Models (failure rate)</h3>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:28px;border-radius:12px;border:1px solid #DDD8CC">
+<p style="font-size:28px;line-height:1.4"><b style="color:#A44E1E">100%</b> “…awful, but it wasn’t.” (Microsoft, Amazon)</p>
+<p style="font-size:28px;line-height:1.4"><b style="color:#A44E1E">100%</b> he / she coreference (reading comprehension)</p>
+<p style="font-size:28px;line-height:1.4"><b style="color:#A44E1E">98%</b> “before” vs. “after” (BERT, QQP)</p>
+<p style="font-size:28px;line-height:1.4"><b style="color:#A44E1E">89%</b> “John is not a doctor, Mary is.” → John</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<h3 style="font-size:32px;font-weight:600;color:#2F5D8A">Users (full tool vs. none)</h3>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:28px;border-radius:12px;border:1px solid #DDD8CC">
+<p style="font-size:28px;line-height:1.4"><b style="color:#2F5D8A">2×</b> tests created (13.5 vs. 5.8)</p>
+<p style="font-size:28px;line-height:1.4"><b style="color:#2F5D8A">27×</b> cases per test (198 vs. 7.3)</p>
+<p style="font-size:28px;line-height:1.4"><b style="color:#2F5D8A">≈3×</b> serious bugs (6.2 vs. 2.2)</p>
+<p style="font-size:28px;line-height:1.4">Microsoft: new bugs in a mature model</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">Ribeiro et al. (2020), Tables 1–4 and §4.1 · n = 6 users per group</p>
+<aside>Part 4: Thank you. There are two main results. On the left, the models: models considered solved on benchmarks fail very basic things. When the negation comes at the end of the sentence, as in “I thought the plane would be awful, but it wasn’t”, Microsoft’s and Amazon’s models fail every case. In reading comprehension, the model fails every simple he/she coreference test. On Quora Question Pairs, where BERT beats human accuracy on the benchmark, it confuses “before” and “after” 98% of the time. And given “John is not a doctor, Mary is”, the model says John is the doctor 89% of the time, but only 3% when the names are swapped, a clear gender bias. Surprisingly, research models did better than commercial ones on most tests, and the authors attribute these failures to shortcuts. On the right, the users: compared with the group without help, users with the full tool created twice as many tests, had 27 times more cases per test thanks to templates, and found about three times as many serious bugs. Microsoft’s team also found new bugs in a mature model. One caveat: each group had only six people, so this is a strong indication, not statistical proof.</aside>
+</section>

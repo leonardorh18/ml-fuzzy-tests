@@ -1,0 +1,21 @@
+<section id="motivation" data-transition="fade" style="background:#F8F6F1;color:#1B2A41;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<p style="font-size:28px;letter-spacing:3px;color:#2F5D8A">1 · INTRODUCTION</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:72px;font-weight:600;line-height:1.1">The problem: accuracy hides failures</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:44px;border:1px solid #DDD8CC;border-radius:12px">
+<h3 style="font-size:40px;font-weight:600">Biased test sets</h3>
+<p style="font-size:32px;line-height:1.35;color:#4A5568">Same biases as training data</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:44px;border:1px solid #DDD8CC;border-radius:12px">
+<h3 style="font-size:40px;font-weight:600">One number</h3>
+<p style="font-size:32px;line-height:1.35;color:#4A5568">Does not show where models fail</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:44px;border:1px solid #DDD8CC;border-radius:12px">
+<h3 style="font-size:40px;font-weight:600">Narrow alternatives</h3>
+<p style="font-size:32px;line-height:1.35;color:#4A5568">One task or one capability</p>
+</div>
+</div>
+<p style="font-size:36px;line-height:1.35;color:#1B2A41">Idea: test NLP models the way we test software.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6B7280">Ribeiro et al. (2020), §1</p>
+<aside>The standard paradigm in NLP is to split data into training, validation and test sets and report held-out accuracy, often on public leaderboards. The authors identify three problems. First, held-out sets are rarely comprehensive and contain the same biases as the training data, so real-world performance may be overestimated. Second, a single number does not tell us where the model fails or how to fix it. Third, existing alternative evaluations, such as robustness or fairness tests, focus on individual tasks or a few capabilities. Software engineering faced a similar problem and answered it with behavioral, or black-box, testing: checking input–output behavior capability by capability.</aside>
+</section>
