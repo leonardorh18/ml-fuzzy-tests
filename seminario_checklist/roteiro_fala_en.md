@@ -59,25 +59,21 @@ Words in **bold** are the points that must not be skipped.
 >
 > Now, how does this compare with previous work?"
 
-### Slide 4 — Related work
+### Slide 4 — Before CheckList: one piece at a time
 
-> "Each earlier approach covers only **one piece** of the problem.
+> "How does CheckList compare with previous work? Before CheckList, each approach covered **only one piece** of the problem.
 >
-> **Held-out accuracy**, like the SST-2 or QQP leaderboards, gives one number but doesn't show where the model fails. CheckList gives a score per capability.
+> **Accuracy** gives only one number, so it doesn't show where the model fails.
 >
-> **Robustness tests**, with typos, noise or adversarial examples, look at only one skill. In CheckList, robustness is just one row of the matrix.
+> **Robustness and fairness tests**, like adding typos or swapping names, look at one skill or one task at a time.
 >
-> **Fairness and consistency tests**, like swapping names, are built for one task at a time. CheckList reuses the same tests across tasks.
+> **Challenge sets** are small and made by hand.
 >
-> **Challenge sets** are hand-built, small, artificial, and only test hard cases. CheckList uses templates and real data, and tests cases that should be easy.
+> And **probes** look inside the model, but not at how it behaves on the real task. For example, a probe shows BERT can recognize names, yet BERT fine-tuned on a real task still fails simple tests with names.
 >
-> **Probes** look inside the model. For example, a probe shows BERT can recognize names with 96.7% accuracy, but BERT fine-tuned on a real task still fails simple tests with names. Knowing something inside doesn't mean the model uses it.
+> **CheckList brings these together** in one method, using ideas from **software testing**: unit tests and metamorphic tests.
 >
-> And **software testing** is not a competitor — it's the inspiration. CheckList's first test type is like a unit test, and the other two are metamorphic tests.
->
-> The authors are also clear about what CheckList does not cover: labelling errors, data versioning, security attacks and interpretability.
->
-> Now, to understand how CheckList works, we need some key concepts."
+> Now, to understand how it works, we need some key concepts."
 
 ---
 

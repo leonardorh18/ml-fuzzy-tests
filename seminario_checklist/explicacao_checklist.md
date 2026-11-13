@@ -69,20 +69,20 @@ Os detalhes ficam para depois: a lista de habilidades e os tipos de teste aparec
 
 ### Trabalhos relacionados (slide 4)
 
-A mensagem central: **cada abordagem anterior resolve um pedaço do problema; o CheckList junta tudo num roteiro só.**
+O título do slide é **"Before CheckList: one piece at a time"** ("antes do CheckList: um pedaço de cada vez"). A mensagem: **cada abordagem anterior resolvia só um pedaço do problema.**
 
-| Abordagem anterior | O que faz | Limitação | O que o CheckList faz diferente |
-| --- | --- | --- | --- |
-| **Acurácia em benchmark** (SST-2, QQP) | Mede acertos num conjunto de teste | Dados enviesados; um número só | Dá uma nota por habilidade |
-| **Testes de robustez** (erros de digitação, ruído, exemplos adversários) | Testa se o modelo aguenta mudanças | Olha uma habilidade só | Robustez vira apenas uma linha da matriz |
-| **Testes de justiça e consistência** (troca de nomes, checagens lógicas) | Testa vieses e coerência | Feitos para uma tarefa de cada vez | Os mesmos testes servem para várias tarefas |
-| **Conjuntos de desafio** (*challenge sets*) | Exemplos feitos à mão para um fenômeno | Pequenos, artificiais, focados em casos difíceis | Modelos de frase dão controle; dados reais dão escala; foca em casos que **deveriam ser fáceis** |
-| **Sondas** (*probes*) | Treinam um classificador sobre o "interior" do modelo | Mostram o que o modelo codifica, não como se comporta na tarefa | Testa o comportamento final |
-| **Teste de software** (Beizer 1995; Segura et al. 2016) | Teste caixa-preta e teste metamórfico | — (é a inspiração) | MFT = teste unitário; INV e DIR = testes metamórficos |
+| Cartão | O que era | Por que não bastava |
+| --- | --- | --- |
+| **Accuracy** | A nota geral num benchmark | É **um número só**: não mostra onde o modelo erra |
+| **Robustness and fairness tests** | Testes com erros de digitação, troca de nomes… | Olham **uma habilidade ou uma tarefa** de cada vez |
+| **Challenge sets** | Conjuntos de frases difíceis | São **pequenos e feitos à mão** |
+| **Probes** (sondas) | Olham o interior do modelo | Não mostram como ele **se comporta** na tarefa real |
 
-**Exemplo bom para falar sobre sondas:** uma sonda sobre o BERT reconhece nomes próprios com 96,7% de acerto. Mas o BERT ajustado para a tarefa do Quora falha em testes básicos com nomes. Saber algo "por dentro" não garante usar isso na tarefa.
+**A frase de baixo:** o CheckList junta tudo isso num método só, usando ideias do **teste de software** (teste unitário e teste metamórfico).
 
-**O que o CheckList não cobre**, segundo os próprios autores: erros de rótulo, versão dos dados, ataques de segurança e falta de interpretabilidade.
+**Exemplo bom para as sondas:** uma sonda mostra que o BERT "sabe" reconhecer nomes (96,7%), mas o BERT usado numa tarefa real erra testes simples com nomes. Saber algo por dentro não garante usar isso na prática.
+
+**O que o CheckList não cobre**, segundo os autores: erros de rótulo, versão dos dados, ataques de segurança e interpretabilidade. Não está no slide, mas é bom saber se perguntarem.
 
 ---
 
