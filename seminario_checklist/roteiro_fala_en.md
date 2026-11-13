@@ -2,16 +2,16 @@
 
 > **AI-generated content (Claude).** Based on Ribeiro et al. (2020), *Beyond Accuracy: Behavioral Testing of NLP Models with CheckList*, ACL 2020. Review before presenting.
 
-**Slides:** https://claude.ai/artifact/H2kUtV9vqwkdLNNRsoDxKc · **Paper:** https://aclanthology.org/2020.acl-main.442.pdf
+**Slides:** "CheckList Seminar - Slides (final)" in Google Drive (13 slides) · **Paper:** https://aclanthology.org/2020.acl-main.442.pdf
 
 | Part | Slides | Topic | Time |
 | --- | --- | --- | --- |
 | Opening | 1 | Cover | 30 s |
 | Part 1 | 2 · 3 · 4 | Motivation · Contributions · Related work | ~4 min |
 | Part 2 | 5 · 6 · 7 | Key concepts | ~3 min |
-| Part 3 | 8 · 9 · 10 | Methodology | ~3 min |
-| Part 4 | 11 · 12 · 13 | Results · Applications · Conclusion | ~4 min |
-| Closing | 14 | References | 15 s |
+| Part 3 | 8 · 9 | Methodology | ~2–3 min |
+| Part 4 | 10 · 11 · 12 | Results · Applications · Conclusion | ~4 min |
+| Closing | 13 | References | 15 s |
 
 Words in **bold** are the points that must not be skipped.
 
@@ -135,17 +135,11 @@ Words in **bold** are the points that must not be skipped.
 >
 > **DIR**, a Directional Expectation test, applies a change with a known effect. Adding 'You are lame' to a tweet cannot make the sentiment more positive.
 >
-> The key point: **INV and DIR need no labels**. They only compare the model's answer before and after the change."
-
-### Slide 10 — Generating tests and experimental design
-
-> "Writing thousands of tests by hand would be impossible, so CheckList uses **templates**. In 'I {NEGATION} {POS_VERB} the {THING}', each slot is filled from a list — 'didn't' or 'can't say I', 'love' or 'like', 'food', 'flight' or 'service' — and every combination becomes a test case. The tool also suggests words with RoBERTa, and has lists of names and ready-made typos.
+> The key point: **INV and DIR need no labels**. They only compare the model's answer before and after the change.
 >
-> The evaluation has two parts.
+> To create thousands of these tests, CheckList uses **templates**: for example, 'I {NEGATION} {POS_VERB} the {THING}', where every combination of words becomes a test case.
 >
-> In **part A**, they tested the models: three tasks, the commercial APIs of Microsoft, Google and Amazon, plus BERT and RoBERTa. The metric is the failure rate of each test.
->
-> In **part B**, they tested CheckList with people: a five-hour session with Microsoft's sentiment team, and a controlled experiment with **18 users**, two hours each, in three groups of six — no help, a list of capabilities, or the full tool.
+> The authors used this to test three tasks with the commercial APIs of Microsoft, Google and Amazon, plus BERT and RoBERTa. They also ran a study with **18 users**, comparing people with and without CheckList.
 >
 > So, what did they find?"
 
@@ -153,7 +147,7 @@ Words in **bold** are the points that must not be skipped.
 
 ## Part 4 — Results, applications and conclusion
 
-### Slide 11 — Primary results
+### Slide 10 — Primary results
 
 > "Thanks. There are two main results.
 >
@@ -165,7 +159,7 @@ Words in **bold** are the points that must not be skipped.
 >
 > One caveat: each group had only six people, so this is a strong indication, not statistical proof."
 
-### Slide 12 — Main applications of CheckList
+### Slide 11 — Main applications of CheckList
 
 > "Where can CheckList be used in practice? The paper points to four applications.
 >
@@ -179,7 +173,7 @@ Words in **bold** are the points that must not be skipped.
 >
 > And all of this works on any model, even a paid API, because CheckList only needs inputs and outputs — **no access to data or weights**."
 
-### Slide 13 — Conclusion
+### Slide 12 — Conclusion
 
 > "To wrap up: **accuracy is useful, but not enough**.
 >
@@ -191,7 +185,7 @@ Words in **bold** are the points that must not be skipped.
 >
 > Thank you. We're happy to take any questions."
 
-### Slide 14 — References
+### Slide 13 — References
 
 > "These are our references: the paper itself, plus three works it builds on — Beizer for black-box testing, Segura and colleagues for metamorphic testing, and Tenney and colleagues for the probing result we mentioned. The CheckList tool is open source on GitHub."
 
